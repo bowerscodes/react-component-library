@@ -1,5 +1,7 @@
 import TextInput from "./components/TextInput/TextInput";
 
+import ".././public/stylesheets/styles.css";
+
 export function App() {
 
   TextInputProps={
@@ -14,5 +16,5 @@ export function App() {
         props={TextInputProps}
       />
     </div>
-)
+  )
 }
