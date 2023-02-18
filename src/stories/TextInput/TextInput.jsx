@@ -16,6 +16,7 @@ export const TextInput = ({ id, label, size, placeholder, required, ...props }) 
         className={['textInput', `textInput--${size}`].join(' ')}
         placeholder={placeholder}
         required={required}
+        {...props}
       ></input>
     </div>
   );
@@ -27,9 +28,9 @@ TextInput.propTypes = {
   size: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
-};
+}
 
 TextInput.defaultProps = {
   size: 'medium',
   required: false,
-};
+}
