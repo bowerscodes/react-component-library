@@ -5,6 +5,7 @@ import ".././public/stylesheets/styles.css";
 export function App() {
 
   TextInputProps={
+    id: "text-input",
     label: "Text Input",
     placeholder: "placeholder",
   }

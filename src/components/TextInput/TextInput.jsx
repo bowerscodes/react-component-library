@@ -1,11 +1,14 @@
 
-const TextInput = ({ props }) => {
+const TextInput = ({ 
+  props
+ }) => {
+  
   return (
     <div id="textInput">
 
-      <label className="textInput-label" for="textInput-input">{props.label}</label>
+      <label className="input-label" for={props.id}>{props.label}</label>
       <input 
-      id="textInput-input"
+      id={props.id}
       type="text"
       placeholder={props.placeholder}
     />

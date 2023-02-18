@@ -1,5 +1,5 @@
-@mixin theme($theme: DarkGray) {
-  background: $theme;
-  box-shadow: 1px -1px 1px rgba($theme, .25);
-  color: #fff
+@mixin theme_default {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: black;
 }
