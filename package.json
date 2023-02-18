@@ -22,12 +22,17 @@
     "@storybook/addon-essentials": "^7.0.0-beta.50",
     "@storybook/addon-interactions": "^7.0.0-beta.50",
     "@storybook/addon-links": "^7.0.0-beta.50",
+    "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^7.0.0-beta.50",
     "@storybook/react-webpack5": "^7.0.0-beta.50",
     "@storybook/testing-library": "^0.0.14-next.1",
     "babel-loader": "^8.3.0",
+    "css-loader": "5.2.6",
     "parcel": "^latest",
     "process": "^0.11.10",
-    "storybook": "^7.0.0-beta.50"
+    "sass": "^1.58.3",
+    "sass-loader": "10.1.1",
+    "storybook": "^7.0.0-beta.50",
+    "style-loader": "2.0.0"
   }
 }

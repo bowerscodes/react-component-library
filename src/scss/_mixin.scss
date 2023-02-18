@@ -1,5 +1,8 @@
 @mixin theme_default {
   font-family: Arial, Helvetica, sans-serif;
-  background: #ffffff;
-  color: black;
+  $color-primary: #4ECDC4;
+  $color-secondary: #FF6B6B;
+  $color-tertiary: #FFE66D;
+  $font-color: #292F36;
+  $background: #F7FFF7;
 }
