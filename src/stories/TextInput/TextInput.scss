@@ -1,0 +1,38 @@
+.textInput--container {
+  display: block;
+  width: 100%;
+}
+
+.textInput--label {
+  display: block;
+  width: 100%;
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  margin-bottom: 0.25em;
+}
+
+.textInput {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  border: 1px solid #292F36;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  display: inline-block;
+  line-height: 1;
+}
+
+.textInput:focus {
+  border: 1px solid #4ECDC4;
+}
+
+.textInput--small {
+  width: 30%;
+}
+
+.textInput--medium {
+  width: 60%;
+}
+
+.textInput--large {
+  width: 90%;
+}

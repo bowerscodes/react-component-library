@@ -1,5 +1,5 @@
 import Button from "./components/Button/Button"
-import TextInput from "./components/TextInput/TextInput";
+// import TextInput from "./components/TextInput/TextInput";
 
 import ".././public/stylesheets/styles.css";
 
@@ -27,9 +27,9 @@ export function App() {
         size={ButtonProps.size}
         label={ButtonProps.label}
       />
-      <TextInput 
+      {/* <TextInput 
         props={TextInputProps}
-      />
+      /> */}
     </div>
   )
 }

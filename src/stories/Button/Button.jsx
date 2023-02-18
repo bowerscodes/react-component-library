@@ -7,7 +7,6 @@ import './Button.scss';
  */
 export const Button = ({ id, type, backgroundColor, size, label, ...props }) => {
   const mode = `button--${type}`;
-  console.log(mode);
   return (
     <button
       type="button"
