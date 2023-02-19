@@ -10,16 +10,6 @@ export const Select = ({ id, label, options, defaultValue, required, disabled, .
     setValue(event.target.value);
   };
 
-  const handleDefaultValue = (defaultValue) => {() => {
-    setValue(defaultValue)
-    }
-  }
-  // const setDefaultValue = (defaultValue) => {
-  //   setValue(defaultValue);
-  // };
-
-  // defaultValue ? handleDefaultValue(defaultValue) : 'Select...';
-
   return (
     <div className="select-container" >
       <label className="select-label">{label}</label>
@@ -27,7 +17,6 @@ export const Select = ({ id, label, options, defaultValue, required, disabled, .
         id={id}
         className="select"
         value={value}
-        // defaultValue={defaultValue}
         required={required}
         disabled={disabled}
         onChange={() => {handleChange(e.target.value)}}

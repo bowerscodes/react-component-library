@@ -22,7 +22,6 @@ export const Default = Template.bind({});
 Default.args = {
   label: label,
   options: options,
-  defaultValue: {value: 'blue', label: 'Blue'}
 }
 
 export const Required = Template.bind({});
