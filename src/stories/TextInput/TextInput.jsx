@@ -3,19 +3,27 @@ import PropTypes from 'prop-types';
 import './TextInput.scss';
 
 
-export const TextInput = ({ id, label, size, placeholder, required, ...props }) => {
-  return (
-    <div className="textInput--container">
+export const TextInput = ({ id, label, size, placeholder, required, disabled, ...props }) => {
+  
+  const className = "textInput"
+  const cssClasses = [className,]
+  size && cssClasses.push(`${className}--${size}`);
+  required && cssClasses.push(`${className}--required`);
+  disabled && cssClasses.push(`${className}--disabled`);
+
+    return (
+    <div className="textInput__container">
       <label 
         for={id}
-        className="textInput--label"
+        className="textInput__label"
         >{label}</label>
       <input
         id={id}
         type="text"  
-        className={['textInput', `textInput--${size}`].join(' ')}
+        className={(cssClasses).join(' ')}
         placeholder={placeholder}
         required={required}
+        disabled={disabled}
         {...props}
       ></input>
     </div>
@@ -28,9 +36,11 @@ TextInput.propTypes = {
   size: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
+  disabled: PropTypes.bool,
 }
 
 TextInput.defaultProps = {
   size: 'medium',
   required: false,
+  disabled: false,
 }

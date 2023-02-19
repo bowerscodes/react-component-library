@@ -1,9 +1,9 @@
-.textInput--container {
+.textInput__container {
   display: block;
   width: 100%;
 }
 
-.textInput--label {
+.textInput__label {
   display: block;
   width: 100%;
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -35,4 +35,8 @@
 
 .textInput--large {
   width: 90%;
+}
+
+.textInput--disabled {
+  background-color: rbga(255,255,255 0.25);
 }

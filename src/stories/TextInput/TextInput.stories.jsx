@@ -11,21 +11,28 @@ const Template = (args) => <TextInput {...args} />;
 
 export const Small = Template.bind({});
   Small.args = {
-    id: 'textInput-small--example',
+    id: 'textInput--small--example',
     label: 'Small TextInput',
     size: 'small',
   };
 
 export const Medium = Template.bind({});
   Medium.args = {
-    id: 'textInput-medium--example',
+    id: 'textInput--medium--example',
     label: 'Medium TextInput',
     size: 'medium',
   };
 
 export const Large = Template.bind({});
   Large.args = {
-    id: 'textInput-large--example',
+    id: 'textInput--large--example',
     label: 'Large TextInput',
     size: 'large',
   };
+
+export const Disabled = Template.bind({});
+  Disabled.args = {
+    id: 'textInput--disabled--example',
+    label: 'Disabled TextInput',
+    disabled: true,
+  }
