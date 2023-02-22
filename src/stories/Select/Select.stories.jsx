@@ -13,7 +13,7 @@ const options = [
   { value: "blue", label: "Blue" },
   { value: "green", label: "Green" },
   { value: "yellow", label: "Yellow" },
-]
+];
 
 const Template = (args) => <Select {...args} />;
 
@@ -22,7 +22,7 @@ export const Default = Template.bind({});
 Default.args = {
   label: label,
   options: options,
-}
+};
 
 export const Required = Template.bind({});
 

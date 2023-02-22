@@ -11,12 +11,14 @@ export const TextInput = ({ id, label, size, placeholder, required, disabled, ..
   required && cssClasses.push(`${className}--required`);
   disabled && cssClasses.push(`${className}--disabled`);
 
-    return (
+  return (
     <div className="textInput__container">
       <label 
         for={id}
         className="textInput__label"
-        >{label}</label>
+      >
+        {label}
+      </label>
       <input
         id={id}
         type="text"  

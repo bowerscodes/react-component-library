@@ -11,8 +11,8 @@ export const Select = ({ id, label, options, defaultValue, required, disabled, .
   };
 
   return (
-    <div className="select-container" >
-      <label className="select-label">{label}</label>
+    <div className="select__container" >
+      <label className="select__label">{label}</label>
       <select 
         id={id}
         className="select"

@@ -5,13 +5,14 @@ import './Button.scss';
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ id, type, backgroundColor, size, label, ...props }) => {
+export const Button = ({ id, type, backgroundColor, size, label, onClick, ...props }) => {
   const mode = `button--${type}`;
   return (
     <button
       type="button"
       className={['button', `button--${size}`, mode].join(' ')}
       style={backgroundColor && { backgroundColor }}
+      onClick={onClick}
       {...props}
     >
       {label}
