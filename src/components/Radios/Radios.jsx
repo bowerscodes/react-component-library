@@ -13,17 +13,18 @@ export const Radios = ({ id, label, value, options, required, disabled, ...props
 
   return (
     <div className="radios__container">
-      <label for={id} className="radios__label">
+      <label htmlFor={id} className="radios__label">
         {label}
       </label>
       <fieldset id={id} className="fieldset">
         {options.map(option => 
-          <div className="radio__container">
-            <label for={option.id} className="radio__label">
+          <div className="radio__container" key={option.id}>
+            <label htmlFor={option.id} className="radio__label">
               <input 
                 className="radio__input"
                 type="radio"
                 id={option.id}
+                key={option.id}
                 value={option.value}
                 checked={selectedOption === option.id}
                 onChange={handleOnChange}
@@ -45,8 +46,9 @@ Radios.propTypes = {
     {
       id: PropTypes.string,
       label: PropTypes.string,
+      value: PropTypes.string
     },
-  ]),
+  ]).isRequired,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
 };
