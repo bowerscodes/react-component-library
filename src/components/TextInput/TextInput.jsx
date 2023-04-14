@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './TextInput.css';
+import './textinput.css';
 
 
 export const TextInput = ({ id, label, size, placeholder, required, disabled, ...props }) => {

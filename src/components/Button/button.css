@@ -1,20 +1,25 @@
 .button {
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
   border: 0;
   border-radius: 3em;
+  background-color: #FFE66D;
+  color: #F7FFF7;
   cursor: pointer;
   display: inline-block;
   line-height: 1;
 }
 .button--primary {
-  color: white;
-  background-color: #1ea7fd;
+  color: #F7FFF7;
+  background-color: #4ECDC4;
 }
 .button--secondary {
-  color: #333;
+  color: #4ECDC4;
   background-color: transparent;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  border: 2px solid #4ECDC4;
+}
+.button--warning {
+  color: #F7FFF7;
+  background-color: #FF6B6B;
 }
 .button--small {
   font-size: 12px;

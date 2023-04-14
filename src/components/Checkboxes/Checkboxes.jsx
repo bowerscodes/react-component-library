@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import './Checkboxes.css';
+import './checkboxes.css';
 
 import { Checkbox } from './Checkbox'
 

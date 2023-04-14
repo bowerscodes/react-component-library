@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './InsetText.css';
+import './insettext.css';
 
 export const InsetText = ({ text, ...props }) => {
   return (

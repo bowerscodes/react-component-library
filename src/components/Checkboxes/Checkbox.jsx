@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-import './Checkboxes.css';
+import './checkboxes.css';
 
 export const Checkbox = ({ id, value, checked, onChange, label, ...props }) => {
   const inputRef = useRef(null);

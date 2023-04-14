@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from'prop-types';
-import './FormGroup.css';
+import './formgroup.css';
 
 import { ButtonGroup } from '../ButtonGroup/ButtonGroup';
+import { Heading } from '../Heading/Heading';
 
 
 export const FormGroup = ({ id, label, questions, buttons, ...props }) => {
@@ -10,7 +11,13 @@ export const FormGroup = ({ id, label, questions, buttons, ...props }) => {
   return (
     <div className="form-group" id={id} >
       {label && (
-        <div className="form-group__label">{label}</div>
+        <div className="form-group__label">
+          <Heading 
+            id={`${id}--heading`}
+            headingText={label}
+            size='l'
+          />
+        </div>
       )}
       <div className = "form-group__questions">
         {questions.map(question => 

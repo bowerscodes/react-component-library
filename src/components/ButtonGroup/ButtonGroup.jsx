@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './ButtonGroup.css';
+import './buttongroup.css';
 
 import { Button } from '../Button/Button'
 

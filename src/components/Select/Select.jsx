@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import './Select.css';
+import './select.css';
 
 export const Select = ({ id, label, options, defaultValue, required, disabled, ...props }) => {
   

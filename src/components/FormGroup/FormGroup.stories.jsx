@@ -56,13 +56,16 @@ const secondaryButton = {
   type: 'secondary',
   label: 'Cancel'
 };
-const buttonGroupArgs = [primaryButton, secondaryButton]
+const buttonGroupArgs = {
+  id: 'buttonGroup--example',
+  buttons: [primaryButton, secondaryButton]
+}
 
 const textInputQuestion = <TextInput {...textInputArgs} />;
 const selectQuestion = <Select {...selectArgs} />;
 const checkboxesQuestion = <Checkboxes {...checkboxesArgs} />;
 const radiosQuestion = <Radios {...radiosArgs} />;
-const buttons = <ButtonGroup {...buttonGroupArgs } />;
+const buttons = buttonGroupArgs;
 // const primaryButton = <Button {...primaryButtonArgs} />;
 // const secondaryButton = <Button {...secondaryButtonArgs} />;
 // const buttons = [<Button {...primaryButtonArgs} />, <Button {...secondaryButtonArgs} />]
