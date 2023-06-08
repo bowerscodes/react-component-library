@@ -30,7 +30,7 @@ export const Default: Story = {
     ],
     label: 
       <Label 
-        labelText='Button Group'
+        children='Button Group'
         size='m'
       />,
     content: [
@@ -59,7 +59,7 @@ export const Confirmation: Story = {
     ],
     label: 
       <Label 
-        labelText='Button Group'
+        children='Button Group'
         size='m'
       />,
     content: [

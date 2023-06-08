@@ -15,42 +15,42 @@ type Story = StoryObj<typeof Label>;
 
 export const Default: Story = {
   args: {
-    labelText: 'Default Label',
+    children: 'Default Label',
     size: 'm'
   }
 };
 
 export const ExtraSmall: Story = {
   args: {
-    labelText: 'Extra Small Label',
+    children: 'Extra Small Label',
     size: 'xs'
   }
 };
 
 export const Small: Story = {
   args: {
-    labelText: 'Small Label',
+    children: 'Small Label',
     size: 's'
   },
 };
 
 export const Medium: Story = {
   args: {
-    labelText: 'Medium Label',
+    children: 'Medium Label',
     size: 'm'
   }
 };
 
 export const Large: Story = {
   args: {
-    labelText: 'Large Label',
+    children: 'Large Label',
     size: 'l'
   }
 };
 
 export const ExtraLarge: Story = {
   args: {
-    labelText: 'Extra Large Label',
+    children: 'Extra Large Label',
     size: 'xl'
   }
 };

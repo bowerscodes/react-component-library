@@ -1,19 +1,19 @@
 import React from 'react';
 import './label.css';
 
-interface LabelProps {
-  labelText?: string;
+type Props = {
+  children?: React.ReactNode;
   size?: 'xs' | 's' | 'm' | 'l' | 'xl';
 };
 
 
 export const Label = ({
-  labelText = '',
+  children,
   size = 'm',
-}: LabelProps) => {
+}: Props) => {
   return (
-    <div className={['label', `label--${size}`].join(' ')}>
-      {labelText}
-    </div>
+    <label className={['label', `label--${size}`].join(' ')}>
+      {children}
+    </label>
   )
 };

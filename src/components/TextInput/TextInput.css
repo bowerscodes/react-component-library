@@ -13,7 +13,7 @@ input {
 }
 input:focus {
   outline: 2px solid #FFE66D;
-  border-radius: 0.1em;
+  /* border-radius: 0.1em; */
 }
 
 .textinput {

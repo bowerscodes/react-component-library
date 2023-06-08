@@ -22,7 +22,7 @@ export const TextInput = ({
   return (
     <div className='input-container'>
       <Label
-        labelText = {textInputLabel}
+        children = {textInputLabel}
         size = 'm'
       />
       <input

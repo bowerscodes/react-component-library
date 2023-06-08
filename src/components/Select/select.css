@@ -1,0 +1,34 @@
+select {
+  background-color: transparent;
+  border: none;
+  padding: 0 0 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  outline: 2px solid #FFE66D;
+}
+
+.select {
+  width: 100%;
+  min-width: 15ch;
+  max-width: 30ch;
+  border: 0.1em solid #292F36;
+  border-radius: 0.1em;
+  padding: 0.25em 0.5em;
+  font-size: 1rem;
+  cursor: pointer;
+  line-height: 1.1;
+  background: linear-gradient(to bottom, #ffffff 0%, #F7FFF7 100%);
+}
+
+.select-box {
+  margin-right: 1em;
+  position: relative;
+}
+
+.select-option {
+  line-height: 1.5em;
+}

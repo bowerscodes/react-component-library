@@ -29,12 +29,12 @@ export const Button = ({
   type = 'primary',
   size = 'medium',
   label = '',
-  ...props
+  ...attrs
 }: ButtonProps) => {
   return (
     <button
       className={['button', `button--${type}`, `button--${size}`].join(' ')}
-      {...props}
+      {...attrs}
     >
       {label}
     </button>

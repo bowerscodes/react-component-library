@@ -1,5 +1,8 @@
 .label {
+  display: block;
+  width: 100%;
   font-family: 'Open Sans', sans-serif;
+  margin-bottom: 0.4em;
 }
 .label--xs {
   font-size: 0.9em;
@@ -12,7 +15,6 @@
 .label--m {
   font-size: 1.2em;
   font-weight: 700;
-  margin-bottom: 0.5em;
 }
 .label--l {
   font-size: 1.8em;
