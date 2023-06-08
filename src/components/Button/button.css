@@ -1,35 +1,28 @@
 .button {
-  font-weight: 700;
-  border: 0;
-  border-radius: 3em;
-  background-color: #FFE66D;
+  border: 2px solid black;
   color: #F7FFF7;
-  cursor: pointer;
-  display: inline-block;
-  line-height: 1;
+  font-weight: 600;
+  margin: 0.7em 0.7em 0 0;
+  padding: 0.5em;
 }
+
 .button--primary {
-  color: #F7FFF7;
   background-color: #4ECDC4;
 }
 .button--secondary {
+  background-color: #F7FFF7;
   color: #4ECDC4;
-  background-color: transparent;
-  border: 2px solid #4ECDC4;
 }
 .button--warning {
-  color: #F7FFF7;
   background-color: #FF6B6B;
 }
+
 .button--small {
-  font-size: 12px;
-  padding: 10px 16px;
+  width: 7em;
 }
 .button--medium {
-  font-size: 14px;
-  padding: 11px 20px;
+  width: 12em;
 }
 .button--large {
-  font-size: 16px;
-  padding: 12px 24px;
+  width: 18em;
 }

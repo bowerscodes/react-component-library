@@ -1,0 +1,24 @@
+.label {
+  font-family: 'Open Sans', sans-serif;
+}
+.label--xs {
+  font-size: 0.9em;
+  font-weight: 600;
+}
+.label--s {
+  font-size: 1em;
+  font-weight: 600;
+}
+.label--m {
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+.label--l {
+  font-size: 1.8em;
+  font-weight: 800;
+}
+.label--xl {
+  font-size: 2.5em;
+  font-weight: 800;
+}
