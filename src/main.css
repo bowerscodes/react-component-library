@@ -9,3 +9,11 @@
 *, *::before, *::after {
   box-sizing: border-box;
 }
+
+fieldset {
+  border: none;
+  outline: none;
+  margin: none;
+  padding: none;
+  background: none;
+}
