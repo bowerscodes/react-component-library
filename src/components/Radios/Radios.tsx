@@ -18,22 +18,24 @@ export const Radios = ({
 }: Props) => {
 
   return (
-    <fieldset>
-      {label}
-        {options && options.map(option => {
-          return (
-            <label className="radios-label">
-              <input
-                type="radio"
-                name="radio"
-                className="radios-input"
-                value={option.value}
-              />
-              {option.label}
-            </label>
-          )
-        })}
-    </fieldset>
+    <div className="radios-container">
+      <fieldset>
+        {label}
+          {options && options.map(option => {
+            return (
+              <label className="radios-label">
+                <input
+                  type="radio"
+                  name="radio"
+                  className="radios-input"
+                  value={option.value}
+                />
+                {option.label}
+              </label>
+            )
+          })}
+      </fieldset>
+    </div>
   )
 };
 
