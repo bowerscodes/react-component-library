@@ -1,3 +1,5 @@
+@import '../../main';
+
 .input-container {
   display: block;
   box-sizing: border-box;
@@ -6,19 +8,18 @@
 }
 
 input {
-  border: 1px solid black;
+  border: 2px solid $theme-dark;
   border-radius: 0.1em;
   line-height: 1.5em;
   padding: 0.4em;
 }
 input:focus {
-  outline: 2px solid #FFE66D;
-  /* border-radius: 0.1em; */
+  outline: 2px solid $theme-tertiary;
 }
 
-.textinput {
+// .textinput {
 
-}
+// }
 
 .textinput--small {
   width: 34%;
