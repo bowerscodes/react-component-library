@@ -22,7 +22,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "sass" : "sass src/:src/ --watch --no-source-map"
   },
   "eslintConfig": {
     "extends": [
@@ -55,6 +56,7 @@
     "babel-plugin-named-exports-order": "^0.0.2",
     "eslint-plugin-storybook": "^0.6.12",
     "prop-types": "^15.8.1",
+    "sass": "^1.63.5",
     "storybook": "^7.0.20",
     "webpack": "^5.86.0"
   }

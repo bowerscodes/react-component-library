@@ -1,5 +1,5 @@
-import '../../main.css';
-import './button-group.css';
+import '../../main.scss';
+import './ButtonGroup.scss';
 
 
 interface ButtonGroupProps {

@@ -1,0 +1,21 @@
+@import '../../main';
+
+.hint {
+  border-left: 0.2em solid rgba($theme-dark, 0.6);
+  font-family: $theme-font;
+  font-weight: 400;
+  margin: 0.5em;
+  margin-left: 0;
+  padding: 0.5em;
+  color: rgba($theme-dark, 0.6);
+}
+
+.hint--s {
+  font-size: $fontsize-s;
+}
+.hint--m {
+  font-size: $fontsize-m;
+}
+.hint--l {
+  font-size: $fontsize-l;
+}

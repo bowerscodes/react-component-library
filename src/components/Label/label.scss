@@ -1,26 +1,27 @@
+@import '../../main';
+
 .label {
   display: block;
   width: 100%;
-  font-family: 'Open Sans', sans-serif;
   margin-bottom: 0.4em;
 }
 .label--xs {
-  font-size: 0.9em;
+  font-size: $heading-xs;
   font-weight: 600;
 }
 .label--s {
-  font-size: 1em;
+  font-size: $heading-s;
   font-weight: 600;
 }
 .label--m {
-  font-size: 1.2em;
+  font-size: $heading-m;
   font-weight: 700;
 }
 .label--l {
-  font-size: 1.8em;
+  font-size: $heading-l;
   font-weight: 800;
 }
 .label--xl {
-  font-size: 2.5em;
+  font-size: $heading-xl;
   font-weight: 800;
 }

@@ -1,0 +1,40 @@
+@import '../../main';
+
+.button {
+  border: 2px solid $theme-dark;
+  color: $theme-light;
+  font-weight: 600;
+  margin: 0.7em 0.7em 0 0;
+  padding: 0.5em;
+  box-shadow: rgba($theme-dark, 0.2) 0px -3px 0px inset, rgba($theme-light, 0.2) 0px 1px 0px inset;
+  text-shadow: rgba($theme-dark, 0.4) 1px 1px 1px;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: rgba($theme-dark, 0.2) 0px 2px 0px inset;
+  }
+  &:active {
+    transform: translate(1px, 1px);
+  }
+}
+
+.button--primary {
+  background-color: $theme-primary;
+}
+.button--secondary {
+  background-color: $theme-light;
+  color: $theme-primary;
+}
+.button--warning {
+  background-color: $theme-secondary;
+}
+
+.button--small {
+  width: 7em;
+}
+.button--medium {
+  width: 12em;
+}
+.button--large {
+  width: 18em;
+}

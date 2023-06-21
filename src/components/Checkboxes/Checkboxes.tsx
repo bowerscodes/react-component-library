@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { Checkbox } from './Checkbox';
-import './checkboxes.css';
-import '../../main.css'
+import './checkboxes.scss';
+import '../../main.scss'
 
 type checkbox = {
   id: string;

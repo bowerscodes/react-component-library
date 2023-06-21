@@ -25,7 +25,7 @@ export const Default: Story = {
       />,
       <Button 
         type='secondary'
-        label='Secondary Buton'
+        label='Secondary Button'
       />
     ],
     label: 
@@ -64,7 +64,7 @@ export const Confirmation: Story = {
       />,
     content: [
         <p>
-          Would you like to detele your account?
+          Would you like to delete your account?
         </p>,
         <Hint 
           hintText='This change cannot be undone.'
