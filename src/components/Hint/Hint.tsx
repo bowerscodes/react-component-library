@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './hint.scss';
+import './Hint.scss';
 
 interface HintProps {
   hintText?: string;

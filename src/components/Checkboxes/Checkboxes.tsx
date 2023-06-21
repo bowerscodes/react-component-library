@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Checkbox } from './Checkbox';
-import './checkboxes.scss';
+import './Checkboxes.scss';
 import '../../main.scss'
 
 type checkbox = {

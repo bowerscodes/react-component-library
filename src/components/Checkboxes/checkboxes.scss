@@ -97,7 +97,7 @@ input:checked {
 }
 
 .checkbox-item input:checked ~ .checkbox {
-  background-color: #FFFFFF;
+  background-color: $theme-primary;
   border-radius: 0.1rem;
   -webkit-transform: rotate(0deg) scale(1);
   -ms-transform: rotate(0deg) scale(1);
@@ -115,7 +115,6 @@ input:checked {
   height: 0px;
   width: 0px;
   border-radius: 0.1rem;
-  border: solid $theme-dark;
   // border-width: 0 3px 3px 0;
   -webkit-transform: rotate(0deg) scale(0);
   -ms-transform: rotate(0deg) scale(0);

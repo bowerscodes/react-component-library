@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 
-import './select.scss';
+import './Select.scss';
 import { Label } from '../Label/Label';
 
 type Option = {
@@ -44,6 +44,7 @@ export const Select = ({
   };
 
   const Select = 
+  <div className="select-container">
     <select
       className={['select', 'select-box'].join(' ')}
       disabled={disabled}
@@ -56,7 +57,9 @@ export const Select = ({
           {label}
         </option>
       ))}
-    </select>
+    </select>    
+  </div>
+
 
   const selectComponent = label ? (
     <Label>

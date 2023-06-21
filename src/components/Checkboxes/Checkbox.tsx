@@ -1,6 +1,6 @@
 import React from "react";
 
-import './checkboxes.scss';
+import './Checkboxes.scss';
 
 
 type Props = {

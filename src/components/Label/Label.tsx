@@ -1,5 +1,5 @@
 import React from 'react';
-import './label.scss';
+import './Label.scss';
 
 type Props = {
   children?: React.ReactNode;
