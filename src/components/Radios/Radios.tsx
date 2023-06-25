@@ -1,6 +1,5 @@
-import React from 'react';
-
 import './Radios.scss';
+import { Label } from '../Label/Label';
 
 type Option = {
   value: string;
@@ -8,7 +7,7 @@ type Option = {
 };
 
 type Props = {
-  label?: React.ReactNode;
+  label?: string;
   options?: Array<Option>
 };
 
@@ -20,20 +19,22 @@ export const Radios = ({
   return (
     <div className="radios-container">
       <fieldset>
-        {label}
-          {options && options.map(option => {
-            return (
-              <label className="radios-label">
-                <input
-                  type="radio"
-                  name="radio"
-                  className="radios-input"
-                  value={option.value}
-                />
-                {option.label}
-              </label>
-            )
-          })}
+        <legend className="fieldset-legend">
+          <Label children={label}/>
+        </legend>
+        {options && options.map(option => {
+          return (
+            <label className="radios-label">
+              <input
+                type="radio"
+                name="radio"
+                className="radios-input"
+                value={option.value}
+              />
+              {option.label}
+            </label>
+          )
+        })}
       </fieldset>
     </div>
   )
