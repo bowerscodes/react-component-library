@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
+import { page } from '../pages/ExamplePage1.json';
 import { Checkboxes } from '../components/Checkboxes/Checkboxes';
 
 const meta: Meta<typeof Checkboxes> = {
@@ -8,8 +9,21 @@ const meta: Meta<typeof Checkboxes> = {
   tags: ['components', 'checkboxes']
 };
 
+let checkboxes = [{}];
+
+page.elements.forEach(element => {
+  if (element.component === "Checkboxes") {
+    checkboxes.push(element);
+  }
+})
+console.log(...checkboxes);
+
 export default meta;
 type Story = StoryObj<typeof Checkboxes>;
+
+export const Default = {
+  args: checkboxes
+}
 
 export const Primary: Story = {
   args: {

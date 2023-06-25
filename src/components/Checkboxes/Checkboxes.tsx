@@ -21,7 +21,6 @@ export const Checkboxes = ({
   ...attrs
 }: Props) => {
 
-  // const onChange = ();
   let onChange: () => void;
 
   return (

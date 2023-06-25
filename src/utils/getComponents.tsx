@@ -28,7 +28,7 @@ const componentBuilder = (component: string, props: any) => {
   if (component === "ButtonGroup") {
     return <ButtonGroup {...props}/>
   }
-  if (component === "Chckboxes") {
+  if (component === "Checkboxes") {
     return <Checkboxes {...props}/>
   }
   if (component === "Hint") {
