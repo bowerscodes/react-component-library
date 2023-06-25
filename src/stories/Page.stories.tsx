@@ -64,10 +64,10 @@ const radiosOptions = [
 const buttonGroupButtons = [
   <Button type="primary" label="Submit"/>,
   <Button type="secondary" label="Cancel"/>
-]
+];
 
 const buttonGroupLabel = 
-  <Label children="Confirmation"/>
+  <Label children="Confirmation"/>;
 
 
 export default meta;

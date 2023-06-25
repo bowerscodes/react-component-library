@@ -2,7 +2,7 @@ import React from 'react';
 import './Label.scss';
 
 type Props = {
-  children?: React.ReactNode;
+  children: React.ReactNode;
   size?: 'xs' | 's' | 'm' | 'l' | 'xl';
 };
 

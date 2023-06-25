@@ -1,0 +1,103 @@
+{
+  "page": {
+    "id": "examplePage",
+    "title": "Example Page 1",
+    "elements": [
+      {
+        "id": "hint",
+        "component": "Hint",
+        "props": {
+          "hintText":"Responses will be kept stritly confidential.",
+          "size": "s"
+        }
+      },
+      {
+        "id": "yourName",
+        "component": "TextInput",
+        "props": {
+          "textInputLabel": "What's your name?",
+          "width": "medium"
+        }
+      },
+      {
+        "id": "services",
+        "component": "Checkboxes",
+        "props": {
+          "label": "Which of our services are you interested in finding out more about?",
+          "options": [
+            {
+              "id": "designConsultancy",
+              "value": "designConsultancy",
+              "label": "Design Consultancy"
+            },
+            {
+              "id": "softwareDevelopment",
+              "value": "softwareDevelopment",
+              "label": "Software Development"
+            },
+            {
+              "id": "projectManagement",
+              "value": "projectManagement",
+              "label": "Project Management"
+            },
+            {
+              "id": "brandManagement",
+              "value": "brandManagement",
+              "label": "Brand Management"
+            }
+          ]
+        }
+      },
+      {
+        "id": "happyToBeEmailed",
+        "component": "Radios",
+        "props": {
+          "label": "Would you like us to keep you updated via email?",
+          "options": [
+            {
+              "value": "no",
+              "label": "No thanks"
+            },
+            {
+              "value": "yes",
+              "label": "Yes please!"
+            }
+          ]
+        }
+      },
+      {
+        "id": "email",
+        "component": "TextInput",
+        "props": {
+          "textInputLabel": "Your email address:"
+        }
+      },
+      {
+        "id": "buttonGroup",
+        "component": "ButtonGroup",
+        "props": {
+          "buttons": [
+            {
+              "id": "submit",
+              "type": "primary",
+              "size": "m",
+              "label": "Submit"
+            },
+            {
+              "id": "cancel",
+              "type": "secondary",
+              "size": "m",
+              "label": "Cancel"
+            }
+          ],
+          "content": {
+            "text": "Are you happy to submit your preferences?",
+            "hint": "Your preferences can be updated anytime"
+          },
+          "label": "Confirm"
+        }
+      }
+    ]
+
+  }
+}

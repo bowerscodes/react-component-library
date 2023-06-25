@@ -3,27 +3,12 @@ import React from 'react';
 import './Button.scss';
 
 interface ButtonProps {
-  /**
-   * Is this the primary call to action?
-   */
-  type?: 'primary' | 'secondary' | 'warning';
-  /**
-   * What size input?
-   */
+  id?: string;
+  type: 'primary' | 'secondary' | 'warning';
   size?: 'small' | 'medium' | 'large';
-  /**
-   * Buton text
-   */
-  label?: string;
-  /**
-   * Click handler
-   */
+  label: string;
   onClick?: () => void;
 };
-
-/**
- * Primary Button component
- */
 
 export const Button = ({
   type = 'primary',
