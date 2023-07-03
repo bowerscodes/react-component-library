@@ -2,14 +2,6 @@ import { Checkbox } from './Checkbox';
 import './Checkboxes.scss';
 import '../../main.scss'
 
-// type checkbox = {
-//   id: string;
-//   value: string;
-//   label: string;
-//   selected: boolean;
-//   onChange: void;
-// }
-
 type Props = {
   id?: string;
   label?: string;
@@ -41,5 +33,5 @@ export const Checkboxes = ({
         ))}
       </fieldset>
     </div>
-  )
-}
+  );
+};

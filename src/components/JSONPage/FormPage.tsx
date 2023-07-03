@@ -1,7 +1,6 @@
-import React from 'react';
-
 import '../Page/Page.scss';
 import { getComponents } from '../../utils/getComponents';
+import { Heading } from '../Heading/Heading';
 
 
 type Props = {
@@ -24,6 +23,7 @@ export const FormPage = ({
   
   return (
     <div className="page" id={page.id}>
+      {page.title && <Heading headingText={page.title}/>}
       {components}
     </div>
   )

@@ -3,6 +3,7 @@ import { JSX } from 'react/jsx-runtime';
 import { Button } from '../components/Button/Button';
 import { ButtonGroup } from '../components/ButtonGroup/ButtonGroup';
 import { Checkboxes } from '../components/Checkboxes/Checkboxes';
+import { Heading } from '../components/Heading/Heading';
 import { Hint } from '../components/Hint/Hint';
 import { Label } from '../components/Label/Label';
 import { Page } from '../components/Page/Page';
@@ -30,6 +31,9 @@ const componentBuilder = (component: string, props: any) => {
   }
   if (component === "Checkboxes") {
     return <Checkboxes {...props}/>
+  }
+  if (component === "Heading") {
+    return <Heading {...props}/>
   }
   if (component === "Hint") {
     return <Hint {...props}/>

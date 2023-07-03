@@ -14,15 +14,27 @@ $fontsize-s: 1em;
 $fontsize-m: 1.3em;
 $fontsize-l: 1.75em;
 
+// LABELS
+$label-xs: 0.9em;
+$label-s: 1em;
+$label-m: 1.2em;
+$label-l: 1.8em;
+$label-xl: 2.5em;
+
 // HEADINGS
-$heading-xs: 0.9em;
-$heading-s: 1em;
-$heading-m: 1.2em;
-$heading-l: 1.8em;
-$heading-xl: 2.5em;
+$heading-xs: 1.5rem;
+$heading-s: 2rem;
+$heading-m: 2.5rem;
+$heading-l: 3rem;
+$heading-xl: 4rem;
 
 // MIXINS
-
+@mixin HeadingStyles ($fontSize: 3rem) {
+  font-family: $theme-font;
+  font-size: $fontSize;
+  color: $theme-dark;
+  line-height: ($fontSize + 0.5rem);
+};
 
 
 * {
