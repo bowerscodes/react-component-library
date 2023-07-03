@@ -22,36 +22,36 @@ type Props = {
 
 let components: (JSX.Element | undefined)[] = [];
 
-const componentBuilder = (component: string, props: any) => {
+const componentBuilder = (id: string, component: string, props: any) => {
   if (component === "Button") {
-    return <Button {...props}/>
+    return <Button key={id} {...props}/>
   }
   if (component === "ButtonGroup") {
-    return <ButtonGroup {...props}/>
+    return <ButtonGroup key={id} {...props}/>
   }
   if (component === "Checkboxes") {
-    return <Checkboxes {...props}/>
+    return <Checkboxes key={id} {...props}/>
   }
   if (component === "Heading") {
-    return <Heading {...props}/>
+    return <Heading key={id} {...props}/>
   }
   if (component === "Hint") {
-    return <Hint {...props}/>
+    return <Hint key={id} {...props}/>
   }
   if (component === "Label") {
-    return <Label {...props}/>
+    return <Label key={id} {...props}/>
   }
   if (component === "Page") {
-    return <Page {...props}/>
+    return <Page key={id} {...props}/>
   }
   if (component === "Radios") {
-    return <Radios {...props}/>
+    return <Radios key={id} {...props}/>
   }
   if (component === "Select") {
-    return <Select {...props}/>
+    return <Select key={id} {...props}/>
   }
   if (component === "TextInput") {
-    return <TextInput {...props}/>
+    return <TextInput key={id} {...props}/>
   }
 };
   
@@ -65,8 +65,8 @@ export const getComponents = ({ elements }: Props) => {
     return componentsArray.push(element)
   });
 
-  componentsArray.forEach(c => {
-    return components.push(componentBuilder(c.component, c.props));
+  componentsArray.forEach(component => {
+    return components.push(componentBuilder(component.id, component.component, component.props));
   });
 
   return components;

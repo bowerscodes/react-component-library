@@ -4,7 +4,7 @@
     "title": "Example JSON Form",
     "elements": [
       {
-        "id": "hint",
+        "id": "confidentiality-hint",
         "component": "Hint",
         "props": {
           "hintText":"Responses will be kept stritly confidential.",
@@ -81,7 +81,7 @@
         }
       },
       {
-        "id": "buttonGroup",
+        "id": "confirmation",
         "component": "ButtonGroup",
         "props": {
           "label": "Confirm",
