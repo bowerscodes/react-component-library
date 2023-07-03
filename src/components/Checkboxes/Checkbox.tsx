@@ -7,8 +7,8 @@ type Props = {
   id: string;
   value: string;
   label: string;
-  selected: boolean;
-  onChange: () => void;
+  selected?: boolean;
+  onChange?: () => void;
 };
 
 export const Checkbox = ({

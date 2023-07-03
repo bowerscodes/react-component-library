@@ -1,7 +1,7 @@
 {
   "page": {
     "id": "examplePage",
-    "title": "Example Page 1",
+    "title": "Example JSON Form",
     "elements": [
       {
         "id": "hint",
@@ -26,21 +26,25 @@
           "label": "Which of our services are you interested in finding out more about?",
           "options": [
             {
+              "key": "option1",
               "id": "designConsultancy",
               "value": "designConsultancy",
               "label": "Design Consultancy"
             },
             {
+              "key": "option2",
               "id": "softwareDevelopment",
               "value": "softwareDevelopment",
               "label": "Software Development"
             },
             {
+              "key": "option3",
               "id": "projectManagement",
               "value": "projectManagement",
               "label": "Project Management"
             },
             {
+              "key": "option4",
               "id": "brandManagement",
               "value": "brandManagement",
               "label": "Brand Management"

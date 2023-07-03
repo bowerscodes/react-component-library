@@ -2,20 +2,22 @@ import { Checkbox } from './Checkbox';
 import './Checkboxes.scss';
 import '../../main.scss'
 
-type checkbox = {
-  id: string;
-  value: string;
-  label: string;
-  selected: boolean;
-  onChange: void;
-}
+// type checkbox = {
+//   id: string;
+//   value: string;
+//   label: string;
+//   selected: boolean;
+//   onChange: void;
+// }
 
 type Props = {
+  id?: string;
   label?: string;
-  options?: Array<checkbox>;
+  options: Array<typeof Checkbox>;
 };
 
 export const Checkboxes = ({
+  id,
   label,
   options,
   ...attrs
@@ -31,12 +33,10 @@ export const Checkboxes = ({
         </legend>
         {options?.map(option => (
           <Checkbox 
-            id={option.id}
-            value={option.value}
-            label={option.label}
-            selected={option.selected}
-            onChange={onChange}
-            {...attrs}
+            id={''} 
+            value={''} 
+            label={''} 
+            {...option}
           />
         ))}
       </fieldset>
