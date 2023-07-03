@@ -17,7 +17,6 @@ export const FormPage = ({
 }: Props) => {
 
   const parsedData = JSON.parse(JSON.stringify(page));
-  console.log('parsedData: ',parsedData)
   
   const components = getComponents(parsedData)
   
