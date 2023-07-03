@@ -1,28 +1,19 @@
-import '../../main.scss';
-import './ButtonGroup.scss';
 import { Button } from '../Button/Button';
 import { Hint } from '../Hint/Hint';
 import { Label } from '../Label/Label';
+import '../../main.scss';
+import './ButtonGroup.scss';
 
 interface ButtonGroupProps {
-  buttons: Array<{
-    id?: string;
-    type: string;
-    size?: string;
-    label: string;
-  }>;
-  content?: any
-  // {
-  //   text: string;
-  //   hint: string;
-  // };
-  label?: string;
+  label: string;
+  buttons: Array<typeof Button>;
+  content?: any;
 };
 
 export const ButtonGroup = ({
+  label,
   buttons,
   content,
-  label = 'Button Group',
   ...attrs
 }: ButtonGroupProps) => {
   
@@ -32,24 +23,15 @@ export const ButtonGroup = ({
     return buttonsArray.push(button);
   });
 
-  let buttonComponents: Array<React.ReactNode> = buttonsArray.map(button => {
-    return <Button {...button}/>;
-  });
-
-  let contentComponents = []
-
-  content.text && contentComponents.push(
-    <p className="paragraph">{content.text}</p>
-  );
-  content.hint && contentComponents.push(
-    <Hint hintText={content.hint} size="s"/>
-  );
 
   return (
-    <div className='button-group' {...attrs} >
-      {label && <Label children={label}/>}
-      {contentComponents}
-      {buttonComponents}
+    <div key={label} className='button-group' {...attrs} >
+      {label && <Label key={label} children={label}/>}
+      {content.text && <p className="paragraph">{content.text}</p>}
+      {content.hint && <Hint key={content.hint} hintText={content.hint} size="s"/>}
+      {buttonsArray.map(button => {
+        return <Button key={button.key || button.id} {...button}/>;
+      })}
     </div>
   );
 };

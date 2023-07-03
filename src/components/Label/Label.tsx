@@ -2,6 +2,7 @@ import React from 'react';
 import './Label.scss';
 
 type Props = {
+  key?: string;
   children: React.ReactNode;
   size?: 'xs' | 's' | 'm' | 'l' | 'xl';
 };
