@@ -5,7 +5,7 @@ import './Button.scss';
 interface ButtonProps {
   id: string;
   type: 'primary' | 'secondary' | 'warning';
-  size?: 'small' | 'medium' | 'large';
+  size?: 's' | 'm' | 'l' | 'xl';
   label: string;
   onClick?: () => void;
 };
@@ -13,7 +13,7 @@ interface ButtonProps {
 export const Button = ({
   id,
   type = 'primary',
-  size = 'medium',
+  size = 'm',
   label = '',
   ...attrs
 }: ButtonProps) => {

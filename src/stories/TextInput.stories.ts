@@ -11,11 +11,11 @@ const meta: Meta<typeof TextInput> = {
 export default meta;
 type Story = StoryObj<typeof TextInput>;
 
-export const Default: Story = {
+export const Medium: Story = {
   args: {
     textInputLabel: 'Text Input',
     placeholder: '',
-    width: 'medium'
+    width: 'm'
   }
 };
 
@@ -23,7 +23,7 @@ export const Small: Story = {
   args: {
     textInputLabel: 'Small Text Input',
     placeholder: '',
-    width: 'small'
+    width: 's'
   }
 };
 
@@ -31,7 +31,7 @@ export const Large: Story = {
   args: {
     textInputLabel: 'Large Text Input',
     placeholder: '',
-    width: 'large'
+    width: 'l'
   }
 };
 
@@ -39,6 +39,6 @@ export const ExtraLarge: Story = {
   args: {
     textInputLabel: 'Extra Large Text Input',
     placeholder: '',
-    width: 'extra-large'
+    width: 'xl'
   }
 };

@@ -35,23 +35,31 @@ export const Warning: Story = {
   },
 };
 
-export const Large: Story = {
+export const Small: Story = {
   args: {
-    size: 'large',
-    label: 'Large Button',
+    size: 's',
+    label: 'Small Button',
   },
 };
 
 export const Medium: Story = {
   args: {
-    size: 'medium',
+    size: 'm',
     label: 'Medium Button',
   },
 };
 
-export const Small: Story = {
+export const Large: Story = {
   args: {
-    size: 'small',
-    label: 'Small Button',
+    size: 'l',
+    label: 'Large Button',
   },
 };
+
+export const XLarge: Story = {
+  args: {
+    size: 'xl',
+    label: 'Large Button',
+  },
+};
+

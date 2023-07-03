@@ -12,6 +12,7 @@ input {
   border-radius: 0.1em;
   line-height: 1.5em;
   padding: 0.4em;
+  max-width: 100%;
 }
 input:focus {
   outline: 2px solid $theme-tertiary;
@@ -21,15 +22,15 @@ input:focus {
 
 // }
 
-.textinput--small {
-  width: 34%;
+.textinput--s {
+  width: 20ch;
 }
-.textinput--medium {
-  width: 50%;
+.textinput--m {
+  width: 35ch;
 }
-.textinput--large {
-  width: 67%;
+.textinput--l {
+  width: 50ch;
 }
-.textinput--extra-large {
-  width: 100%
+.textinput--xl {
+  width: 90ch;
 }

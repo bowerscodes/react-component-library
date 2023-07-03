@@ -7,7 +7,7 @@ interface TextInputProps {
   textInputLabel?: string;
   placeholder?: string;
   value?: string;
-  width?: 'small' | 'medium' | 'large' | 'extra-large';
+  width?: 's' | 'm' | 'l' | 'xl' | 'one-half' | 'one-third' | 'two-thirds';
 
   onSubmit?: () => void;
 };
@@ -15,7 +15,7 @@ interface TextInputProps {
 export const TextInput = ({
   textInputLabel,
   placeholder,
-  width = 'medium',
+  width = 'm',
   ...props
 }: TextInputProps) => {
   

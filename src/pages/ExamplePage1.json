@@ -16,7 +16,7 @@
         "component": "TextInput",
         "props": {
           "textInputLabel": "What's your name?",
-          "width": "medium"
+          "width": "s"
         }
       },
       {
@@ -77,7 +77,8 @@
         "id": "email",
         "component": "TextInput",
         "props": {
-          "textInputLabel": "Your email address:"
+          "textInputLabel": "Your email address:",
+          "width": "m"
         }
       },
       {

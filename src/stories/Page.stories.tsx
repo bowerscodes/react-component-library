@@ -74,25 +74,5 @@ export default meta;
 type Story = StoryObj<typeof Page>;
 
 export const Default: Story = {
-  args: {
-    id: 'pageExample',
-    components: [
-      <Label children="Page Example" size="l" />,
-      <Hint hintText="Responses will be kept stritly confidential." size="s" />,
-      <TextInput textInputLabel="What's your name?" width="medium"/>,
-      <Checkboxes
-        label="Which of our services are you interested in finding out more about?"
-        options={checkboxesOptions}
-      />,
-      <Radios 
-        label={radiosLabel}
-        options={radiosOptions}
-      />,
-      <TextInput textInputLabel="Your email address:"/>,
-      <ButtonGroup 
-        buttons={buttonGroupButtons}
-        label={buttonGroupLabel}
-      />
-    ]
-  }
+  args: {}
 }

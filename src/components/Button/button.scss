@@ -30,12 +30,15 @@
   background-color: $theme-secondary;
 }
 
-.button--small {
-  width: 7em;
+.button--s {
+  width: 10ch;
 }
-.button--medium {
-  width: 12em;
+.button--m {
+  width: 20ch;
 }
-.button--large {
-  width: 18em;
+.button--l {
+  width: 30ch;
+}
+.button--xl {
+  width: 50ch;
 }
