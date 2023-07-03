@@ -2,13 +2,15 @@ import './Radios.scss';
 import { Label } from '../Label/Label';
 
 type Option = {
+  key?: string;
+  id: string;
   value: string;
   label: string;
 };
 
 type Props = {
-  label?: string;
-  options?: Array<Option>
+  label: string;
+  options: Array<Option>
 };
 
 export const Radios = ({
@@ -24,7 +26,7 @@ export const Radios = ({
         </legend>
         {options && options.map(option => {
           return (
-            <label className="radios-label">
+            <label key={option.key || option.id} className="radios-label">
               <input
                 type="radio"
                 name="radio"

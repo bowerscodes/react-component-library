@@ -59,10 +59,14 @@
           "label": "Would you like us to keep you updated via email?",
           "options": [
             {
+              "key": "radio1",
+              "id": "no",
               "value": "no",
               "label": "No thanks"
             },
             {
+              "key": "radio2",
+              "id": "yes",
               "value": "yes",
               "label": "Yes please!"
             }

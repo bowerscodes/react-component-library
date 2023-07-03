@@ -13,12 +13,7 @@ export default meta;
 type Story = StoryObj<typeof FormPage>;
 
 export const Default: Story = {
-
-
-
   args: {
     page: page
   }
-}
-
-
+};
