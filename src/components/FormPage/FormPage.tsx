@@ -9,16 +9,19 @@ type Props = {
     title: string;
     elements: any;
   };
+  onPageChange?: Function;
+  onChange: (event: any) => void;
 };
 
 
 export const FormPage = ({
-  page
+  page,
+  onChange
 }: Props) => {
 
   const parsedData = JSON.parse(JSON.stringify(page));
   
-  const components = getComponents(parsedData)
+  const components = getComponents({...parsedData, onChange})
   
   return (
     <div className="page" id={page.id}>

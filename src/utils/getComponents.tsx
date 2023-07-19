@@ -18,46 +18,55 @@ type Props = {
     component: string;
     props: any;
   },];
+  onChange: (event: any) => void;
 };
 
 let components: (JSX.Element | undefined)[] = [];
 
-const componentBuilder = (id: string, component: string, props: any) => {
+const componentBuilder = (id: string, component: string, props: any, onChange: Function) => {
+
+  const componentParams = {
+    key: id, 
+    name: id,
+    onChange: onChange,
+    ...props
+  }
+
   if (component === "Button") {
-    return <Button key={id} {...props}/>
+    return <Button {...componentParams}/>
   }
   if (component === "ButtonGroup") {
-    return <ButtonGroup key={id} {...props}/>
+    return <ButtonGroup {...componentParams}/>
   }
   if (component === "Checkboxes") {
-    return <Checkboxes key={id} {...props}/>
+    return <Checkboxes {...componentParams}/>
   }
   if (component === "Heading") {
-    return <Heading key={id} {...props}/>
+    return <Heading {...componentParams}/>
   }
   if (component === "Hint") {
-    return <Hint key={id} {...props}/>
+    return <Hint {...componentParams}/>
   }
   if (component === "Label") {
-    return <Label key={id} {...props}/>
+    return <Label {...componentParams}/>
   }
   if (component === "Page") {
-    return <Page key={id} {...props}/>
+    return <Page {...componentParams}/>
   }
   if (component === "Radios") {
-    return <Radios key={id} {...props}/>
+    return <Radios {...componentParams}/>
   }
   if (component === "Select") {
-    return <Select key={id} {...props}/>
+    return <Select {...componentParams}/>
   }
   if (component === "TextInput") {
-    return <TextInput key={id} {...props}/>
+    return <TextInput {...componentParams}/>
   }
 };
   
 
 
-export const getComponents = ({ elements }: Props) => {
+export const getComponents = ({ elements, onChange } : Props) => {
 
   let componentsArray: Array<any> = [];
 
@@ -66,7 +75,14 @@ export const getComponents = ({ elements }: Props) => {
   });
 
   componentsArray.forEach(component => {
-    return components.push(componentBuilder(component.id, component.component, component.props));
+    return components.push(
+      componentBuilder(
+        component.id, 
+        component.component, 
+        component.props, 
+        onChange
+      )
+    );
   });
 
   return components;

@@ -7,7 +7,6 @@ interface ButtonProps {
   type: 'primary' | 'secondary' | 'warning';
   size?: 's' | 'm' | 'l' | 'xl';
   label: string;
-  onClick?: () => void;
 };
 
 export const Button = ({
