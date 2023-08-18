@@ -6,7 +6,6 @@ import { Checkboxes } from '../components/Checkboxes/Checkboxes';
 import { Heading } from '../components/Heading/Heading';
 import { Hint } from '../components/Hint/Hint';
 import { Label } from '../components/Label/Label';
-import { Page } from '../components/Page/Page';
 import { Radios } from '../components/Radios/Radios';
 import { Select } from '../components/Select/Select';
 import { TextInput } from '../components/TextInput/TextInput';
@@ -49,9 +48,6 @@ const componentBuilder = (id: string, component: string, props: any, onChange: F
   }
   if (component === "Label") {
     return <Label {...componentParams}/>
-  }
-  if (component === "Page") {
-    return <Page {...componentParams}/>
   }
   if (component === "Radios") {
     return <Radios {...componentParams}/>
