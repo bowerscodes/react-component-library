@@ -1,27 +1,44 @@
 import React from 'react';
-
+import { classBuilder, toArray } from '../../utils/Utils';
 import './Button.scss';
 
 interface ButtonProps {
-  id: string;
+  children: string;
+  disabled?: boolean;
   type: 'primary' | 'secondary' | 'warning';
   size?: 's' | 'm' | 'l' | 'xl';
-  label: string;
+  onClick?: () => void;
+  classBlock?: string;
+  classModifiers?: string[];
+  className?: string;
 };
 
+export const DEFAULT_CLASS = 'button';
+
 export const Button = ({
-  id,
+  children,
+  disabled = false,
   type = 'primary',
   size = 'm',
-  label = '',
+  classBlock = DEFAULT_CLASS,
+  classModifiers: _classModifiers = [size, type],
+  className = '',
   ...attrs
 }: ButtonProps) => {
+
+  const classModifiers = [...toArray(_classModifiers)];
+  const classes = classBuilder(classBlock, classModifiers, className)
+
   return (
-    <button
-      className={['button', `button--${type}`, `button--${size}`].join(' ')}
+    <button 
+      aria-disabled={disabled}
+      disabled={disabled}
       {...attrs}
+      className={classes()}
     >
-      {label}
+      {children}
     </button>
-  )
+  );
 };
+
+export default Button;
