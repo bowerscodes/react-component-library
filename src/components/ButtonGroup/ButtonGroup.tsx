@@ -6,7 +6,7 @@ import './ButtonGroup.scss';
 
 interface ButtonGroupProps {
   label: string;
-  buttons: Array<typeof Button>;
+  buttons: Array<any>;
   content?: any;
 };
 
@@ -35,3 +35,5 @@ export const ButtonGroup = ({
     </div>
   );
 };
+
+export default ButtonGroup;

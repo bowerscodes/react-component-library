@@ -3,7 +3,7 @@ import { classBuilder, toArray } from '../../utils/Utils';
 import './Button.scss';
 
 interface ButtonProps {
-  children: string;
+  label: string;
   disabled?: boolean;
   type: 'primary' | 'secondary' | 'warning';
   size?: 's' | 'm' | 'l' | 'xl';
@@ -16,7 +16,7 @@ interface ButtonProps {
 export const DEFAULT_CLASS = 'button';
 
 export const Button = ({
-  children,
+  label,
   disabled = false,
   type = 'primary',
   size = 'm',
@@ -36,7 +36,7 @@ export const Button = ({
       {...attrs}
       className={classes()}
     >
-      {children}
+      {label}
     </button>
   );
 };

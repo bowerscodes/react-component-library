@@ -20,7 +20,7 @@ describe('Button', () =>{
   it('renders a primary button', () => {
     const buttonId = 'button';
     const className = 'button--primary';
-    const { container } = render(<Button data-testid={buttonId} type="primary">Primary</Button>);
+    const { container } = render(<Button data-testid={buttonId} label="Primary" type="primary"></Button>);
     checkSetup(container, buttonId);
     expect(screen.getByTestId(buttonId)).toHaveClass(className);
   });
@@ -28,7 +28,7 @@ describe('Button', () =>{
   it('renders a secondary button', () => {
     const buttonId = 'button';
     const className = 'button--secondary';
-    const { container } = render(<Button data-testid={buttonId} type="secondary">Secondary</Button>);
+    const { container } = render(<Button data-testid={buttonId} label="Secondary" type="secondary"></Button>);
     checkSetup(container, buttonId);
     expect(screen.getByTestId(buttonId)).toHaveClass(className);
   });
@@ -36,7 +36,7 @@ describe('Button', () =>{
   it('renders a warning button', () => {
     const buttonId = 'button';
     const className = 'button--warning';
-    const { container } = render(<Button data-testid={buttonId} type="warning">Warning</Button>);
+    const { container } = render(<Button data-testid={buttonId} label="Warning" type="warning"></Button>);
     checkSetup(container, buttonId, 'button--warning');
     expect(screen.getByTestId(buttonId)).toHaveClass(className);
   });
@@ -44,7 +44,7 @@ describe('Button', () =>{
   it('renders a small button', () => {
     const buttonId = 'button';
     const size = 's';
-    const { container } = render(<Button data-testid={buttonId} type="primary" size="s">Small</Button>);
+    const { container } = render(<Button data-testid={buttonId} label="Small" type="primary" size="s"></Button>);
     checkSetup(container, buttonId);
     checkSize(container, buttonId, size);
   });
@@ -52,7 +52,7 @@ describe('Button', () =>{
   it('renders a medium button', () => {
     const buttonId = 'button';
     const size = 'm';
-    const { container } = render(<Button data-testid={buttonId} type="primary" size="m">Medium</Button>);
+    const { container } = render(<Button data-testid={buttonId} label="Medium" type="primary" size="m"></Button>);
     checkSetup(container, buttonId);
     checkSize(container, buttonId, size);
   });
@@ -60,7 +60,7 @@ describe('Button', () =>{
   it('renders a large button', () => {
     const buttonId = 'button';
     const size = 'l';
-    const { container } = render(<Button data-testid={buttonId} type="primary" size="l">Large</Button>);
+    const { container } = render(<Button data-testid={buttonId} label="Large" type="primary" size="l"></Button>);
     checkSetup(container, buttonId);
     checkSize(container, buttonId, size);
   });
@@ -68,7 +68,7 @@ describe('Button', () =>{
   it('renders an extra large button', () => {
     const buttonId = 'button';
     const size = 'xl';
-    const { container } = render(<Button data-testid={buttonId} type="primary" size="xl">Extra Large</Button>);
+    const { container } = render(<Button data-testid={buttonId} label="Extra Large" type="primary" size="xl"></Button>);
     checkSetup(container, buttonId);
     checkSize(container, buttonId, size);
   });
@@ -78,7 +78,7 @@ describe('Button', () =>{
     let clicks = 0;
     const ON_CLICK = () => clicks++;
 
-    const { container } = render(<Button data-testid={buttonId} type="primary" onClick={ON_CLICK} disabled>Disabled</Button>);
+    const { container } = render(<Button data-testid={buttonId} label="Disabled" type="primary" onClick={ON_CLICK} disabled></Button>);
     const button = checkSetup(container, buttonId);
     
     checkSetup(container, buttonId);
@@ -94,7 +94,7 @@ describe('Button', () =>{
     let clicks = 0;
     const ON_CLICK = () => clicks++;
 
-    const { container } = render(<Button data-testid={buttonId} type="primary" onClick={ON_CLICK}>Click Me</Button>);
+    const { container } = render(<Button data-testid={buttonId} label="Click Me" type="primary" onClick={ON_CLICK}></Button>);
     const button = checkSetup(container, buttonId);
 
     expect(clicks).toEqual(0);
