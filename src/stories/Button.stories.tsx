@@ -17,49 +17,49 @@ export const Primary: Story = {
   // More on args: https://storybook.js.org/docs/react/writing-stories/args
   args: {
     type: 'primary',
-    children: 'Primary Button',
+    label: 'Primary Button',
   },
 };
 
 export const Secondary: Story = {
   args: {
     type: 'secondary',
-    children: 'Secondary Button',
+    label: 'Secondary Button',
   },
 };
 
 export const Warning: Story = {
   args: {
     type: 'warning',
-    children: 'Warning Button'
+    label: 'Warning Button'
   },
 };
 
 export const Small: Story = {
   args: {
     size: 's',
-    children: 'Small Button',
+    label: 'Small Button',
   },
 };
 
 export const Medium: Story = {
   args: {
     size: 'm',
-    children: 'Medium Button',
+    label: 'Medium Button',
   },
 };
 
 export const Large: Story = {
   args: {
     size: 'l',
-    children: 'Large Button',
+    label: 'Large Button',
   },
 };
 
 export const XLarge: Story = {
   args: {
     size: 'xl',
-    children: 'Large Button',
+    label: 'Large Button',
   },
 };
 
