@@ -18,9 +18,20 @@ input:focus {
   outline: 2px solid $theme-tertiary;
 }
 
-// .textinput {
-
-// }
+.textinput {
+  &--s {
+    width: 20ch;
+  }
+  &--m {
+    width: 35ch;
+  }
+  &--l {
+    width: 50ch;
+  }
+  &--xl {
+    width: 90ch;
+  }
+}
 
 .textinput--s {
   width: 20ch;
