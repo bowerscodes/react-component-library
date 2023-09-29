@@ -3,73 +3,74 @@ import Button, { DEFAULT_CLASS } from './Button';
 
 describe('Button', () =>{
 
-  const checkSetup = (container: any, testId: any, classBlock = DEFAULT_CLASS) => {
+  const checkSetup = (container: any, testId: string, type: string) => {
     const button = screen.getByTestId(testId);
+    const className = `${DEFAULT_CLASS}--${type}`;
     expect(button).toBeInTheDocument();
-    expect(button).toHaveClass(classBlock);
+    expect(button).toHaveClass(className);
     return button;
   };
 
   const checkSize = (container: any, testId: any, size: string) => {
     const button = screen.getByTestId(testId);
-    expect(button).toHaveClass(`${DEFAULT_CLASS}--${size}`);
+    const className = `${DEFAULT_CLASS}--${size}`;
+    expect(button).toHaveClass(className);
     return button;
   };
+
+  const DEFAULT_TYPE = 'primary';
 
 
   it('renders a primary button', () => {
     const buttonId = 'button';
-    const className = 'button--primary';
-    const { container } = render(<Button data-testid={buttonId} label="Primary" type="primary"></Button>);
-    checkSetup(container, buttonId);
-    expect(screen.getByTestId(buttonId)).toHaveClass(className);
+    const type = 'primary';
+    const { container } = render(<Button data-testid={buttonId} type={type} label="Primary"></Button>);
+    checkSetup(container, buttonId, type);
   });
 
   it('renders a secondary button', () => {
     const buttonId = 'button';
-    const className = 'button--secondary';
-    const { container } = render(<Button data-testid={buttonId} label="Secondary" type="secondary"></Button>);
-    checkSetup(container, buttonId);
-    expect(screen.getByTestId(buttonId)).toHaveClass(className);
+    const type = 'secondary';
+    const { container } = render(<Button data-testid={buttonId} type={type} label="Secondary"></Button>);
+    checkSetup(container, buttonId, type);
   });
 
   it('renders a warning button', () => {
     const buttonId = 'button';
-    const className = 'button--warning';
-    const { container } = render(<Button data-testid={buttonId} label="Warning" type="warning"></Button>);
-    checkSetup(container, buttonId, 'button--warning');
-    expect(screen.getByTestId(buttonId)).toHaveClass(className);
+    const type = 'warning';
+    const { container } = render(<Button data-testid={buttonId} type={type} label="Warning"></Button>);
+    checkSetup(container, buttonId, type);
   });
 
   it('renders a small button', () => {
     const buttonId = 'button';
     const size = 's';
-    const { container } = render(<Button data-testid={buttonId} label="Small" type="primary" size="s"></Button>);
-    checkSetup(container, buttonId);
+    const { container } = render(<Button data-testid={buttonId} type={DEFAULT_TYPE} size="s" label="Small"></Button>);
+    checkSetup(container, buttonId, DEFAULT_TYPE);
     checkSize(container, buttonId, size);
   });
 
   it('renders a medium button', () => {
     const buttonId = 'button';
     const size = 'm';
-    const { container } = render(<Button data-testid={buttonId} label="Medium" type="primary" size="m"></Button>);
-    checkSetup(container, buttonId);
+    const { container } = render(<Button data-testid={buttonId} type={DEFAULT_TYPE} size="m" label="Medium" ></Button>);
+    checkSetup(container, buttonId, DEFAULT_TYPE);
     checkSize(container, buttonId, size);
   });
 
   it('renders a large button', () => {
     const buttonId = 'button';
     const size = 'l';
-    const { container } = render(<Button data-testid={buttonId} label="Large" type="primary" size="l"></Button>);
-    checkSetup(container, buttonId);
+    const { container } = render(<Button data-testid={buttonId} type={DEFAULT_TYPE} size="l" label="Large"></Button>);
+    checkSetup(container, buttonId, DEFAULT_TYPE);
     checkSize(container, buttonId, size);
   });
 
   it('renders an extra large button', () => {
     const buttonId = 'button';
     const size = 'xl';
-    const { container } = render(<Button data-testid={buttonId} label="Extra Large" type="primary" size="xl"></Button>);
-    checkSetup(container, buttonId);
+    const { container } = render(<Button data-testid={buttonId} type={DEFAULT_TYPE} size="xl" label="Extra Large"></Button>);
+    checkSetup(container, buttonId, DEFAULT_TYPE);
     checkSize(container, buttonId, size);
   });
 
@@ -79,9 +80,8 @@ describe('Button', () =>{
     const ON_CLICK = () => clicks++;
 
     const { container } = render(<Button data-testid={buttonId} label="Disabled" type="primary" onClick={ON_CLICK} disabled></Button>);
-    const button = checkSetup(container, buttonId);
+    const button = checkSetup(container, buttonId, DEFAULT_TYPE);
     
-    checkSetup(container, buttonId);
     expect(screen.getByTestId(buttonId)).toBeDisabled();
 
     expect(clicks).toEqual(0);
@@ -95,7 +95,7 @@ describe('Button', () =>{
     const ON_CLICK = () => clicks++;
 
     const { container } = render(<Button data-testid={buttonId} label="Click Me" type="primary" onClick={ON_CLICK}></Button>);
-    const button = checkSetup(container, buttonId);
+    const button = checkSetup(container, buttonId, DEFAULT_TYPE);
 
     expect(clicks).toEqual(0);
     fireEvent.click(button);
