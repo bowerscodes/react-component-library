@@ -21,7 +21,7 @@ export const Button = ({
   type = 'primary',
   size = 'm',
   classBlock = DEFAULT_CLASS,
-  classModifiers: _classModifiers = [size, type],
+  classModifiers: _classModifiers = [type, size],
   className = '',
   ...attrs
 }: ButtonProps) => {
