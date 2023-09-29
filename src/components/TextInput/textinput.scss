@@ -8,6 +8,7 @@
 }
 
 input {
+  display: block;
   border: 2px solid $theme-dark;
   border-radius: 0.1em;
   line-height: 1.5em;
@@ -18,30 +19,18 @@ input:focus {
   outline: 2px solid $theme-tertiary;
 }
 
-.textinput {
+.textInput {
+  display: block;
   &--s {
     width: 20ch;
   }
   &--m {
-    width: 35ch;
+    width: 30ch;
   }
   &--l {
-    width: 50ch;
+    width: 45ch;
   }
   &--xl {
-    width: 90ch;
+    width: 60ch;
   }
-}
-
-.textinput--s {
-  width: 20ch;
-}
-.textinput--m {
-  width: 35ch;
-}
-.textinput--l {
-  width: 50ch;
-}
-.textinput--xl {
-  width: 90ch;
 }

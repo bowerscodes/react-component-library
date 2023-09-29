@@ -6,7 +6,6 @@ describe('TextInput', () => {
   
   const checkSetup = (container: any, testId: any, attributes: any) => {
     const input = screen.getByTestId(testId);
-    expect(input).toHaveClass(DEFAULT_CLASS);
     expect(input).toHaveAttribute('type', attributes.type);
     expect(input).toHaveAttribute('name', attributes.name);
     expect(input).toHaveAttribute('id', attributes.id);

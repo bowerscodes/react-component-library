@@ -29,15 +29,15 @@ export const TextInput = ({
   readonly = false,
   textInputLabel,
   placeholder,
-  onChange,
+  onChange = () => {},
   width = 'm',
   classBlock ='textInput',
   classModifiers: _classModifiers = [width],
-  className = '',
+  className = null,
   ...attrs
 }: TextInputProps) => {
   
-  const classModifiers = [...toArray(_classModifiers), error ? 'error' : undefined];
+  const classModifiers = [...toArray(_classModifiers)];
   const classes = classBuilder(classBlock, classModifiers, className)
 
   const cleanedAttrs = cleanHtmlAttributes(attrs, COMPONENT_TYPES.INPUT)
