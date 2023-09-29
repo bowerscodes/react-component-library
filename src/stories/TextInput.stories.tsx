@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { TextInput } from '../components/TextInput/TextInput';
+import '../components/TextInput/TextInput.scss';
 
 const meta: Meta<typeof TextInput> = {
   title: 'TextInput',
@@ -37,8 +38,9 @@ export const Large: Story = {
 
 export const ExtraLarge: Story = {
   args: {
+    id: 'extraLargeTextInput',
     textInputLabel: 'Extra Large Text Input',
     placeholder: '',
-    width: 'xl'
+    width: 'xl',
   }
 };
