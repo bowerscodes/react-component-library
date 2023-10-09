@@ -28,7 +28,7 @@ export const ButtonGroup = ({
     <div key={label} className='button-group' {...attrs} >
       {label && <Label children={label}/>}
       {content.text && <p className="paragraph">{content.text}</p>}
-      {content.hint && <Hint hintText={content.hint} size="s"/>}
+      {content.hint && <Hint children={content.hint} size="s"/>}
       {buttonsArray.map(button => {
         return <Button {...button}/>;
       })}

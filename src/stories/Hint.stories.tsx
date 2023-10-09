@@ -13,21 +13,21 @@ type Story = StoryObj<typeof Hint>;
 
 export const Small: Story = {
   args: {
-    hintText: 'This is a small hint.',
+    children: 'This is a small hint.',
     size: 's'
   },
 };
 
 export const Medium: Story = {
   args: {
-    hintText: 'This is a medium hint.',
+    children: 'This is a medium hint.',
     size: 'm'
   },
 };
 
 export const Large: Story = {
   args: {
-    hintText: 'This is a large hint.',
+    children: 'This is a large hint.',
     size: 'l'
   },
 };

@@ -25,11 +25,7 @@ export const classBuilder = (block, blockModifiers, blockExtra) => {
   return (element, elementModifiers, elementExtra) => {
     const eModifiers = toArray(elementModifiers);
     if (element) {
-      return concatClasses(
-        `${block}__${element}`,
-        eModifiers?.filter((e) => !!e).map((modifier) => 
-          `${block}__${element}--${modifier}`),
-        elementExtra);
+      return concatClasses(`${block}__${element}`, eModifiers?.filter((e) => !!e).map((modifier) => `${block}__${element}--${modifier}`), elementExtra);
     }
     return concatClasses(`${block}`, bModifiers?.filter((b) => !!b).map((modifier) => `${block}--${modifier}`), blockExtra);
   };

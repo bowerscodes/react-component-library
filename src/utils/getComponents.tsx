@@ -64,11 +64,7 @@ const componentBuilder = (id: string, component: string, props: any, onChange: F
 
 export const getComponents = ({ elements, onChange } : Props) => {
 
-  let componentsArray: Array<any> = [];
-
-  elements.map(element => {
-    return componentsArray.push(element)
-  });
+  const componentsArray: typeof elements = [...elements];
 
   componentsArray.forEach(component => {
     return components.push(
@@ -80,6 +76,5 @@ export const getComponents = ({ elements, onChange } : Props) => {
       )
     );
   });
-
   return components;
 };

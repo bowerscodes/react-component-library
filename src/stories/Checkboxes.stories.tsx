@@ -9,21 +9,25 @@ const meta: Meta<typeof Checkboxes> = {
   tags: ['components', 'checkboxes']
 };
 
+// Import checkboxes from page data
 let parsedData = JSON.parse(JSON.stringify(page));
 let allCheckboxes: Array<typeof Checkboxes> = [];
-
 parsedData.elements.forEach((element: { component: string; props: any; }) => {
   if (element.component === "Checkboxes") {
     allCheckboxes.push(element.props);
   }
 });
 
-const checkboxes = allCheckboxes[0]
-
 
 export default meta;
 type Story = StoryObj<typeof Checkboxes>;
 
 export const Default: Story = {
-  args: {...checkboxes}
+  args: {
+    ...allCheckboxes[0], 
+    onChange: (selection: string[]) => {
+      console.log(selection);
+      return{}
+    }
+  }
 };

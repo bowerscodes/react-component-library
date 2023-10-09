@@ -1,11 +1,11 @@
-import React, {useEffect, useState } from 'react';
+import React, {useEffect, useState, createContext, useContext } from 'react';
 
 import { FormPage } from '../FormPage/FormPage';
 
 import './FormBuilder.scss';
 
 type Props = {
-  title: string;
+  title?: string;
   pages: Array<any>;
 };
 
@@ -17,6 +17,9 @@ export const FormBuilder = ({
     const [currentPage, setCurrentPage] = useState(0);
     const [data, setData] = useState({});
     const [page, setPage] = useState(pages[currentPage]);
+    const [state, setState] = useState({});
+
+    const StateContext = createContext({});
   
     useEffect(() => {
       setPage(pages[currentPage]);
@@ -38,10 +41,12 @@ export const FormBuilder = ({
     };
   
     return (
-      <FormPage 
-        page={page}
-        onPageChange={onPageChange}
-        onChange={handleChange}
-      />
+      <StateContext.Provider value={state}>
+        <FormPage 
+          page={page}
+          onPageChange={onPageChange}
+          onChange={handleChange}
+        />
+      </StateContext.Provider>
     )
 };

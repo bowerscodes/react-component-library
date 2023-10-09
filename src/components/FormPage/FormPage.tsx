@@ -1,4 +1,4 @@
-import '../Page/Page.scss';
+import './FormPage.scss';
 import { getComponents } from '../../utils/getComponents';
 import { Heading } from '../Heading/Heading';
 

@@ -8,14 +8,14 @@
   margin-left: 0;
   padding: 0.5em;
   color: rgba($theme-dark, 0.6);
-}
 
-.hint--s {
-  font-size: $fontsize-s;
-}
-.hint--m {
-  font-size: $fontsize-m;
-}
-.hint--l {
-  font-size: $fontsize-l;
-}
+  &--s {
+    font-size: $fontsize-s;
+  }
+  &--m {
+    font-size: $fontsize-m;
+  }
+  &--l {
+    font-size: $fontsize-l;
+  }
+};

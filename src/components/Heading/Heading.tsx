@@ -4,6 +4,7 @@ import './Heading.scss';
 type Props = {
   id?: string;
   headingText: string;
+  children?: React.ReactNode;
   size?: "s" | "m" | "l" | "xl";
   classBlock?: string;
   classModifiers?: string[];
@@ -15,6 +16,7 @@ export const DEFAULT_CLASS = 'heading';
 export const Heading = ({
   id,
   headingText,
+  children,
   size = "m",
   classBlock = DEFAULT_CLASS,
   classModifiers: _classModifiers = [size],
@@ -27,7 +29,7 @@ export const Heading = ({
   return (
     <div className="heading-container">
       <h1 className={classes()} id={id}>
-        {headingText}
+        {headingText ? headingText : children || null}
       </h1>
     </div>
   )

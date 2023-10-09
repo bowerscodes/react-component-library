@@ -4,24 +4,25 @@
   display: block;
   width: 100%;
   margin-bottom: 0.4em;
-}
-.label--xs {
-  font-size: $label-xs;
-  font-weight: 500;
-}
-.label--s {
-  font-size: $label-s;
-  font-weight: 500;
-}
-.label--m {
-  font-size: $label-m;
-  font-weight: 600;
-}
-.label--l {
-  font-size: $label-l;
-  font-weight: 700;
-}
-.label--xl {
-  font-size: $label-xl;
-  font-weight: 800;
+
+  &--xs {
+    font-size: $label-xs;
+    font-weight: 500;
+  }
+  &--s {
+    font-size: $label-s;
+    font-weight: 500;
+  }
+  &--m {
+    font-size: $label-m;
+    font-weight: 600;
+  }
+  &--l {
+    font-size: $label-l;
+    font-weight: 700;
+  }
+  &--xl {
+    font-size: $label-xl;
+    font-weight: 800;
+  }
 }

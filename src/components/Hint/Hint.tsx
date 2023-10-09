@@ -1,8 +1,8 @@
-import { classBuilder, toArray } from '../../utils/Utils';
+import { classBuilder, cleanHtmlAttributes } from '../../utils/Utils';
 import './Hint.scss';
 
 interface HintProps {
-  hintText?: string;
+  children?: string;
   size?: 's' | 'm' | 'l';
   classBlock?: string;
   classModifiers?: string[];
@@ -12,22 +12,21 @@ interface HintProps {
 export const DEFAULT_CLASS = 'hint';
 
 export const Hint = ({
-  hintText,
+  children,
   size = 'm',
   classBlock = DEFAULT_CLASS,
   classModifiers: _classModifiers = [size],
   className = '',
-  ...props
+  ...attrs
   
 }: HintProps) => {
 
-  const classModifiers = [...toArray(size)];
-  const classes = classBuilder(classBlock, classModifiers, className)
-
+  const classes = classBuilder(classBlock, _classModifiers, className)
+  const cleanedAttrs = cleanHtmlAttributes(attrs)
 
   return (
-    <div className={classes()}>
-      {hintText}
+    <div {...cleanedAttrs} className={classes()}>
+      {children}
     </div>
   );
 };

@@ -1,39 +1,82 @@
+import { useEffect, useRef, useState } from 'react';
+
+import { cleanHtmlAttributes } from '../../utils/Utils';
 import './Checkboxes.scss';
 
-
-type Props = {
+export type CheckboxOption = {
+  key: string;
   id: string;
   value: string;
   label: string;
-  selected?: boolean;
-  onChange?: () => void;
+  disabled?: boolean;
 };
+
+export type CheckboxProps = {
+  id: string;
+  name?: string;
+  option: CheckboxOption;
+  checked?: boolean;
+  disabled?: boolean;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  classBlock?: string;
+};
+
+export const DEFAULT_CLASS = 'checkbox';
 
 export const Checkbox = ({
   id,
-  value,
-  label,
-  selected,
-  onChange,
+  name = id,
+  option,
+  checked = false,
+  disabled = false,
+  onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { checked } = event.target;
+    setChecked(checked);
+  },
+  classBlock = DEFAULT_CLASS,
   ...attrs
-}: Props) => {
+}: CheckboxProps) => {
+  const [isChecked, setChecked] = useState(checked);
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  const onCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { checked } = event.target;
+    setChecked(checked);
+    onChange(event);
+  };
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.checked = isChecked;
+    }
+  }, [inputRef, isChecked, checked]);
+
+  const cleanedAttrs = cleanHtmlAttributes(attrs);
+
   return (
-    <div className="checkbox-item">
-      <div className="checkbox-container">
-        <label className="checkbox-label">
+    <div className={`${DEFAULT_CLASS}-item`}>
+      <div className={`${DEFAULT_CLASS}-container`}>
+        <label className={`${DEFAULT_CLASS}-label`}>
           <input 
             id={id}
+            name={name}
             type="checkbox"
-            className="checkbox-item-input"
-            value={value}
-            onChange={onChange}
+            className={`${DEFAULT_CLASS}-item-input`}
+            value={option.value}
+            checked={isChecked}
+            onChange={onCheck}
+            ref={inputRef}
+            disabled={disabled || option.disabled}
+            {...cleanedAttrs}
           />
-          <span className="checkbox"/>
-          <div className="checkbox-item-label">
-            {label}
+          <span className={DEFAULT_CLASS}/>
+          <div className={`${DEFAULT_CLASS}-item-label`}>
+            {option.label}
           </div>
         </label>
       </div>
     </div>
   )
 };
+
+export default Checkbox;
