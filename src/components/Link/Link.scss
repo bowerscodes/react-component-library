@@ -3,6 +3,7 @@
 a, a:link {
   @extend .link;
   color: $theme-primary;
+  text-decoration: none;
 
   &:hover {
     cursor: pointer;
