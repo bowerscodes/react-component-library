@@ -1,44 +1,52 @@
 import './Radios.scss';
-import { Label } from '../Label/Label';
+import Label from '../Label';
 
-type Option = {
+export type Option = {
   key?: string;
   id: string;
   value: string;
   label: string;
 };
 
-type Props = {
+export type Props = {
+  id?: string;
   label: string;
-  options: Array<Option>
+  options: Option[];
+  classBlock?: string;
 };
 
+export const DEFAULT_CLASS = 'radios';
+
 export const Radios = ({
+  id,
   label,
-  options
+  options,
+  classBlock = DEFAULT_CLASS
 }: Props) => {
 
   return (
-    <div className="radios-container">
+    <div id={id && id} className={`${classBlock}-container`}>
       <fieldset>
         <legend className="fieldset-legend">
           <Label children={label}/>
         </legend>
         {options && options.map(option => {
           return (
-            <label key={option.key || option.id} className="radios-label">
+            <label key={option.key || option.id} className={`${classBlock}-label`}>
               <input
+                id={option.id}
                 type="radio"
                 name="radio"
-                className="radios-input"
+                className={`${classBlock}-input`}
                 value={option.value}
               />
               {option.label}
             </label>
-          )
+          );
         })}
       </fieldset>
     </div>
-  )
+  );
 };
 
+export default Radios;

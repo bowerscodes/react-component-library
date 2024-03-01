@@ -2,7 +2,7 @@ import { classBuilder, cleanHtmlAttributes } from '../../utils/Utils';
 import './Hint.scss';
 
 interface HintProps {
-  children?: string;
+  children: string;
   size?: 's' | 'm' | 'l';
   classBlock?: string;
   classModifiers?: string[];

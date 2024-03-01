@@ -1,49 +1,4 @@
-/* .checkbox-item {
-  display: border-box;
-  vertical-align: middle;
-  padding: 0.5rem;
-}
-
-label.checkbox-item-label {
-  font-family: 'Open Sans', sans-serif;
-  margin-left: 2rem;
-  line-height: 1.5rem;
-};
-
-input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.checkbox-item-input {
-  position: absolute;
-  opacity: 0;
-}
-input:checked {
-  background-color: red;
-
-}
-
-.checkbox {
-  display: block;
-  position: absolute;
-  width: 1.5rem;
-  height: 1.5rem;
-  background-color: transparent;
-  border: 3px solid black;
-}
-/* .checkbox::after {
-  display: block;
-  position: absolute;
-  width: 1.5rem;
-  height: 1.5rem;
-  content: "";
-  background-color: transparent;
-  border: 3px solid black;
-} */ 
-
-@import '../../main';
+@import '../../main.scss';
 
 .checkbox-container {
   display: block;
@@ -88,8 +43,8 @@ input:checked {
   position: absolute;
   top: 0px;
   left: 0px;
-  height: 24px;
-  width: 24px;
+  height: 1.5rem;
+  width: 1.5rem;
   background-color: transparent;
   border-radius: 0.1rem;
   transition: all 0.3s ease-out;

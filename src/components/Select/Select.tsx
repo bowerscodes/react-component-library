@@ -1,7 +1,7 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
 
 import './Select.scss';
-import { Label } from '../Label/Label';
+
 
 type Option = {
   value: string;
@@ -9,12 +9,12 @@ type Option = {
 };
 
 type Props = {
-  id?: string;
+  id: string;
+  fieldId: string;
   label?: string;
-  name?: string;
   disabled?: boolean;
   error?: string;
-  options?: Option[];
+  options: Option[];
   item?: any;
   value?: any;
   defaultValue?: Option;
@@ -24,8 +24,8 @@ type Props = {
 
 export const Select = ({
   id,
+  fieldId = id,
   label,
-  name,
   disabled,
   error,
   options,
@@ -37,37 +37,66 @@ export const Select = ({
 }: Props) => {
   
   const [selected, setSelected] = useState(value || defaultValue || '');
+  const [cachedOptions, setCachedOptions] = useState(options || []);
 
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = event.target.value;
-    setSelected(value);
-  };
+  useEffect(() => {
+    const newValue = (typeof value !== 'string') ? value?.value : value.toString();
+    setSelected(newValue || '');
+  }, [value, item?.id]);
 
-  const Select = 
-  <div className="select-container">
+  const onSelectChanged = useCallback(({ target }: any) => {
+    const selectedValue = target.value;
+    const selectedOption = options?.find(option => option.value === selectedValue) || selectedValue;
+    setSelected(selectedValue);
+    onChange && onChange({
+      target: {
+        name: fieldId,
+        value: selectedOption
+      }
+    } as React.ChangeEvent<HTMLSelectElement>);
+  }, [onChange, fieldId, options]);
+
+  useEffect(() => {
+    const checkEqual = (cachedOptions: string | any[], options: string | any[]) => (
+      cachedOptions?.length === options?.length &&
+      cachedOptions[0]?.value === options[0]?.value &&
+      cachedOptions[cachedOptions.length - 1]?.value === options[options.length -1]?.value
+    );
+
+    if (!checkEqual(cachedOptions, options)) {
+      if (cachedOptions.length > 0) {
+        onSelectChanged({ target: {value: '' }});
+      }
+      setCachedOptions(options);
+    }
+  }, [cachedOptions, onSelectChanged, options]);
+
+
+  const idParts = id.split('.');
+  idParts.pop();
+  idParts.push(fieldId)
+  const name = idParts.join('.')
+  
+  return (
     <select
-      className={['select', 'select-box'].join(' ')}
-      disabled={disabled}
-      onChange={handleChange}
-      value={value}
-      {...attrs}
+    id={id}
+    name={name}
+    value={selected}
+    disabled={disabled}
+    onChange={onSelectChanged}
+    {...attrs}
     >
-      {options?.map(({ value, label }) => (
-        <option key={value} value={value} className='select-option'>
-          {label}
-        </option>
-      ))}
-    </select>    
-  </div>
-
-
-  const selectComponent = label ? (
-    <Label>
-      <div className='label'>{label}</div>
-      {Select}
-    </Label>
-  ) : Select;
-
-
-  return selectComponent;
+      {options?.map((option, index) => {
+        const optionId = `${id}-${index}`;
+        const label = option.label;
+        return (
+          <option key={optionId} id={optionId} value={option.value} className='select-option'>
+            {label}
+          </option>
+        );
+      })}
+    </select>   
+  );
 };
+
+export default Select;

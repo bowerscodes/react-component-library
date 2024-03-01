@@ -1,4 +1,4 @@
-@import '../../main';
+@import '../../main.scss';
 
 .radios-container {
   margin-bottom: 1rem;
@@ -29,6 +29,7 @@
   border: 2px solid $theme-dark;
   border-radius: 1rem;
   background-color: white;
+  outline: none;
 }
 
 .radios-input:checked:after {
@@ -42,4 +43,10 @@
   border: 2px solid $theme-primary;
   border-radius: 1rem;
   background-color: $theme-primary;
+}
+
+.radios-input:focus::before {
+  outline: none;
+  box-shadow: 0 0 0 0.05rem white, 0 0 0 0.2rem $theme-tertiary;
+  border-radius: 1rem;
 }

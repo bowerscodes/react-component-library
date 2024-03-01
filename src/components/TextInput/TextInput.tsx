@@ -1,4 +1,4 @@
-import { Label } from '../Label/Label';
+import Label from '../Label';
 import { classBuilder, cleanHtmlAttributes, COMPONENT_TYPES, toArray } from '../../utils/Utils';
 import './TextInput.scss';
 

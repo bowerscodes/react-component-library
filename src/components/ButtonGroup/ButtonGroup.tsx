@@ -1,7 +1,6 @@
-import { Button } from '../Button/Button';
-import { Hint } from '../Hint/Hint';
-import { Label } from '../Label/Label';
-import '../../main.scss';
+import Button from '../Button';
+import Hint  from '../Hint';
+import Label from '../Label';
 import './ButtonGroup.scss';
 
 interface ButtonGroupProps {
@@ -28,7 +27,7 @@ export const ButtonGroup = ({
     <div key={label} className='button-group' {...attrs} >
       {label && <Label children={label}/>}
       {content.text && <p className="paragraph">{content.text}</p>}
-      {content.hint && <Hint children={content.hint} size="s"/>}
+      {content.hint && <Hint {...content.hint}/>}
       {buttonsArray.map(button => {
         return <Button {...button}/>;
       })}

@@ -3,7 +3,6 @@ import { useRef } from 'react';
 import Checkbox, { CheckboxOption } from './Checkbox';
 import { cleanHtmlAttributes } from '../../utils/Utils';
 import './Checkboxes.scss';
-import '../../main.scss'
 
 export const DEFAULT_CLASS = 'checkboxes';
 

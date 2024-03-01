@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import { classBuilder } from '../../utils/Utils';
-import Link from '../Link/Link';
+import Link from '../Link';
 import './BackToTop.scss';
 
 export const DEFAULT_CLASS = 'back-to-top-link';
