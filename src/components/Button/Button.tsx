@@ -1,7 +1,9 @@
 import { classBuilder, toArray } from '../../utils/Utils';
 import './Button.scss';
 
-interface ButtonProps {
+export type ButtonProps = {
+  key?: string;
+  id: string;
   label: string;
   disabled?: boolean;
   type: 'primary' | 'secondary' | 'warning';

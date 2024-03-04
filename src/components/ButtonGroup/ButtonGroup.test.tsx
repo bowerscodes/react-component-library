@@ -1,4 +1,5 @@
 import { screen, render } from '@testing-library/react';
+import { ButtonProps } from '../Button/Button';
 import ButtonGroup from './ButtonGroup';
 
 describe('ButtonGroup', () => {
@@ -32,23 +33,25 @@ describe('ButtonGroup', () => {
   it('renders a button group with label, content, and standard Primary and Secondary buttons', () => {
     const buttonGroupId = 'button-group';
     const label = 'Button Group';
-    const buttons = [
+    const buttons: ButtonProps[] = [
       {
-        "key": "button1",
-        "id": "primary",
-        "type": "primary",
-        "label": "Primary"
+        key: "button1",
+        id: "primary",
+        label: "Primary",
+        type: "primary"
       },
       {
-        "key": "button2",
-        "id": "secondary",
-        "type": "secondary",
-        "label": "Secondary"
-      }];
+        key: "button2",
+        id: "secondary",
+        label: "Secondary",
+        type: "secondary"
+      }
+    ];
     const content = {
-      "text": "This is a paragraph",
-      "hint": "This is a hint"
-    }
+      text: "This is a paragraph",
+      hint: "This is a hint"
+    };
+
     const { container } = render(<ButtonGroup data-testid={buttonGroupId} label={label} buttons={buttons} content={content}/>);
     checkSetup(container, buttonGroupId);
     checkLabel(container, buttonGroupId, label);

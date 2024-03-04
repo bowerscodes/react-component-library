@@ -2,7 +2,7 @@ import { classBuilder, cleanHtmlAttributes } from '../../utils/Utils';
 import './Hint.scss';
 
 interface HintProps {
-  children: string;
+  hintText: string;
   size?: 's' | 'm' | 'l';
   classBlock?: string;
   classModifiers?: string[];
@@ -12,7 +12,7 @@ interface HintProps {
 export const DEFAULT_CLASS = 'hint';
 
 export const Hint = ({
-  children,
+  hintText,
   size = 'm',
   classBlock = DEFAULT_CLASS,
   classModifiers: _classModifiers = [size],
@@ -26,7 +26,7 @@ export const Hint = ({
 
   return (
     <div {...cleanedAttrs} className={classes()}>
-      {children}
+      {hintText}
     </div>
   );
 };

@@ -13,29 +13,29 @@ type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
   args: {
-    type: 'primary',
     label: 'Primary Button',
+    type: 'primary',
   },
 };
 
 export const Secondary: Story = {
   args: {
-    type: 'secondary',
     label: 'Secondary Button',
+    type: 'secondary',
   },
 };
 
 export const Warning: Story = {
   args: {
+    label: 'Warning Button',
     type: 'warning',
-    label: 'Warning Button'
   },
 };
 
 export const Small: Story = {
   args: {
-    size: 's',
     label: 'Small Button',
+    size: 's',
   },
 };
 

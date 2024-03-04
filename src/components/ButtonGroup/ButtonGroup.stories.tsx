@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import ButtonGroup from './ButtonGroup';
+import ButtonGroup, { ButtonGroupProps } from './ButtonGroup';
 
 
 const meta: Meta<typeof ButtonGroup> = {
@@ -9,35 +9,33 @@ const meta: Meta<typeof ButtonGroup> = {
   tags: ['components', 'ButtonGroup'],
 };
 
-const buttonGroup = {
-  id: "confirmation",
-  component: "ButtonGroup",
-  props: {
-    label: "Confirm",
+const buttonGroup: ButtonGroupProps = {
+
+    label: 'Confirm',
     buttons: [
       {
-        key: "button1",
-        id: "submit",
-        type: "primary",
-        size: "m",
-        label: "Submit"
+        key: 'button1',
+        id: 'submit',
+        label: 'Submit',
+        type: 'primary',
+        size: 'm',
       },
       {
-        key: "button2",
-        id: "cancel",
-        type: "secondary",
-        size: "m",
-        label: "Cancel"
+        key: 'button2',
+        id: 'cancel',
+        label: 'Cancel',
+        type: 'secondary',
+        size: 'm',
       }
     ],
     content: {
-      text: "Are you happy to submit your preferences?",
-      hint: "Your preferences can be updated anytime"
+      text: 'Are you happy to submit your preferences?',
+      hint: 'Your preferences can be updated anytime'
     }
-  }
+
 };
 
-const defaultArgs = buttonGroup.props;
+const defaultArgs = buttonGroup;
 
 
 export default meta;
