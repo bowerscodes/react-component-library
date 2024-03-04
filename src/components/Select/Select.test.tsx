@@ -11,7 +11,6 @@ describe('Select', () => {
 
   it('renders a select with id and class attributes set', () => {
     const selectId = 'selectId';
-    const label = 'Select';
     const options = [
       {
         label: 'Option 1',
@@ -28,7 +27,6 @@ describe('Select', () => {
         id={selectId} 
         fieldId={selectId} 
         data-testid={selectId} 
-        label={label} 
         options={options} 
       />
     );
