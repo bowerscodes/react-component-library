@@ -50,4 +50,18 @@ describe('Link', () => {
     fireEvent.click(link);
     expect(onClick).toHaveBeenCalledTimes(1);
   });
+
+  it('should render a link with a target attribute', () => {
+    const linkId = 'linkId';
+    const linkText = 'Link Text';
+    const linkHref = 'http://www.example.com/';
+    const linkTarget = '_blank';
+    const { container } = render(
+      <Link data-testid={linkId} href={linkHref} target={linkTarget}>{linkText}</Link>
+    );
+    const link = checkSetup(container, linkId) as HTMLLinkElement;
+    expect(link.innerHTML).toEqual(linkText);
+    expect(link.href).toEqual(linkHref);
+    expect(link.target).toEqual(linkTarget);
+  });
 });

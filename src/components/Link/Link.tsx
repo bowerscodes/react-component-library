@@ -7,6 +7,7 @@ export const DEFAULT_CLASS = 'link';
 type Props = {
   children?: React.ReactNode;
   href?: string;
+  target?: string;
   classBlock?: string;
   classModifiers?: string | string[];
   className?: string;
@@ -16,6 +17,7 @@ type Props = {
 export const Link = ({
   children,
   href = undefined,
+  target,
   classBlock = DEFAULT_CLASS,
   classModifiers = [],
   className = '',
@@ -26,7 +28,7 @@ export const Link = ({
   const classes = classBuilder(classBlock, classModifiers, className);
 
   return (
-    <a data-module={DEFAULT_CLASS} href={href} onClick={onClick} {...attrs} className={classes()}>
+    <a data-module={DEFAULT_CLASS} href={href} target={target} onClick={onClick} {...attrs} className={classes()}>
       {children}
     </a>
   );

@@ -15,6 +15,6 @@ type Story = StoryObj<typeof Link>;
 export const Default: Story = {
   args: {
     children: 'Click me!',
-    href: '',
+    href: 'http://www.example.com',
   }
 };
