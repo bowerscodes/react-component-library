@@ -1,6 +1,6 @@
-import { getByTestId, render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
-import Radios, { Option, Props } from './Radios';
+import Radios, { Option } from './Radios';
 
 describe('Radios', () => {
 
