@@ -8,7 +8,7 @@ type Props = {
   children?: React.ReactNode;
   href?: string;
   classBlock?: string;
-  classModifiers?: string | [];
+  classModifiers?: string | string[];
   className?: string;
   onClick?: () =>  void;
 }
