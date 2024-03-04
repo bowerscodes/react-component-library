@@ -39,7 +39,7 @@ export const Default: Story = {
     options: options,
     item: '',
     value: '',
-    defaultValue: undefined,
+    defaultValue: '',
     onChange: undefined,
   }
 };

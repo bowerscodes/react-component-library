@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import { classBuilder, cleanHtmlAttributes } from '../../utils/Utils';
 
 import './Select.scss';
 
@@ -16,11 +17,19 @@ type Props = {
   error?: string;
   options: Option[];
   item?: any;
+  placeholder?: string;
+  defaultValue?: Option | string | null;
   value?: any;
-  defaultValue?: Option;
   onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
+  returnFullData?: boolean;
   target?: any;
+  classBlock?: string;
+  classModifiers?: string[];
+  className?: string;
 };
+
+export const DEFAULT_CLASS = 'select';
+export const DEFAULT_PLACEHOLDER = 'Select an option';
 
 export const Select = ({
   id,
@@ -30,23 +39,32 @@ export const Select = ({
   error,
   options,
   item,
-  value,
-  defaultValue,
+  placeholder,
+  defaultValue = '',
+  value = defaultValue,
   onChange,
+  returnFullData,
+  target,
+  classBlock = DEFAULT_CLASS,
+  classModifiers: _classModifiers,
+  className = '',
   ...attrs
 }: Props) => {
+
+  const classes = classBuilder(classBlock, _classModifiers, className)
+  const cleanedAttrs = cleanHtmlAttributes(attrs)
   
   const [selected, setSelected] = useState(value || defaultValue || '');
   const [cachedOptions, setCachedOptions] = useState(options || []);
 
   useEffect(() => {
     const newValue = (typeof value !== 'string') ? value?.value : value.toString();
-    setSelected(newValue || '');
-  }, [value, item?.id]);
+    setSelected(newValue || defaultValue || '');
+  }, [value, defaultValue, item?.id]);
 
   const onSelectChanged = useCallback(({ target }: any) => {
     const selectedValue = target.value;
-    const selectedOption = options?.find(option => option.value === selectedValue) || selectedValue;
+    const selectedOption = returnFullData ? options?.find(option => option.value === selectedValue) : selectedValue;
     setSelected(selectedValue);
     onChange && onChange({
       target: {
@@ -54,7 +72,7 @@ export const Select = ({
         value: selectedOption
       }
     } as React.ChangeEvent<HTMLSelectElement>);
-  }, [onChange, fieldId, options]);
+  }, [options, onChange, fieldId, returnFullData]);
 
   useEffect(() => {
     const checkEqual = (cachedOptions: string | any[], options: string | any[]) => (
@@ -84,17 +102,19 @@ export const Select = ({
     value={selected}
     disabled={disabled}
     onChange={onSelectChanged}
-    {...attrs}
+    className={classes()}
+    {...cleanedAttrs}
     >
       {options?.map((option, index) => {
         const optionId = `${id}-${index}`;
         const label = option.label;
         return (
-          <option key={optionId} id={optionId} value={option.value} className='select-option'>
+          <option key={optionId} id={optionId} value={option.value} className={classes('option')}>
             {label}
           </option>
         );
       })}
+      <option value='' disabled hidden>{placeholder || DEFAULT_PLACEHOLDER}</option>
     </select>   
   );
 };
