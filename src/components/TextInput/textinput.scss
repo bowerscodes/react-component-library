@@ -1,21 +1,17 @@
 @import '../../main.scss';
 
-.input-container {
-  display: block;
-  box-sizing: border-box;
-  width: auto;
-  margin: 1rem 0 1.5rem;
-}
 
-input {
+input.textInput {
+  box-sizing: border-box;
   display: block;
   border: 2px solid $theme-dark;
   border-radius: 0.1em;
   line-height: 1.5em;
   padding: 0.4em;
   max-width: 100%;
+  margin: 0.25rem 0 1rem;
 }
-input:focus {
+.textInput:focus {
   outline: 2px solid $theme-tertiary;
 }
 

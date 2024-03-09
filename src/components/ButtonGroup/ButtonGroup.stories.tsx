@@ -10,29 +10,28 @@ const meta: Meta<typeof ButtonGroup> = {
 };
 
 const buttonGroup: ButtonGroupProps = {
-
-    label: 'Confirm',
-    buttons: [
-      {
-        key: 'button1',
-        id: 'submit',
-        label: 'Submit',
-        type: 'primary',
-        size: 'm',
-      },
-      {
-        key: 'button2',
-        id: 'cancel',
-        label: 'Cancel',
-        type: 'secondary',
-        size: 'm',
-      }
-    ],
-    content: {
-      text: 'Are you happy to submit your preferences?',
-      hint: 'Your preferences can be updated anytime'
+  id: 'button-group',
+  label: 'Confirm',
+  buttons: [
+    {
+      key: 'button1',
+      id: 'submit',
+      label: 'Submit',
+      type: 'primary',
+      size: 'm',
+    },
+    {
+      key: 'button2',
+      id: 'cancel',
+      label: 'Cancel',
+      type: 'secondary',
+      size: 'm',
     }
-
+  ],
+  content: {
+    text: 'Are you happy to submit your preferences?',
+    hint: 'Your preferences can be updated anytime'
+  }
 };
 
 const defaultArgs = buttonGroup;

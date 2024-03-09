@@ -52,7 +52,7 @@ describe('ButtonGroup', () => {
       hint: "This is a hint"
     };
 
-    const { container } = render(<ButtonGroup data-testid={buttonGroupId} label={label} buttons={buttons} content={content}/>);
+    const { container } = render(<ButtonGroup data-testid={buttonGroupId} id={buttonGroupId} label={label} buttons={buttons} content={content}/>);
     checkSetup(container, buttonGroupId);
     checkLabel(container, buttonGroupId, label);
     checkHint(container, buttonGroupId, content.hint);

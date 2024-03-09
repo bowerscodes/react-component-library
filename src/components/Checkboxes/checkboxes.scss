@@ -1,16 +1,16 @@
 @import '../../main.scss';
 
-.checkbox-container {
+.checkbox__container {
   display: block;
   box-sizing: border-box;
   width: 100%;
 }
 
-.checkboxes-container {
+.checkboxes__container {
   margin-bottom: 1.5rem;
 }
 
-.checkbox-item {
+.checkbox__item {
   float: left;
   width: 100%;
   box-sizing: border-box;
@@ -19,7 +19,7 @@
 }
 
 
-.checkbox-label {
+.checkbox__label {
   display: block;
   position: relative;
   cursor: pointer;
@@ -28,11 +28,11 @@
   clear: both;
 }
 
-.checkbox-item-label {
+.checkbox__item--label {
   margin-left: 2rem;
 }
 
-.checkbox-item input {
+.checkbox__item input {
   left: 1rem;
   position: absolute;
   opacity: 0;
@@ -55,7 +55,7 @@
   border: 2px solid $theme-dark;
 }
 
-.checkbox-item input:checked ~ .checkbox {
+.checkbox__item input:checked ~ .checkbox {
   background-color: $theme-primary;
   border-radius: 0.1rem;
   -webkit-transform: rotate(0deg) scale(1);
@@ -81,7 +81,7 @@
 }
 
 
-.checkbox-item input:checked ~ .checkbox::after {
+.checkbox__item input:checked ~ .checkbox::after {
 -webkit-transform: rotate(45deg) scale(1);
 -ms-transform: rotate(45deg) scale(1);
 transform: rotate(45deg) scale(1);

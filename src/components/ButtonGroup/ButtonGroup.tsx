@@ -10,6 +10,7 @@ export type ContentProps = {
 };
 
 export type ButtonGroupProps = {
+  id: string;
   label: string;
   buttons: ButtonProps[];
   content?: ContentProps;
@@ -17,6 +18,7 @@ export type ButtonGroupProps = {
 
 
 export const ButtonGroup = ({
+  id,
   label,
   buttons,
   content,
@@ -25,9 +27,9 @@ export const ButtonGroup = ({
 
   return (
     <div key={label} className='button-group' {...attrs} >
-      {label && <Label children={label}/>}
+      {label && <Label id={id} children={label}/>}
       {content?.text && <p className="paragraph">{content.text}</p>}
-      {content?.hint && <Hint hintText={content.hint} size='s' />}
+      {content?.hint && <Hint size='s'>{content.hint}</Hint>}
       {buttons.map(button => {
         return <Button {...button}/>;
       })}

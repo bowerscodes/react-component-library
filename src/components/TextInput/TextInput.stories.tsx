@@ -14,24 +14,18 @@ type Story = StoryObj<typeof TextInput>;
 
 export const Medium: Story = {
   args: {
-    textInputLabel: 'Text Input',
-    placeholder: '',
     width: 'm'
   }
 };
 
 export const Small: Story = {
   args: {
-    textInputLabel: 'Small Text Input',
-    placeholder: '',
     width: 's'
   }
 };
 
 export const Large: Story = {
   args: {
-    textInputLabel: 'Large Text Input',
-    placeholder: '',
     width: 'l'
   }
 };
@@ -39,8 +33,6 @@ export const Large: Story = {
 export const ExtraLarge: Story = {
   args: {
     id: 'extraLargeTextInput',
-    textInputLabel: 'Extra Large Text Input',
-    placeholder: '',
     width: 'xl',
   }
 };

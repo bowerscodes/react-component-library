@@ -1,3 +1,3 @@
-import Heading from "../Heading";
+import Hint from "./Hint";
 
-export default Heading;
+export default Hint;

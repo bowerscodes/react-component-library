@@ -16,41 +16,46 @@ describe('Label', () => {
   };
 
   it('renders an extra small label', () => {
+    const id = 'label';
     const label = 'Small';
     const size = 'xs';
-    const { container } = render(<Label size={size}>{label}</Label>);
+    const { container } = render(<Label id={id} size={size}>{label}</Label>);
     checkSetup(container, label);
     checkSize(container, label, size);
   });
 
   it('renders a small label', () => {
+    const id = 'label';
     const label = 'Small';
     const size = 's';
-    const { container } = render(<Label size={size}>{label}</Label>);
+    const { container } = render(<Label id={id} size={size}>{label}</Label>);
     checkSetup(container, label);
     checkSize(container, label, size);
   });
 
   it('renders a medium label', () => {
+    const id = 'label';
     const label = 'Medium';
     const size = 'm';
-    const { container } = render(<Label size={size}>{label}</Label>);
+    const { container } = render(<Label id={id} size={size}>{label}</Label>);
     checkSetup(container, label);
     checkSize(container, label, size);
   });
 
   it('renders a large label', () => {
+    const id = 'label';
     const label = 'Large';
     const size = 'l';
-    const { container } = render(<Label size={size}>{label}</Label>);
+    const { container } = render(<Label id={id} size={size}>{label}</Label>);
     checkSetup(container, label);
     checkSize(container, label, size);
   });
 
   it('renders an extra large label', () => {
+    const id = 'label';
     const label = 'Large';
     const size = 'xl';
-    const { container } = render(<Label size={size}>{label}</Label>);
+    const { container } = render(<Label id={id} size={size}>{label}</Label>);
     checkSetup(container, label);
     checkSize(container, label, size);
   });

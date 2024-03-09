@@ -4,7 +4,7 @@ import { classBuilder, toArray } from '../../utils/Utils';
 import './Label.scss';
 
 type Props = {
-  key?: string;
+  id: string;
   children: React.ReactNode;
   size?: 'xs' | 's' | 'm' | 'l' | 'xl';
   classBlock?: string;
@@ -15,6 +15,7 @@ type Props = {
 export const DEFAULT_CLASS = 'label';
 
 export const Label = ({
+  id,
   children,
   size = 'm',
   classBlock = DEFAULT_CLASS,
@@ -26,7 +27,7 @@ export const Label = ({
   const classes = classBuilder(classBlock, classModifiers, className)
 
   return (
-    <label className={classes()}>
+    <label id={id} className={classes()}>
       {children}
     </label>
   )

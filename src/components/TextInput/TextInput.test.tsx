@@ -30,7 +30,6 @@ describe('TextInput', () => {
         <TextInput 
           id={INPUT_FIELD_ID}
           data-testid = {INPUT_ID}
-          textInputLabel={label}
         />
       );
   
@@ -39,13 +38,11 @@ describe('TextInput', () => {
     });
   
     it('renders a small input', () => {
-      const label = 'Small';
       const width = 's';
       const { container } = render (
         <TextInput 
           id={INPUT_FIELD_ID}
           data-testid={INPUT_ID}
-          textInputLabel={label}
           width={width}
         />
       );
@@ -55,13 +52,11 @@ describe('TextInput', () => {
     });
   
     it('renders a large input', () => {
-      const label = 'Large';
       const width = 'l';
       const { container } = render (
         <TextInput 
           id={INPUT_FIELD_ID}
           data-testid={INPUT_ID}
-          textInputLabel={label}
           width={width}
         />
       );
@@ -71,13 +66,11 @@ describe('TextInput', () => {
     });
     
     it('renders an extra large input', () => {
-      const label = 'Extra Large';
       const width = 'xl';
       const { container } = render (
         <TextInput 
           id={INPUT_FIELD_ID}
           data-testid={INPUT_ID}
-          textInputLabel={label}
           width={width}
         />
       );
@@ -87,13 +80,11 @@ describe('TextInput', () => {
     });
   
     it('renders a one-half input', () => {
-      const label = 'One Half';
       const width = 'one-half';
       const { container } = render (
         <TextInput 
           id={INPUT_FIELD_ID}
           data-testid={INPUT_ID}
-          textInputLabel={label}
           width={width}
         />
       );
@@ -103,13 +94,11 @@ describe('TextInput', () => {
     });
     
     it('renders a one-third input', () => {
-      const label = 'One Third';
       const width = 'one-third';
       const { container } = render (
         <TextInput 
           id={INPUT_FIELD_ID}
           data-testid={INPUT_ID}
-          textInputLabel={label}
           width={width}
         />
       );
@@ -119,13 +108,11 @@ describe('TextInput', () => {
     });
   
     it('renders a two-thirds input', () => {
-      const label = 'Two Thirds';
       const width = 'two-thirds';
       const { container } = render (
         <TextInput 
           id={INPUT_FIELD_ID}
           data-testid={INPUT_ID}
-          textInputLabel={label}
           width={width}
         />
       );

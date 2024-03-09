@@ -1,13 +1,16 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
-import { cleanHtmlAttributes } from '../../utils/Utils';
+import { classBuilder } from '../../utils/Utils';
 import './Checkboxes.scss';
+import Hint from '../Hint';
 
 export type CheckboxOption = {
   key: string;
   id: string;
   value: string;
   label: string;
+  children?: React.ReactNode;
+  hint?: string;
   disabled?: boolean;
 };
 
@@ -19,6 +22,8 @@ export type CheckboxProps = {
   disabled?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   classBlock?: string;
+  classModifiers?: [];
+  className?: string;
 };
 
 export const DEFAULT_CLASS = 'checkbox';
@@ -29,54 +34,59 @@ export const Checkbox = ({
   option,
   checked = false,
   disabled = false,
-  onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { checked } = event.target;
-    setChecked(checked);
-  },
+  onChange = () => {},
   classBlock = DEFAULT_CLASS,
+  classModifiers = [],
+  className = '',
   ...attrs
 }: CheckboxProps) => {
-  const [isChecked, setChecked] = useState(checked);
-  const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const onCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { checked } = event.target;
-    setChecked(checked);
-    onChange(event);
-  };
+  const classes = classBuilder(classBlock, classModifiers, className);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     if (inputRef.current) {
-      inputRef.current.checked = isChecked;
+      inputRef.current.checked = checked;
     }
-  }, [inputRef, isChecked, checked]);
+  }, [inputRef, checked]);
 
-  const cleanedAttrs = cleanHtmlAttributes(attrs);
 
   return (
-    <div className={`${DEFAULT_CLASS}-item`}>
-      <div className={`${DEFAULT_CLASS}-container`}>
-        <label className={`${DEFAULT_CLASS}-label`}>
-          <input 
+    <div className={classes('item')}>
+      <div className={classes('container')} {...attrs}>
+        <label
+          className={classes('label')}
+          htmlFor={id}
+        >
+          <input
+            className={classes('input')}
             id={id}
             name={name}
-            type="checkbox"
-            className={`${DEFAULT_CLASS}-item-input`}
+            type='checkbox'
             value={option.value}
-            checked={isChecked}
-            onChange={onCheck}
+            onChange={onChange}
             ref={inputRef}
-            disabled={disabled || option.disabled}
-            {...cleanedAttrs}
           />
-          <span className={DEFAULT_CLASS}/>
-          <div className={`${DEFAULT_CLASS}-item-label`}>
-            {option.label}
-          </div>
+          <span className={classes()} />
+            <div className={classes('item--label')}>
+              {option.label}
+              {option.hint && (
+                <Hint
+                  id={`${id}-hint`}
+                  classBlock={classes('hint')}
+                >
+                  {option.hint}
+                </Hint>
+              )}
+              {checked && 
+                option.children && 
+                  <div className={classes('conditional')}>{option.children}</div>
+              }
+            </div>
         </label>
       </div>
     </div>
-  )
+    );
 };
 
 export default Checkbox;

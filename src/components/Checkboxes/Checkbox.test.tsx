@@ -1,93 +1,122 @@
 import { render, screen } from '@testing-library/react';
-import { Checkbox, CheckboxProps } from './Checkbox';
 
-const props: CheckboxProps = {
-  id: 'checkbox-example',
-  name: 'option1',
-  option: {
-    key: 'option1',
-    id: 'option1',
-    value: 'value',
-    label: 'Option label',
-  },
-};
+import Checkbox, { CheckboxProps, DEFAULT_CLASS } from './Checkbox';
+import TextInput from '../TextInput';
 
-const checkSetup = (props: CheckboxProps) => {
-  const { id, name, option } = props;
-  const checkboxInput = screen.getByRole('checkbox');
-  expect(checkboxInput).toBeInTheDocument();
-  expect(checkboxInput).toHaveClass('checkbox-item-input');
-  expect(checkboxInput).toHaveAttribute('id', id);
-  expect(checkboxInput).toHaveAttribute('name', name);
-  expect(checkboxInput).toHaveAttribute('value', option.value);
-  expect(screen.getByText(option.label)).toBeInTheDocument();
-};
 
 describe('Checkbox', () => {
-  it('renders a checkbox', () => {
-    render(<Checkbox {...props}/>);
-    checkSetup(props);
+
+  const checkSetup = (container: HTMLElement, testId: string) => {
+    const wrapper = screen.getByTestId(testId);
+    expect((wrapper as HTMLElement).classList).toContain(`${DEFAULT_CLASS}__container`);
+    
+    const label = wrapper.childNodes[0];
+    const innerLabel = label.childNodes[2]
+    const input = wrapper.childNodes[0].childNodes[0];
+    const hint = label.childNodes[2].childNodes[1];
+    return { wrapper, input, label, innerLabel, hint };
+  };
+
+  it('should set up the necessary components', () => {
+    const id = 'checkbox';
+    const fieldId = 'checkboxFieldId';
+    const option = {
+      key: 'checkboxKey', id: 'checkboxId', value: 'checkboxOption', label: 'Checkbox Option'
+    };
+    const { container } = render (
+      <Checkbox data-testid={id} id={id} name={fieldId} option={option} />
+    );
+    // expect(container.childNodes[0].childNodes[0].childNodes[0]).toEqual('')
+    const { input, label, innerLabel, hint } = checkSetup(container, id);
+
+    expect((input as HTMLInputElement).tagName).toEqual('INPUT');
+    expect((input as HTMLInputElement).type).toEqual('checkbox');
+    expect((input as HTMLInputElement).id).toEqual(id);
+    expect((input as HTMLInputElement).name).toEqual(fieldId);
+    expect((input as HTMLInputElement).value).toEqual(option.value);
+    expect((input as HTMLInputElement).classList).toContain(`${DEFAULT_CLASS}__input`);
+    expect((input as HTMLInputElement).getAttribute('disabled')).toBeNull();
+
+    expect((label as HTMLLabelElement).classList).toContain(`${DEFAULT_CLASS}__label`);
+    expect((innerLabel as HTMLLabelElement).classList).toContain(`${DEFAULT_CLASS}__item--label`);
+    expect((innerLabel as HTMLLabelElement).innerHTML).toEqual(option.label);
+    expect((label as HTMLLabelElement).getAttribute('for')).toEqual(id);
+    expect((label as HTMLLabelElement).getAttribute('disabled')).toBeNull();
+
+    expect(hint).toBeUndefined();
   });
 
-  it('renders a checked checkbox', () => {
-    render(<Checkbox {...props} checked={true}/>);
-    checkSetup(props);
-    expect(screen.getByRole('checkbox')).toBeChecked();
+  it('should set up the necessary components with a hint', async () => {
+    const id = 'checkbox';
+    const fieldId = 'checkboxFieldId';
+    const option = {
+      key: 'checkboxKey', id: 'checkboxId', value: 'checkboxOption', label: 'Checkbox Option', hint: 'This is a checkbox option'
+    };
+    const { container } = render (
+      <Checkbox data-testid={id} id={id} name={fieldId} option={option} />
+    );
+    const { input, label, innerLabel, hint } = checkSetup(container, id);
+    
+    expect(input).toBeDefined();
+    expect(label).toBeDefined();
+    expect(innerLabel).toBeDefined();
+    expect(hint).toBeDefined();
   });
 
-  it('renders a disabled checkbox', () => {
-    render(<Checkbox {...props} disabled={true}/>);
-    checkSetup(props);
-    expect(screen.getByRole('checkbox')).toBeDisabled();
+  it('should be checked when checked is true', async () => {
+    const id = 'checkbox';
+    const fieldId = 'checkboxFieldId';
+    const option = {
+      key: 'checkboxKey', id: 'checkboxId', value: 'checkboxOption', label: 'Checkbox Option'
+    };
+    const { container } = render (
+      <Checkbox data-testid={id} id={id} name={fieldId} option={option} checked />
+    );
+    const { input } = checkSetup(container, id);
+    expect((input as HTMLInputElement).checked).toEqual(true);
   });
 
-  it('renders a checked and disabled checkbox', () => {
-    render(<Checkbox {...props} checked={true} disabled={true}/>);
-    checkSetup(props);
-    expect(screen.getByRole('checkbox')).toBeChecked();
-    expect(screen.getByRole('checkbox')).toBeDisabled();
+  it('should toggle between checked & unchecked when checked changes value', () => {
+    const id = 'checkbox';
+    const fieldId = 'checkboxFieldId';
+    const option = {
+      key: 'checkboxKey', id: 'checkboxId', value: 'checkboxOption', label: 'Checkbox Option'
+    };
+    const { container, rerender } = render (
+      <Checkbox data-testid={id} id={id} name={fieldId} option={option} />
+    );
+    const { input } = checkSetup(container, id);
+    expect((input as HTMLInputElement).checked).toEqual(false);
+    rerender(<Checkbox data-testid={id} id={id} name={fieldId} option={option} checked />);
+    expect((input as HTMLInputElement).checked).toEqual(true);
+    rerender(<Checkbox data-testid={id} id={id} name={fieldId} option={option} checked={false} />);
+    expect((input as HTMLInputElement).checked).toEqual(false);
   });
 
-  it('renders a checkbox with a custom onChange handler', () => {
-    const onChange = jest.fn();
-    render(<Checkbox {...props} onChange={onChange}/>);
-    checkSetup(props);
-    expect(screen.getByRole('checkbox')).not.toBeChecked();
-    screen.getByRole('checkbox').click();
-    expect(onChange).toHaveBeenCalledTimes(1);
-    expect(screen.getByRole('checkbox')).toBeChecked();
-  });
-
-  it('renders a checkbox with a custom onChange handler that is checked', () => {
-    const onChange = jest.fn();
-    render(<Checkbox {...props} checked={true} onChange={onChange}/>);
-    checkSetup(props);
-    expect(screen.getByRole('checkbox')).toBeChecked();
-    screen.getByRole('checkbox').click();
-    expect(onChange).toHaveBeenCalledTimes(1);
-    expect(screen.getByRole('checkbox')).not.toBeChecked();
-  });
-
-  it('renders a checkbox with a custom onChange handler that is disabled', () => {
-    const onChange = jest.fn();
-    render(<Checkbox {...props} disabled={true} onChange={onChange}/>);
-    checkSetup(props);
-    expect(screen.getByRole('checkbox')).toBeDisabled();
-    screen.getByRole('checkbox').click();
-    expect(onChange).toHaveBeenCalledTimes(0);
-    expect(screen.getByRole('checkbox')).toBeDisabled();
-  });
-
-  it('renders a checkbox with a custom onChange handler that is checked and disabled', () => {
-    const onChange = jest.fn();
-    render(<Checkbox {...props} checked={true} disabled={true} onChange={onChange}/>);
-    checkSetup(props);
-    expect(screen.getByRole('checkbox')).toBeChecked();
-    expect(screen.getByRole('checkbox')).toBeDisabled();
-    screen.getByRole('checkbox').click();
-    expect(onChange).toHaveBeenCalledTimes(0);
-    expect(screen.getByRole('checkbox')).toBeChecked();
-    expect(screen.getByRole('checkbox')).toBeDisabled();
+  it('should show a nested component when necessary', () => {
+    const id = 'checkbox';
+    const fieldId = 'checkboxFieldId';
+    const option = {
+      key: 'checkboxKey', 
+      id: 'checkboxId', 
+      value: 'checkboxOption', 
+      label: 'Checkbox Option', 
+      nested: [{
+        id: 'nested', 
+        fieldId: 'nestedFieldId', 
+        label: 'This is a checkbox option',
+        type: 'textInput'
+      }],
+      children: <TextInput id='nested' fieldId='nestedFieldId' />
+    };
+    const { container } = render (
+      <Checkbox data-testid={id} id={id} name={fieldId} option={option} checked />
+    );
+    const { innerLabel } = checkSetup(container, id);
+    const nestedElement = innerLabel.childNodes[1];
+    expect(nestedElement).toBeDefined();
+    expect((nestedElement as HTMLElement).classList).toContain('checkbox__conditional');
+    expect((nestedElement as HTMLElement).tagName).toEqual('DIV');
   });
 
 });

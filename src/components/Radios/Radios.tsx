@@ -1,50 +1,76 @@
+import Radio, { Option } from './Radio';
+import { classBuilder, cleanHtmlAttributes } from '../../utils/Utils';
 import './Radios.scss';
-import Label from '../Label';
 
-export type Option = {
-  key?: string;
+
+
+export type RadiosProps = {
   id: string;
-  value: string;
-  label: string;
-};
-
-export type Props = {
-  id?: string;
-  label: string;
+  fieldId: string;
   options: Option[];
+  value?: string | { value: string };
+  onChange?: Function;
   classBlock?: string;
+  classModifiers?: string[];
+  className?: string;
 };
 
 export const DEFAULT_CLASS = 'radios';
 
 export const Radios = ({
   id,
-  label,
+  fieldId,
   options,
-  classBlock = DEFAULT_CLASS
-}: Props) => {
+  value,
+  onChange,
+  classBlock = DEFAULT_CLASS,
+  classModifiers = [],
+  className = '',
+  ...attrs
+}: RadiosProps) => {
+
+  const classes = classBuilder(classBlock, classModifiers, className);
+
+  const idParts = id.split('.');
+  idParts.pop();
+  idParts.push(fieldId);
+  const name = idParts.join('.');
+
+  const internalOnChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+    const truncatedName = target.name.split('.').pop();
+    if (typeof onChange === 'function' && truncatedName === fieldId) {
+      onChange({
+        target: {
+          name: fieldId,
+          value: target.value
+        }
+      });
+    }
+  };
+
+  const cleanedAttrs = cleanHtmlAttributes(attrs);
 
   return (
-    <div id={id && id} className={`${classBlock}-container`}>
-      <fieldset>
-        <legend className="fieldset-legend">
-          <Label children={label}/>
-        </legend>
-        {options && options.map(option => {
+    <div {...cleanedAttrs} id={id} className={classes()} onChange={internalOnChange}>
+        {options && options.map((option, index) => {
+          const optionId = `${id}-${index}`
+          if (typeof option === 'string') {
+            return <div className={classes('divider')} key={optionId}>{option}</div>
+          }
+          const selected = typeof value === 'object' ? (option.value === value?.value) : (option.value === value);
           return (
-            <label key={option.key || option.id} className={`${classBlock}-label`}>
-              <input
-                id={option.id}
-                type="radio"
-                name="radio"
-                className={`${classBlock}-input`}
-                value={option.value}
-              />
-              {option.label}
-            </label>
+            <Radio 
+              key={optionId}
+              id={optionId}
+              name={name}
+              option={option}
+              selected={selected}
+              classBlock={classBlock}
+              classModifiers={classModifiers}
+              className={className}
+            />
           );
         })}
-      </fieldset>
     </div>
   );
 };

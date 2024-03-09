@@ -1,26 +1,30 @@
 @import '../../main.scss';
 
-.radios-container {
-  margin-bottom: 1rem;
+.radios__item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-bottom: 0.25rem;
 }
 
-.radios-label {
-  display: flex;
+.radios__label {
+  display: inline-block;
   align-items: center;
   box-sizing: border-box;
-  width: 100%;
+  width: auto;
+  top: 0;
   padding: 0.25em 0;
-  font-size:1rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 
-.radios-input {
+.radios__input {
   margin-right: 1rem;
   height: 2rem;
   width: 2rem;
 }
 
-.radios-input:before {
+.radios__input::before {
   position: absolute;
   display: inline-block;
   content: '';
@@ -32,7 +36,7 @@
   outline: none;
 }
 
-.radios-input:checked:after {
+.radios__input:checked::after {
   position: relative;
   display: inline-block;
   content: '';
@@ -43,9 +47,10 @@
   border: 2px solid $theme-primary;
   border-radius: 1rem;
   background-color: $theme-primary;
+  outline: none;
 }
 
-.radios-input:focus::before {
+.radios__input:focus::before {
   outline: none;
   box-shadow: 0 0 0 0.05rem white, 0 0 0 0.2rem $theme-tertiary;
   border-radius: 1rem;

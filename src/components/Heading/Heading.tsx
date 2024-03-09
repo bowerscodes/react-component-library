@@ -27,7 +27,7 @@ export const Heading = ({
   const classes = classBuilder(classBlock, classModifiers, className)
 
   return (
-    <div className="heading-container">
+    <div className={classes('container')}>
       <h1 className={classes()} id={id}>
         {headingText ? headingText : children || null}
       </h1>

@@ -1,68 +1,87 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 import Checkbox, { CheckboxOption } from './Checkbox';
-import { cleanHtmlAttributes } from '../../utils/Utils';
+import { classBuilder, cleanHtmlAttributes } from '../../utils/Utils';
 import './Checkboxes.scss';
+import React from 'react';
 
 export const DEFAULT_CLASS = 'checkboxes';
 
 export type CheckboxesProps = {
   id: string;
   fieldId?: string;
-  name?: string;
-  label: string;
   options: Array<CheckboxOption>;
-  value?: string | { value: string }[];
-  onChange?: (selection: string[]) => {};
+  value?: string[] | { value: string }[];
+  onChange?: (event: React.ChangeEvent<{ name?: string; value: string | string[] | { value: string }[] }>) => void;
   classBlock?: string;
+  classModifiers?: string | string[];
+  className?: string;
 };
 
 export const Checkboxes = ({
   id,
   fieldId = id,
-  name = id,
-  label,
   options = [],
   value = [],
-  onChange = () => ({}),
+  onChange = (event: React.ChangeEvent<{ name?: string; value: string | string[] | { value: string }[] }>) => {},
   classBlock = DEFAULT_CLASS,
+  classModifiers = [],
+  className = '',
   ...attrs
 }: CheckboxesProps) => {
 
-  const selection = useRef<string[]>([]);
+  const classes = classBuilder(classBlock, classModifiers, className);
 
-  const handleCheckboxChange = (option: CheckboxOption) => {
-    const optionValue = option.value;
-    const index = selection.current.indexOf(optionValue);
+  const selection = useRef<any>([]);
 
-    if (index === -1) {
-      selection.current = [...selection.current, optionValue];
-    } else {
-      selection.current = [...selection.current.slice(0, index), ...selection.current.slice(index + 1)];
-    }
-    onChange(selection.current);
+  const handleOnChange = () => {
+    if (typeof onChange === 'function' && selection.current !== value) {
+      const event = { 
+        target: { name: fieldId, value: selection.current } 
+      } as React.ChangeEvent<HTMLInputElement>;
+      onChange(event);
+    }  
   };
 
+  const updateSelection = (event: { target: { name: string; value: string; checked: boolean} }, option: CheckboxOption) => {
+    const {value, checked} = event.target;
+    const targetValue = value;
+    if (checked) {
+      selection.current = [...selection.current, value];
+    } else {
+      selection.current = selection.current.filter((s:any) => s !== value);
+    }
+    handleOnChange();
+  };
+
+  useEffect(() => {
+    selection.current = value || [];
+  }, [value]);
+  
+  const idParts = (id || '').split('.');
+  idParts.pop();
+  idParts.push(fieldId);
+  const name = idParts.join('.');
   const cleanedAttrs = cleanHtmlAttributes(attrs);
 
   return (
-    <div {...cleanedAttrs} className={`${classBlock}-container`}>
-      <fieldset id={id}>
-        <legend className="label label--m">
-          {label}
-        </legend>
-        {options.map((option) => (
+    <div {...cleanedAttrs} id={id} className={classes()}>
+      {options && options.map((option, index) => {
+        const optionId = `${id}-${index}`;
+        if (typeof option === 'string') {
+          return <div className={classes('divider')} key={optionId}>{option}</div>;
+        }
+        return (
           <Checkbox
-            key={option.key}
-            id={`${id}-${option.key}`}
+            key={optionId}
+            id={optionId}
             name={name}
             option={option}
             checked={selection.current.includes(option.value)}
-            onChange={() => handleCheckboxChange(option)}
-            {...attrs}
+            onChange={event => updateSelection(event, option)}
           />
-        ))}
-      </fieldset>
+        );
+      })}
     </div>
   );
 };

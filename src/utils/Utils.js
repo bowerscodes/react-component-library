@@ -6,8 +6,25 @@ const getObjPath = (path, obj, fallback = '') => {
 
 export const concatClasses = (...classes) => classes.flat(Infinity).filter((cs) => !!cs).join(' ') || undefined;
 
+/**
+ * Creates an array from the src parameter
+ * @param {*} src 
+ * @returns src, if it already an array - otherwise, an array containing src.
+ */
 export const toArray = (src) => Array.isArray(src) ? src : src && [src];
 
+/**
+ * Interpolates a string with variables.
+ * @param {*} template  the template string
+ * @param {*} variables  the values to be used in the interpolation
+ * @param {*} fallback  defaults to ('')
+ * @returns A fully interpolated string.
+ * 
+ * @example interpolateString('<span>{item.label}</span>', { item: { id: '1' label: 'Item 1' } });
+ * => <span>Item 1</span>
+ * @example interpolateString('<span>${forename} ${surname}</span>', { forename: 'John' }, 'Doe' );
+ * => <span>John Doe</span>
+ */
 export const interpolateString = (template, variables, fallback) => {
   const obj = variables ?? {};
   if (typeof template ==='string') {
@@ -31,6 +48,11 @@ export const classBuilder = (block, blockModifiers, blockExtra) => {
   };
 };
 
+/**
+ * Converts a number from 1 and 12 to the corresponding month name.
+ * @param {number} month - The month number to convert.
+ * @returns the name of the month.
+ */
 const MONTH_NAMES = [
   'January',
   'February',
@@ -63,6 +85,21 @@ export const itemLabel = (structure) => {
   return (item) => item || '';
 }
 
+/**
+ * Takes an array and returns a string with the items written out as 
+ * a list.
+ * 
+ * @example toWrittenList(['one', 'two', 'three']) 
+ *  => 'one, two and three'
+ * 
+ * @example toWrittenList(['one', 'two', 'three'], 'or')
+ *  => 'one, two or three'
+ * 
+ * @param {Array} array The array of entries to derive the list from.
+ * @param {String} finalSeparator The string to use before the final entry (defaults to 'and')
+ * @param {Boolean} uppercase Whether to convert the list to uppercase.
+ * @returns the array in written list form.
+ */
 export const toWrittenList = (array, finalSeparator = 'and', uppercase = false ) => {
   if (!Array.isArray(array)) {
     return '';
@@ -81,7 +118,13 @@ export const COMPONENT_TYPES = {
   TEXT_AREA: 'text-area',
 };
 
-
+/**
+* The following takes the attributes for a component and assigns them 
+* to the data attribute if they are not standard HTML attributes for 
+* the component.
+* @param {object} attrs - The attributes to be cleaned.
+* @returns an object containing Global Attributes and Data Attributes.
+*/
 const DETAILS_ATTRS = [
   'open',
 ];
@@ -241,7 +284,7 @@ const getAttributes = (type) => {
     case COMPONENT_TYPES.INPUT:
       return GLOBAL_ATTRS.concat(INPUT_ATTRS);
     case COMPONENT_TYPES.FILE_UPLOAD:
-      return GLOBAL_ATTRS.concat(INPUT_ATTRS);
+      return GLOBAL_ATTRS.concat(INPUT_ATTRS).pop('value');
     default:
       return GLOBAL_ATTRS;
   }
@@ -263,7 +306,6 @@ export const cleanHtmlAttributes = (attrs, type) => {
   };
   return {};
 };
-
 
 const Utils = {
   classBuilder,

@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import Radios from './Radios';
+import Radios, { RadiosProps } from './Radios';
+import Group, { GroupProps } from '../Group/Group';
 
 const meta: Meta<typeof Radios> = {
   title: 'Radios',
@@ -8,35 +9,47 @@ const meta: Meta<typeof Radios> = {
   tags: ['components', 'radios']
 };
 
-// let parsedData = JSON.parse(JSON.stringify(page));
-// let allRadios: Array<typeof Radios> = [];
-
-const radios = {
-
-  label: "Would you like us to keep you updated via email?",
+const radiosProps: RadiosProps = {
+  id: 'radios',
+  fieldId: "Would-you-like-us-to-keep-you-updated-via-email?",
   options: [
     {
-      key: "radio1",
-      id: "no",
       value: "no",
       label: "No thanks"
     },
     {
-      key: "radio2",
-      id: "yes",
       value: "yes",
       label: "Yes please!"
     }
   ],
-  onChange: (selection: string) => {
-    console.log(selection);
-    return {}
-  }
+};
+const groupProps: GroupProps = {
+  id: 'group-example',
+  label: 'Would you like us to keep you updated via email?',
+  children: 
+  <Radios {...radiosProps} />,
+};
+
+type GroupWithRadiosProps = {
+  groupProps: GroupProps,
+  radiosProps: RadiosProps,
+}
+
+const GroupWithRadios: React.FC<GroupWithRadiosProps> = ({ groupProps, radiosProps }: GroupWithRadiosProps) => {
+  return(
+  <Group {...groupProps}>
+    <Radios {...radiosProps} />
+  </Group>
+  );
 };
 
 export default meta;
-type Story = StoryObj<typeof Radios>;
 
-export const Default: Story = {
-  args: {...radios}
+type Story = StoryObj<typeof GroupWithRadios>;
+
+export const Default: Story = (args: GroupWithRadiosProps) => <GroupWithRadios {...args} />;
+
+Default.args = {
+  groupProps: groupProps,
+  radiosProps: radiosProps,
 };
