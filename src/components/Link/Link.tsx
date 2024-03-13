@@ -3,6 +3,7 @@ import { classBuilder } from '../../utils/Utils';
 import './Link.scss';
 
 export const DEFAULT_CLASS = 'link';
+export const DEFAULT_TARGET = '_blank';
 
 type Props = {
   children?: React.ReactNode;
@@ -17,7 +18,7 @@ type Props = {
 export const Link = ({
   children,
   href = undefined,
-  target,
+  target = DEFAULT_TARGET,
   classBlock = DEFAULT_CLASS,
   classModifiers = [],
   className = '',
