@@ -8,19 +8,19 @@ export const DEFAULT_CLASS = 'back-to-top-link';
 export const DEFAULT_TEXT = 'Back to top';
 
 type Props = {
+  linkText?: string;
+  overrideShow?: boolean;
   classBlock?: string;
   classModifiers?: string | [];
   className?: string;
-  linkText?: string;
-  overrideShow?: boolean;
 };
 
 export const BackToTop = ({
+  linkText = DEFAULT_TEXT,
+  overrideShow = false,
   classBlock = DEFAULT_CLASS,
   classModifiers,
   className,
-  linkText = DEFAULT_TEXT,
-  overrideShow = false,
   ...attrs
 }: Props) => {
 

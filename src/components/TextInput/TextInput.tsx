@@ -14,7 +14,7 @@ interface TextInputProps {
   attrs?: any;
 };
 
-export const DEFAULT_CLASS = 'textInput'
+export const DEFAULT_CLASS = 'text-input'
 
 export const TextInput = ({
   id,
@@ -23,7 +23,7 @@ export const TextInput = ({
   error = false,
   readonly = false,
   width = 'm',
-  classBlock ='textInput',
+  classBlock =DEFAULT_CLASS,
   classModifiers: _classModifiers = [width],
   className = null,
   ...attrs
@@ -40,7 +40,7 @@ export const TextInput = ({
       disabled={disabled}
       id={id}
       name={fieldId}
-      type="text"
+      type='text'
       className={classes()}
     />
   );
