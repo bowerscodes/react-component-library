@@ -1,7 +1,9 @@
 import Label from '../Label';
 import Hint from '../Hint';
+import Error from '../Error';
 import './Group.scss';
 import { classBuilder, cleanHtmlAttributes, toArray } from '../../utils/Utils';
+import React from 'react';
 
 export const DEFAULT_CLASS = 'group';
 
@@ -10,6 +12,7 @@ export type GroupProps = {
   id: string;
   label: string;
   hint?: string;
+  error?: React.ReactNode;
   fieldset?: boolean;
   classBlock?: string;
   classModifiers?: string[];
@@ -21,6 +24,7 @@ export const Group = ({
   id,
   label,
   hint,
+  error,
   fieldset = false,
   classBlock = DEFAULT_CLASS,
   classModifiers: _classModifiers = [],
@@ -40,12 +44,14 @@ export const Group = ({
             <Label id={id}>{label}</Label>
           </legend>
           {hint && <Hint>{hint}</Hint>}
+          {error && <Error id={`${id}-error`}>{error}</Error>}
           {children}
         </fieldset>}
         {!fieldset && 
         <>
           <Label id={id}>{label}</Label>
           {hint && <Hint>{hint}</Hint>}
+          {error && <Error id={`${id}-error`} >{error}</Error>}
           {children}
         </>
         }

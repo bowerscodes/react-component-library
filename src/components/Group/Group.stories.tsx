@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import Group from './Group';
+import Group, { GroupProps } from './Group';
 import TextInput from '../TextInput';
 
 const meta: Meta<typeof Group> = {
@@ -8,7 +8,7 @@ const meta: Meta<typeof Group> = {
   tags: ['components', 'Group'],
 };
 
-const group = {
+const group: GroupProps = {
   id: 'group-example',
   label: 'Address Details',
   children: [
@@ -21,6 +21,7 @@ const group = {
 };
 
 const defaultArgs = group;
+const errorArgs = { ...group, error: 'Please comlete all fields.' };
 
 export default meta;
 type Story = StoryObj<typeof Group>;
@@ -34,4 +35,8 @@ export const Fieldset: Story = {
     ...defaultArgs,
     fieldset: true,
   },
+};
+
+export const Error: Story = {
+  args: { ...errorArgs },
 };

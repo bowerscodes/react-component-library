@@ -1,0 +1,10 @@
+@import '../../main.scss';
+
+.error {
+  display: block;
+  border-left: 4px solid $color-error;
+  padding-left: 0.7rem;
+  margin: 0 0 0.5rem;
+  color: $color-error;
+  clear: both;
+}
