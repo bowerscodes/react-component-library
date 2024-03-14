@@ -4,6 +4,8 @@ import './TextInput.scss';
 interface TextInputProps {
   id: string;
   fieldId?: string;
+  value?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
   error?: any;
   readonly?: boolean;
@@ -19,6 +21,8 @@ export const DEFAULT_CLASS = 'input'
 export const TextInput = ({
   id,
   fieldId = id,
+  value,
+  onChange,
   disabled = false,
   error = false,
   readonly = false,

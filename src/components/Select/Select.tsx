@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
-import { classBuilder, cleanHtmlAttributes } from '../../utils/Utils';
+import { classBuilder, cleanHtmlAttributes, toArray } from '../../utils/Utils';
 
 import './Select.scss';
 
@@ -46,12 +46,13 @@ export const Select = ({
   returnFullData,
   target,
   classBlock = DEFAULT_CLASS,
-  classModifiers: _classModifiers,
+  classModifiers: _classModifiers = [],
   className = '',
   ...attrs
 }: Props) => {
 
-  const classes = classBuilder(classBlock, _classModifiers, className)
+  const classModifiers = [...toArray(_classModifiers), error && 'error']
+  const classes = classBuilder(classBlock, classModifiers, className)
   const cleanedAttrs = cleanHtmlAttributes(attrs)
   
   const [selected, setSelected] = useState(value || defaultValue || '');

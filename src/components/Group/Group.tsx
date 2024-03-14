@@ -11,6 +11,7 @@ export type GroupProps = {
   children: React.ReactNode;
   id: string;
   label: string;
+  labelSize?: 'xs' | 's' | 'm' | 'l' | 'xl';
   hint?: string;
   error?: React.ReactNode;
   fieldset?: boolean;
@@ -23,6 +24,7 @@ export const Group = ({
   children,
   id,
   label,
+  labelSize,
   hint,
   error,
   fieldset = false,
@@ -41,16 +43,16 @@ export const Group = ({
       {fieldset && 
         <fieldset className={classes('fieldset')}>
           <legend className={classes('legend')}>
-            <Label id={id}>{label}</Label>
+            <Label id={id} size={labelSize}>{label}</Label>
           </legend>
-          {hint && <Hint>{hint}</Hint>}
+          {hint && <Hint size='s' >{hint}</Hint>}
           {error && <Error id={`${id}-error`}>{error}</Error>}
           {children}
         </fieldset>}
         {!fieldset && 
         <>
-          <Label id={id}>{label}</Label>
-          {hint && <Hint>{hint}</Hint>}
+          <Label id={id} size={labelSize}>{label}</Label>
+          {hint && <Hint size='s' >{hint}</Hint>}
           {error && <Error id={`${id}-error`} >{error}</Error>}
           {children}
         </>
