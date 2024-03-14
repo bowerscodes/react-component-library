@@ -21,7 +21,20 @@ const group: GroupProps = {
 };
 
 const defaultArgs = group;
-const errorArgs = { ...group, error: 'Please comlete all fields.' };
+
+ const groupError: GroupProps = {
+  id: 'group-example',
+  label: 'Address Details',
+  children: [
+    <p>Enter your address:</p>,
+    <TextInput id="example" error />,
+    <TextInput id="example" error />,
+    <TextInput id="example" error />,
+    <TextInput id="example" error />
+  ]
+ }
+
+const errorArgs = { ...groupError, error: 'Please comlete all fields.' };
 
 export default meta;
 type Story = StoryObj<typeof Group>;

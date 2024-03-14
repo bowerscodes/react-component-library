@@ -1,9 +1,9 @@
+import React from 'react';
 import Label from '../Label';
 import Hint from '../Hint';
 import Error from '../Error';
-import './Group.scss';
 import { classBuilder, cleanHtmlAttributes, toArray } from '../../utils/Utils';
-import React from 'react';
+import './Group.scss';
 
 export const DEFAULT_CLASS = 'group';
 
@@ -32,7 +32,7 @@ export const Group = ({
   ...attrs
 }: GroupProps) => {
 
-  const classModifiers = [...toArray(_classModifiers)];
+  const classModifiers = [...toArray(_classModifiers), error && 'error'];
   const classes = classBuilder(classBlock, classModifiers, className);
   const cleanedAttrs = cleanHtmlAttributes(attrs);
 

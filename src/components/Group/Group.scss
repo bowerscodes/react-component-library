@@ -2,4 +2,9 @@
 
 .group {
   display: block;
+
+  &--error {
+    border-left: 4px solid $color-error !important;
+    padding-left: 1rem;
+  }
 }

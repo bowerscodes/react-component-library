@@ -14,7 +14,7 @@ interface TextInputProps {
   attrs?: any;
 };
 
-export const DEFAULT_CLASS = 'text-input'
+export const DEFAULT_CLASS = 'input'
 
 export const TextInput = ({
   id,
@@ -29,7 +29,7 @@ export const TextInput = ({
   ...attrs
 }: TextInputProps) => {
   
-  const classModifiers = [...toArray(_classModifiers)];
+  const classModifiers = [...toArray(_classModifiers), error && 'error'];
   const classes = classBuilder(classBlock, classModifiers, className)
 
   const cleanedAttrs = cleanHtmlAttributes(attrs, COMPONENT_TYPES.INPUT)

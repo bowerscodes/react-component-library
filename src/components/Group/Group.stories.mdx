@@ -1,0 +1,17 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import Group, { GroupProps } from './Group';
+import TextInput from '../TextInput';
+
+<Meta title='Group' component={Group} />
+
+# Group
+
+A Group contains form fields, and handles associated Hint and Error messages.
+
+<Canvas>
+  <Story name='Example'>
+    <Group id='group' label="Basic Group">
+      <TextInput />
+    </Group>
+  </Story>
+</Canvas>

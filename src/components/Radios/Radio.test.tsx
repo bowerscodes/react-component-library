@@ -140,7 +140,7 @@ describe('Radio', () => {
         <Radio data-testid={id} id={id} name={fieldId} option={option} selected />
       );
       const nestedElement = container.childNodes[1].childNodes[0];
-      expect(nestedElement).toHaveClass('text-input');
+      expect(nestedElement).toHaveClass('input');
       expect((nestedElement as HTMLInputElement).tagName).toEqual('INPUT');
     });
   });

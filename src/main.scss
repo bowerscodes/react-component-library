@@ -17,6 +17,9 @@ $link-visited: #4e85cd;
 // ERROR
 $color-error: #FF6B6B;
 
+// BORDER
+$color-border: $theme-dark;
+$color-focus: $theme-tertiary;
 
 /* SIZES */
 
@@ -39,6 +42,46 @@ $heading-s: 2rem;
 $heading-m: 2.5rem;
 $heading-l: 3rem;
 $heading-xl: 4rem;
+
+// INPUTS
+.input {
+  font-size: $fontsize-s;
+  line-height: 1.5em;
+  box-sizing: border-box;
+  width: 100%;
+  height: 2rem;
+  margin: 0.25rem 0 0.5rem;
+  border: 2px solid $color-border;
+  border-radius: 0.1em;
+  padding: 0.4em;
+
+  &:focus {
+    outline: 2px solid $color-focus;
+    outline-offset: 0;
+    box-shadow: inset 0 0 0 1px;
+  }
+
+  &--error {
+    border: 2px solid $color-error;
+
+    &:focus {
+      border-color: $color-border;
+    }
+  }
+
+  &--s {
+    width: 20ch;
+  }
+  &--m {
+    width: 30ch;
+  }
+  &--l {
+    width: 45ch;
+  }
+  &--xl {
+    width: 60ch;
+  }
+}
 
 // MIXINS
 @mixin HeadingStyles ($fontSize: 3rem) {

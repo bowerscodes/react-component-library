@@ -18,6 +18,12 @@ export const Medium: Story = {
   }
 };
 
+export const Error: Story = {
+  args: {
+    error: 'Please complete all fields.'
+  }
+};
+
 export const Small: Story = {
   args: {
     width: 's'
