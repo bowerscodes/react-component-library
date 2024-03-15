@@ -4,6 +4,7 @@ import './Button.scss';
 export type ButtonProps = {
   key?: string;
   id: string;
+  children?: any;
   label: string;
   disabled?: boolean;
   type: 'primary' | 'secondary' | 'warning';
@@ -17,6 +18,9 @@ export type ButtonProps = {
 export const DEFAULT_CLASS = 'button';
 
 export const Button = ({
+  key,
+  id,
+  children,
   label,
   disabled = false,
   type = 'primary',
@@ -29,7 +33,7 @@ export const Button = ({
 
   const classModifiers = [...toArray(_classModifiers)];
   const classes = classBuilder(classBlock, classModifiers, className)
-
+  
   return (
     <button 
       aria-disabled={disabled}
@@ -37,7 +41,7 @@ export const Button = ({
       {...attrs}
       className={classes()}
     >
-      {label}
+      {label ? label : children}
     </button>
   );
 };

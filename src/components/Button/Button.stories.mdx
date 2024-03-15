@@ -1,0 +1,35 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import Button from './';
+
+<Meta name='Button' component={Button}/>
+
+# Button
+
+The `<Button/>` component renders a clickable `<button>` element, which 
+accepts an `onClick` handler and a `type` prop to determine the button's 
+appearance. Available types are `primary`, `secondary` and `warning`.
+
+The button's text can be passed in either as a `label` prop, or as a child - 
+i.e. `<Button>Click me</Button>`.
+
+<Canvas>
+  <Story name='Default'>
+    <Button>Primary</Button>
+    <Button type='secondary'>Secondary</Button>
+    <Button type='warning'>Warning</Button>
+  </Story>
+</Canvas>
+
+## Overriding the Button size
+
+The button's default size of `'m'` can be overridden by passing a `size` prop. Available sizes
+are `'s'`, `'m'`, `'l'`, and `'xl'`.
+
+<Canvas>
+  <Story name='Sizes'>
+    <Button size='s'>Small</Button>
+    <Button size='m'>Medium</Button>
+    <Button size='l'>Large</Button>
+    <Button size='xl'>Extra Large</Button>
+  </Story>
+</Canvas>

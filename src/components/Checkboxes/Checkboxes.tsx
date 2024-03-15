@@ -48,8 +48,9 @@ export const Checkboxes = ({
     const targetValue = value;
     if (checked) {
       selection.current = [...selection.current, value];
-    } else {
-      selection.current = selection.current.filter((s:any) => s !== value);
+    } 
+    else {
+      selection.current = selection.current.filter((s:any) => s !== targetValue);
     }
     handleOnChange();
   };

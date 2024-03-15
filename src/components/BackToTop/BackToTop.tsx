@@ -10,6 +10,7 @@ export const DEFAULT_TEXT = 'Back to top';
 type Props = {
   linkText?: string;
   overrideShow?: boolean;
+  showOnScrollY?: number;
   classBlock?: string;
   classModifiers?: string | [];
   className?: string;
@@ -18,6 +19,7 @@ type Props = {
 export const BackToTop = ({
   linkText = DEFAULT_TEXT,
   overrideShow = false,
+  showOnScrollY = 300,
   classBlock = DEFAULT_CLASS,
   classModifiers,
   className,
@@ -36,7 +38,7 @@ export const BackToTop = ({
 
   useEffect(() => {
     const handleScrollButtonVisibility = () => {
-      if (window.scrollY > 300) {
+      if (window.scrollY > showOnScrollY) {
         setShowBackToTop(true);
       }
       else if (!overrideShow) {

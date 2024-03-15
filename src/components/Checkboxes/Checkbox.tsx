@@ -73,7 +73,7 @@ export const Checkbox = ({
               {option.hint && (
                 <Hint
                   id={`${id}-hint`}
-                  classBlock={classes('hint')}
+                  size='s'
                 >
                   {option.hint}
                 </Hint>

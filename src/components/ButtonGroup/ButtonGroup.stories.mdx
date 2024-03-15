@@ -1,0 +1,67 @@
+import { Canvas ,Meta, Story } from '@storybook/addon-docs';
+import ButtonGroup from './';
+
+<Meta name='Button Group' component={ButtonGroup}/>
+
+# Button Group
+
+A `<ButtonGroup/>` is a set of buttons that are visually grouped together 
+along with a `<Label/>` and optional text and `<Hint/>`. It is typically 
+used to group related actions. 
+Typical Button Group configurations are shown below.
+
+## Single Button
+<Canvas>
+  <Story name='Single Button'>
+    <ButtonGroup 
+      id='single-button'
+      label='Before you begin'
+      buttons={[{ label: 'Start', type: 'primary' }]}
+      content={{ 
+        text: 'Please ensure you have all the required information before you begin.' ,
+        hint: 'This is form will take around 5 minutes to complete' 
+      }}
+      width='one-half'
+    />
+  </Story>
+</Canvas>
+
+## Two Buttons
+
+<Canvas>
+  <Story name='Two Buttons'>
+    <ButtonGroup 
+      id='two-buttons'
+      label='Confirmation'
+      buttons={[
+        { label: 'Continue', type: 'primary' },
+        { label: 'Cancel', type: 'secondary' }
+      ]}
+      content={{ 
+        text: 'Please ensure the information you have provided is accurate.' ,
+        hint: 'Responses cannot be amended after submission' 
+      }}
+      width='two-thirds'
+    />
+  </Story>
+</Canvas>
+
+## Warning
+
+<Canvas>
+    <Story name='Warning'>
+    <ButtonGroup 
+      id='two-buttons'
+      label='Warning'
+      buttons={[
+        { label: 'Delete Account', type: 'warning' },
+        { label: 'Cancel', type: 'secondary' }
+      ]}
+      content={{ 
+        text: 'Please confirm you wish to delete your account.' ,
+        hint: 'This is permanent and cannot be undone' 
+      }}
+      width='full'
+    />
+  </Story>
+</Canvas>

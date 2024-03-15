@@ -5,7 +5,7 @@ type Props = {
   id?: string;
   headingText: string;
   children?: React.ReactNode;
-  size?: "s" | "m" | "l" | "xl";
+  size?: 's' | 'm' | 'l' | 'xl';
   classBlock?: string;
   classModifiers?: string[];
   className?: string;

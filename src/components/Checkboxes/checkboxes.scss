@@ -1,5 +1,11 @@
 @import '../../main.scss';
 
+.checkboxes {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .checkbox__container {
   display: block;
   box-sizing: border-box;

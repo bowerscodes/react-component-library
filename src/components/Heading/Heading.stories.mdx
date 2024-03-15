@@ -1,0 +1,29 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import Heading from './';
+
+<Meta title="Heading" component={Heading}/>
+
+# Heading
+
+A `<Heading/>` component renders a string of text inside a `<h1>` tag, with
+associated styling. 
+
+<Canvas>
+  <Story name="Default">
+    <Heading>Heading</Heading>
+  </Story>
+</Canvas>
+
+## Alternative sizes
+An optional `size` prop of `'s' | 'm' | 'l' | 'xl'` can be passed in to change the 
+size, otherwise it is defaulted to `'m'`.
+
+<Canvas>
+  <Story name="Alternative Sizes">
+    <Heading size="s">Small</Heading>
+    <Heading size="m">Medium</Heading>
+    <Heading size="l">Large</Heading>
+    <Heading size="xl">Extra Large</Heading>
+  </Story>
+</Canvas>
+

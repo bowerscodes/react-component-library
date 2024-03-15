@@ -1,7 +1,6 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
-import Group, { GroupProps } from './Group';
+import Group from './Group';
 import TextInput from '../TextInput';
-import styles from '../../main.scss';
 
 <Meta title='Group' component={Group} />
 
@@ -11,12 +10,14 @@ A Group can be used to organise form fields.
 Groups can be set to wrap their fields in a `<fieldset>` tag with associated `<legend>`, by passing the optional `fieldset` prop.
 
 <Canvas>
-  <Story name='Example'>
+  <Story name='Default'>
     <Group id='group' label='Basic Group' fieldset>
       <TextInput />
     </Group>
   </Story>
 </Canvas>
+
+## Group with Hint & Error 
 
 Groups act as an enclosing wrapper which handles associated Hint and Error messages.
 
