@@ -18,8 +18,9 @@ $link-visited: #4e85cd;
 $color-error: #FF6B6B;
 
 // BORDER
-$color-border: $theme-dark;
-$color-focus: $theme-tertiary;
+$border-color: $theme-dark;
+$border-thickness: 2px;
+$focus-color: $theme-tertiary;
 
 /* SIZES */
 
@@ -55,12 +56,12 @@ $heading-xl: 4.5rem;
   width: 100%;
   height: 2rem;
   margin: 0.25rem 0 0.5rem;
-  border: 2px solid $color-border;
+  border: 2px solid $border-color;
   border-radius: 0.1em;
   padding: 0.4em;
 
   &:focus {
-    outline: 2px solid $color-focus;
+    outline: 2px solid $focus-color;
     outline-offset: 0;
     box-shadow: inset 0 0 0 1px;
   }
@@ -69,7 +70,7 @@ $heading-xl: 4.5rem;
     border: 2px solid $color-error;
 
     &:focus {
-      border-color: $color-border;
+      border-color: $border-color;
     }
   }
 

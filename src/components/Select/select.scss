@@ -1,6 +1,6 @@
 @import '../../main.scss';
 
-select {
+.select {
   display: block;
   background-color: transparent;
   border: 2px solid $theme-dark;
@@ -17,7 +17,12 @@ select {
   max-width: 30ch;
   background: $theme-light;
   margin: 0.5rem 0 1.5rem;
-}
-select:focus {
-  outline: 2px solid $theme-tertiary;
+
+  &:focus {
+    outline: 2px solid $theme-tertiary;
+  }
+  
+  &--error {
+    border: 2px solid $color-error;
+  }
 }

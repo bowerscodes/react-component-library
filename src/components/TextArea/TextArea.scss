@@ -1,0 +1,39 @@
+@import '../../main.scss';
+
+textarea {
+  display: none;
+}
+
+.text-area {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  min-height: 3rem;
+  padding: 0.5rem;
+  resize: none;
+  border: $border-thickness solid $border-color;
+  border-radius: 0.1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  &:focus {
+    outline: $border-thickness solid $theme-tertiary;
+  }
+
+  &--half {
+    width: 50%;
+  }
+  &--one-third {
+    width: 33.3333%;
+  }
+  &--two-thirds {
+    width: 66.6666%;
+  }
+  &--full {
+    width: 100%;
+  }
+
+  &--error {
+    border-color: $color-error;
+  }
+}
