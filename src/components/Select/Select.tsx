@@ -12,7 +12,6 @@ type Option = {
 type Props = {
   id: string;
   fieldId: string;
-  label?: string;
   disabled?: boolean;
   error?: string;
   options: Option[];
@@ -34,7 +33,6 @@ export const DEFAULT_PLACEHOLDER = 'Select an option';
 export const Select = ({
   id,
   fieldId = id,
-  label,
   disabled,
   error,
   options,

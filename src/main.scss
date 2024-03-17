@@ -36,6 +36,10 @@ $label-m: 1.2em;
 $label-l: 1.8em;
 $label-xl: 2.5em;
 
+.label--m {
+  margin-bottom: 0.5rem;
+}
+
 // HEADINGS
 $heading-xs: 1.5rem;
 $heading-s: 2rem;
@@ -90,6 +94,15 @@ $heading-xl: 4.5rem;
   }
   &--xl {
     width: 60ch;
+  }
+  &--one-third {
+    width: 33.3333%;
+  }
+  &one-half {
+    width: 50%;
+  }
+  &--two-thirds {
+    width: 66.6666%;
   }
 }
 

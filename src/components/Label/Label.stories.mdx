@@ -1,0 +1,30 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import Label from './';
+
+<Meta title="Label" component={Label} />
+
+# Label
+
+The `<Label>` component renders its `children` within a `<label>` tag. It 
+is most often used to label form inputs. 
+
+<Canvas>
+  <Story name="Default">
+    <Label id="example">Default Label</Label>
+  </Story>
+</Canvas>
+
+## Alternative Sizes
+
+The optional `size` prop can be passed a value of 
+`'xs' | 's' | 'm' | 'l' | 'xl'` to adjust the font size.
+
+<Canvas>
+  <Story name="Alternative Sizes">
+    <Label id="example" size="xs">Extra Small Label</Label>
+    <Label id="example" size="s"> Small Label</Label>
+    <Label id="example" size="m">Medium Label</Label>
+    <Label id="example" size="l">Large Label</Label>
+    <Label id="example" size="xl">Extra Large Label</Label>
+  </Story>
+</Canvas>
