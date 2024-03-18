@@ -5,10 +5,10 @@ export type ButtonProps = {
   key?: string;
   id: string;
   children?: any;
-  label: string;
+  label?: string;
   disabled?: boolean;
   type: 'primary' | 'secondary' | 'warning';
-  size?: 's' | 'm' | 'l' | 'xl';
+  size?: 'xs' | 's' | 'm' | 'l' | 'xl' | '';
   onClick?: () => void;
   classBlock?: string;
   classModifiers?: string[];
@@ -21,10 +21,10 @@ export const Button = ({
   key,
   id,
   children,
-  label,
+  label = children,
   disabled = false,
   type = 'primary',
-  size = 'm',
+  size = '',
   classBlock = DEFAULT_CLASS,
   classModifiers: _classModifiers = [type, size],
   className = '',

@@ -15,7 +15,7 @@ $link: $theme-primary;
 $link-visited: #4e85cd;
 
 // ERROR
-$color-error: #FF6B6B;
+$color-error: $theme-secondary;
 
 // BORDER
 $border-color: $theme-dark;
@@ -30,6 +30,9 @@ $fontsize-s: 1em;
 $fontsize-m: 1.3em;
 $fontsize-l: 1.75em;
 
+$font-weight-normal: 400;
+$font-weight-bold: 600;
+
 // LABELS
 $label-xs: 0.9em;
 $label-s: 1em;
@@ -37,16 +40,57 @@ $label-m: 1.2em;
 $label-l: 1.8em;
 $label-xl: 2.5em;
 
-.label--m {
-  margin-bottom: 0.5rem;
-}
-
 // HEADINGS
 $heading-xs: 1.5rem;
 $heading-s: 2rem;
 $heading-m: 2.5rem;
 $heading-l: 3.5rem;
 $heading-xl: 4.5rem;
+
+/* MARGINS & SPACING */
+$margin-standard: 1rem;
+$margin-half: 0.5rem;
+$margin-quarter: 0.25rem;
+$margin-double: 2rem;
+
+$padding-half: 0.5rem;
+$padding-three-quarters: 0.75rem;
+
+$gutter-padding: 0.4rem;
+$gutter-bottom: 1rem;
+$gutter-error: 0.75rem;
+
+/* BUTTONS */
+$button-width-xs: 3rem;
+$button-width-s: 5rem;
+$button-width-m: 10rem;
+$button-width-l: 15rem;
+$button-width-xl: 20rem;
+
+@mixin box-shadow($height: -3px) {
+  box-shadow: rgba($theme-dark, 0.2) 0px $height 0px inset, rgba($theme-light, 0.2) 0px 1px 0px inset;
+}
+
+@mixin box-shadow-hover($depth: 2px) {
+  box-shadow: rgba($theme-dark, 0.2) 0px $depth 0px inset;
+}
+@mixin box-shadow-down($depth: 3px) {
+  box-shadow: rgba($theme-dark, 0.2) 0px $depth 0px inset;
+}
+
+
+.label {
+  &--xs, &--s {
+    margin-bottom: $margin-quarter;
+  }
+  &--m, &--l {
+    margin-bottom: $margin-half;
+  }
+  &--xl {
+    margin-bottom: $margin-standard;
+  }
+}
+
 
 // INPUTS
 .input {

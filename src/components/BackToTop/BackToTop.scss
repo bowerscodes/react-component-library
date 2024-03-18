@@ -3,10 +3,10 @@
 .back-to-top-link {
 
   &__wrapper {
-    margin-top: 0.75em;
+    margin-top: $margin-half;
   }
 }
 
 .back-to-top-link__arrow {
-  margin-right: 0.25em;
+  margin-right: $margin-half;
 }

@@ -1,21 +1,39 @@
 @import '../../main.scss';
 
-button {
-  border: 2px solid $theme-dark;
+
+.button {
+  border: $border-thickness solid $theme-dark;
   color: $theme-light;
-  font-weight: 600;
-  margin: 0.7em 0.7em 0 0;
-  padding: 0.5em 1.5em;
-  box-shadow: rgba($theme-dark, 0.2) 0px -3px 0px inset, rgba($theme-light, 0.2) 0px 1px 0px inset;
+  text-align: center;
+  overflow: hidden;
+  font-weight: $font-weight-bold;
+  margin: $margin-half $margin-half 0 0;
+  padding: $padding-half $padding-three-quarters;
+  @include box-shadow();
   text-shadow: rgba($theme-dark, 0.4) 0px 1px 1px;
   cursor: pointer;
 
   &:hover {
-    box-shadow: rgba($theme-dark, 0.2) 0px 2px 0px inset;
+    @include box-shadow-hover();
   }
   &:active {
-    transform: translate(1px, 1px);
-    box-shadow: rgba($theme-dark, 0.2) 0px 3px 0px inset;
+    @include box-shadow-down();
+  }
+  
+  &--xs {
+    width: $button-width-xs;
+  }
+  &-s {
+    width: $button-width-s;
+  }
+  &--m {
+    width: $button-width-m;
+  }
+  &--l {
+    width: $button-width-l;
+  }
+  &--xl {
+    width: $button-width-xl;
   }
 }
 
@@ -27,18 +45,6 @@ button {
   color: $theme-primary;
 }
 .button--warning {
-  background-color: $theme-secondary;
+  background-color: $color-error;
 }
 
-.button--s {
-  width: 10ch;
-}
-.button--m {
-  width: 20ch;
-}
-.button--l {
-  width: 30ch;
-}
-.button--xl {
-  width: 50ch;
-}
