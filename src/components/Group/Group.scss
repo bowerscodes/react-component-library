@@ -4,6 +4,7 @@
   display: block;
   width: 100%;
   margin: 0 0 $gutter-bottom 0;
+  padding: $gutter-padding;
 
   &__fieldset {
     display: block;
@@ -11,8 +12,8 @@
   }
 
   &--error {
-    border-left: 4px solid $color-error !important;
-    padding-left: 0.75rem;
+    border-left: (2 * $border-thickness) solid $color-error;
+    padding-left: $gutter-error;
   }
 }
 

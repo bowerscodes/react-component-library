@@ -20,25 +20,26 @@ $color-error: $theme-secondary;
 // BORDER
 $border-color: $theme-dark;
 $border-thickness: 2px;
+$border-radius: 0.1rem;
 $focus-color: $theme-tertiary;
 
 /* SIZES */
 
 // BODY
-$fontsize-body: 1em;
-$fontsize-s: 1em;
-$fontsize-m: 1.3em;
-$fontsize-l: 1.75em;
+$fontsize-body: 1rem;
+$fontsize-s: 1rem;
+$fontsize-m: 1.3rem;
+$fontsize-l: 1.75rem;
 
 $font-weight-normal: 400;
 $font-weight-bold: 600;
 
 // LABELS
-$label-xs: 0.9em;
-$label-s: 1em;
-$label-m: 1.2em;
-$label-l: 1.8em;
-$label-xl: 2.5em;
+$label-xs: 0.9rem;
+$label-s: 1rem;
+$label-m: 1.2rem;
+$label-l: 1.8rem;
+$label-xl: 2.5rem;
 
 // HEADINGS
 $heading-xs: 1.5rem;
@@ -59,6 +60,11 @@ $padding-three-quarters: 0.75rem;
 $gutter-padding: 0.4rem;
 $gutter-bottom: 1rem;
 $gutter-error: 0.75rem;
+
+// INPUTS
+$input-margin: 0.25rem;
+$input-padding: 0.4rem;
+$input-line-height: 1.5rem;
 
 /* BUTTONS */
 $button-width-xs: 3rem;
@@ -92,26 +98,25 @@ $button-width-xl: 20rem;
 }
 
 
-// INPUTS
 .input {
   font-size: $fontsize-s;
-  line-height: 1.5em;
+  line-height: $input-line-height;
   box-sizing: border-box;
   width: 100%;
   height: 2rem;
-  margin: 0.25rem 0 0.5rem;
-  border: 2px solid $border-color;
-  border-radius: 0.1em;
-  padding: 0.4em;
+  margin: $input-margin 0 $input-margin;
+  border: $border-thickness solid $border-color;
+  border-radius: $border-radius;
+  padding: $input-padding;
 
   &:focus {
-    outline: 2px solid $focus-color;
+    outline: $border-thickness solid $focus-color;
     outline-offset: 0;
     box-shadow: inset 0 0 0 1px;
   }
 
   &--error {
-    border: 2px solid $color-error;
+    border: $border-thickness solid $color-error;
 
     &:focus {
       border-color: $border-color;

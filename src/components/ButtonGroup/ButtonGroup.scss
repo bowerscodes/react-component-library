@@ -6,17 +6,22 @@
   width: auto;
   padding: 1em;
   background-color: rgba($theme-dark, 0.2);
+
+  &--one-third {
+    width: 34%;
+  }
+  &--one-half {
+    width: 50%;
+  }
+  &--two-thirds {
+    width: 67%;  
+  }
+  &--full {
+    width: 100%;
+  }
+  
+  &__text {
+    margin-bottom: $margin-half;
+  }
 }
 
-.button-group--one-third {
-  width: 34%;
-}
-.button-group--one-half {
-  width: 50%;
-}
-.button-group--two-thirds {
-  width: 67%;  
-}
-// .button-group--full {
-//   width: 100%;
-// }

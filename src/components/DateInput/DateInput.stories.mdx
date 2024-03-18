@@ -14,10 +14,11 @@ A `<DateInput/>` component can be used to enter a date in numeric `dd-mm-yyyy` f
   </Story>
 </Canvas>
 
+## In a Group
 The `<DateInput/>` component can be wrapped in a `<Group>`, which will add a label and optional Hint & Validation.
 
 <Canvas>
-  <Story name='With Group'>
+  <Story name='In a Group'>
     <Group label='Date of Birth' hint='dd-mm-yyy format' error= 'Date of birth is required'>
       <DateInput id='dateInputExample' fieldId='dateInputExample' error={'Date of birth is required'} propsInError={{ year: true, month: true, day: true }}/>
     </Group>

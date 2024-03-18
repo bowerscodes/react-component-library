@@ -43,7 +43,7 @@ export const ButtonGroup = ({
       {content?.text && <p className={classes('text')}>{content.text}</p>}
       {content?.hint && <Hint size='s'>{content.hint}</Hint>}
       {buttons.map(button => {
-        return <Button {...button}/>;
+        return <Button {...button} size='m'/>;
       })}
     </div>
   );

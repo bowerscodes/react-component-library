@@ -1,12 +1,12 @@
 @import '../../main.scss';
 
 .hint {
-  border-left: 0.2em solid rgba($theme-dark, 0.6);
+  border-left: (2 * $border-thickness) solid rgba($theme-dark, 0.6);
   font-family: $theme-font;
-  font-weight: 400;
-  margin: 0.3em;
+  font-weight: $font-weight-normal;
+  margin: $margin-quarter;
   margin-left: 0;
-  padding: 0 0.4em;
+  padding: 0 $gutter-padding;
   color: rgba($theme-dark, 0.6);
 
   &--s {

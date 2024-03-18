@@ -12,18 +12,13 @@
   width: 100%;
 }
 
-.checkboxes__container {
-  margin-bottom: 1.5rem;
-}
-
 .checkbox__item {
   float: left;
   width: 100%;
   box-sizing: border-box;
   text-align: left;
-  padding: 0.5rem 0;
+  padding: $padding-half 0;
 }
-
 
 .checkbox__label {
   display: block;
@@ -35,7 +30,7 @@
 }
 
 .checkbox__item--label {
-  margin-left: 2rem;
+  margin-left: $margin-double;
 }
 
 .checkbox__item input {
@@ -97,7 +92,7 @@ top: 3px;
 width: 6px;
 height: 12px;
 border: solid $theme-dark;
-border-width: 0 2px 2px 0;
+border-width: 0 $border-thickness $border-thickness 0;
 background-color: transparent;
-border-radius: 0;
+border-radius: 0.1rem;
 }

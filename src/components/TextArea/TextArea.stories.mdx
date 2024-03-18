@@ -1,5 +1,6 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import TextArea from './';
+import Group from '../Group';
 
 <Meta name='TextArea' component={TextArea}/>
 
@@ -17,11 +18,34 @@ than one line of text.
   </Story>
 </Canvas>
 
+## In a Group
+
+A `<TextArea/>` can be rendered inside a `<Group>` in order to add a label, 
+and optional `<Hint/>` and `<Error/>` messages.
+
+<Canvas>
+  <Story name='In a Group'>
+    <Group 
+      id='text-area-in-grop'
+      label='Please provide further details'
+      hint='Please go into as much detail as possible'
+      error='This field is required'
+    >
+      <TextArea 
+        id='text-area'
+        width='full'
+        error
+      />
+    </Group>
+  </Story>
+</Canvas>
+
 ## Alternative Sizes
 
 A TextArea will take up 100% of the width of its container by default.
 This can be overridden by passing a value of 
-`'one-third' | 'two-thirds' | 'two-thirds'` to the `width` prop.
+`'one-third' | 'two-thirds' | 'two-thirds' | 'half' | 'full'` to the `width` 
+prop.
 
 <Canvas>
   <Story name='Alternative Sizes'>
