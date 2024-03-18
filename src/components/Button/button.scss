@@ -1,8 +1,8 @@
 @import '../../main.scss';
 
-
 .button {
   border: $border-thickness solid $theme-dark;
+  border-radius: 1px;
   color: $theme-light;
   text-align: center;
   overflow: hidden;
