@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import Error from './';
 
 <Meta title='Error' component={Error} />
@@ -12,3 +12,6 @@ The `<Error>` component is used to display an error message to the user.
     <Error children='This is an Error message.' />
   </Story>
 </Canvas>
+
+### Props
+<ArgsTable of={Error}/>

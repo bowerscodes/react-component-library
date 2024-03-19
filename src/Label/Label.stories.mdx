@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import Label from './';
 
 <Meta title="Label" component={Label} />
@@ -28,3 +28,6 @@ The optional `size` prop can be passed a value of
     <Label id="example" size="xl">Extra Large Label</Label>
   </Story>
 </Canvas>
+
+### Props
+<ArgsTable of={Label}/>

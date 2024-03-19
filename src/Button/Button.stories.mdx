@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import Button from './';
 
 <Meta name='Button' component={Button}/>
@@ -35,4 +35,7 @@ Available sizes are `'xs'`, `'s'`, `'m'`, `'l'`, and `'xl'`.
     <Button size='xl'>Extra Large</Button>
   </Story>
 </Canvas>
-.
+
+### Props
+
+<ArgsTable of={Button}/>

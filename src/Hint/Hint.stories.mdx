@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import Hint from './Hint';
 
 <Meta name='Hint' component={Hint}/>
@@ -25,3 +25,6 @@ The `<Hint>` component can be rendered in three different sizes: `'s' | 'm' | 'l
     <Hint size='l'>This is a large Hint.</Hint>
   </Story>
 </Canvas>
+
+### Props
+<ArgsTable of={Hint}/>

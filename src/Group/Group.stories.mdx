@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import Group from './Group';
 import TextInput from '../TextInput';
 
@@ -6,8 +6,9 @@ import TextInput from '../TextInput';
 
 # Group
 
-A Group can be used to organise form fields.
-Groups can be set to wrap their fields in a `<fieldset>` tag with associated `<legend>`, by passing the optional `fieldset` prop.
+A Group can be used to organise form fields passed in as `children`.
+Groups can be set to wrap their fields in a `<fieldset>` tag with 
+associated `<legend>`, by passing the optional `fieldset` prop.
 
 <Canvas>
   <Story name='Default'>
@@ -36,3 +37,6 @@ Groups act as an enclosing wrapper which handles associated Hint and Error messa
     </Group>
   </Story>
 </Canvas>
+
+### Props
+<ArgsTable of={Group}/>
