@@ -1,7 +1,6 @@
-import { getByTestId, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import Group, { DEFAULT_CLASS } from './Group';
-import exp from 'constants';
 
 describe('Group', () =>{
   

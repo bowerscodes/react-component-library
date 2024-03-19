@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import Checkboxes, { CheckboxesProps, DEFAULT_CLASS } from './Checkboxes';
+import Checkboxes, { DEFAULT_CLASS } from './Checkboxes';
 import { DEFAULT_CLASS as CHECKBOX_CLASS } from './Checkbox';
 
 describe('Checkboxes', () => {
