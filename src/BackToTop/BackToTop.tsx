@@ -51,7 +51,7 @@ export const BackToTop = ({
     return () => {
       window.removeEventListener('scroll', handleScrollButtonVisibility);
     };
-  }, [overrideShow, yPosition]);
+  }, [overrideShow, showOnScrollY, yPosition]);
   
   if (!showBackToTop) {
     return null;

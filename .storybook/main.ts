@@ -11,18 +11,28 @@ const config: StorybookConfig = {
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   addons: [
+    // {
+    //   name: "@storybook/addon-docs",
+    //   options: {
+    //     configureJSX: true,
+    //     babelOptions: {},
+    //     sourceLoaderOptions: null,
+    //     transcludeMarkdown: true
+    //   }
+    // },
+    "@storybook/addon-docs",
     "@storybook/addon-links",
-    getAbsolutePath("@storybook/addon-essentials") ,
+    "@storybook/addon-essentials" ,
     "@storybook/preset-create-react-app",
     "@storybook/addon-interactions",
   ],
   framework: {
-    name: getAbsolutePath("@storybook/react-webpack5"),
+    name: "@storybook/react-webpack5",
     options: {},
   },
   docs: {
     autodocs: "tag",
   },
-  staticDirs: ["../storybook-static"],
+  staticDirs: ["../src"],
 };
 export default config;
