@@ -17,6 +17,7 @@ textarea {
   font-size: $fontsize-body;
   line-height: $input-line-height;
   &:focus {
+    border: $border-thickness solid $theme-dark;
     outline: $border-thickness solid $theme-tertiary;
   }
 
