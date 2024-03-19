@@ -1,0 +1,119 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import Group from '../Group';
+import Checkboxes, { Checkbox } from './';
+
+<Meta title="Checkboxes" component={Checkboxes} />
+
+# Checkboxes
+
+The `<Checkboxes/>` component should be used when the user is required to select one 
+<strong>or more</strong> options from a list. 
+
+<Canvas>
+  <Story name='Default'>
+    <Group id='checkboxes' label='Which of our services are you interested in finding out more about?'>
+      <Checkboxes
+        id='checkboxes-example'
+        options={[
+          {
+            key: "option1",
+            id: "designConsultancy",
+            value: "designConsultancy",
+            label: "Design Consultancy"
+          },
+          {
+            key: "option2",
+            id: "softwareDevelopment",
+            value: "softwareDevelopment",
+            label: "Software Development"
+          },
+          {
+            key: "option3",
+            id: "projectManagement",
+            value: "projectManagement",
+            label: "Project Management"
+          },
+          {
+            key: "option4",
+            id: "brandManagement",
+            value: "brandManagement",
+            label: "Brand Management"
+          }
+        ]}
+      />
+    </Group>
+  </Story>
+</Canvas>
+
+## In a Group
+
+Checkboxes can be rendered inside a Group component to provide a `<Label/>` 
+and `<Hint/>`, and manage validation.
+
+<Canvas>
+  <Story name='In a Group'>
+    <Group 
+      id='checkboxes-group' 
+      label='Which of our services are you interested in finding out more about?'
+      hint='Select all that apply.'
+      error='Please select at least one option.'
+      fieldset
+    >
+      <Checkboxes
+        id='checkboxes-group-example'
+        options={[
+          {
+            key: "option1",
+            id: "designConsultancy",
+            value: "designConsultancy",
+            label: "Design Consultancy"
+          },
+          {
+            key: "option2",
+            id: "softwareDevelopment",
+            value: "softwareDevelopment",
+            label: "Software Development"
+          },
+          {
+            key: "option3",
+            id: "projectManagement",
+            value: "projectManagement",
+            label: "Project Management"
+          },
+          {
+            key: "option4",
+            id: "brandManagement",
+            value: "brandManagement",
+            label: "Brand Management"
+          }
+        ]}
+        error
+      />
+    </Group>
+  </Story>
+</Canvas>
+
+## `<Checkbox/>` component
+
+In some circumstances, it may be necessary to display just one checkbox.
+In this case, the `<Checkbox/>` component can be used.
+
+<Canvas>
+  <Story name='Single Checkbox'>
+    <Group id='checkbox' label='Would you like to receive our newsletter?'>
+      <Checkbox
+        id='checkbox-example'
+        value='newsletter'
+        option={{ 
+          key: 'option1',
+          id: 'newsletter',
+          value: 'newsletter',
+          label: 'Yes, please keep me updated',
+        }}        
+      />
+    </Group>
+  </Story>
+</Canvas>
+
+### Props
+<ArgsTable of={Checkboxes}/>

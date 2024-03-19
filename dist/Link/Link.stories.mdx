@@ -1,0 +1,35 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import Link from './';
+
+<Meta name='Link' component={Link}/>
+
+# Link
+
+A `<Link>` component renders its children inside an anchor tag with associated 
+attributes and styling. By default, links will have a target of `_blank` - this 
+default behaviour can be overridden by updating the `DEFAULT_TARGET` value in 
+the component code.
+
+<Canvas>
+  <Story name='Default'>
+    <Link href='https://www.google.com'>Google</Link>
+  </Story>
+</Canvas>
+
+## Link Behaviour
+
+Links are most commonly passed a `href` prop, however they can also be passed 
+an `onClick` prop to handle click events, as well as a `target` prop to 
+override the default behaviour.
+
+<Canvas>
+  <Story name='With onClick'>
+    <Link onClick={() => alert('Clicked!')}>With onClick</Link>
+  </Story>
+  <Story name='With target'>
+    <Link href='https://www.google.com' target='_top'>Google</Link>
+  </Story>
+</Canvas>
+
+### Props
+<ArgsTable of={Link}/>

@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* COLOURS */
+
+// THEME COLOURS
+$theme-dark: #292F36;
+$theme-light: #F7FFF7;
+$theme-primary: #4ECDC4;
+$theme-secondary: #FF6B6B;
+$theme-tertiary: #FFE66D;
+$theme-font: 'Poppins';
+
+// LINKS
+$link: $theme-primary;
+$link-visited: #4e85cd;
+
+// ERROR
+$color-error: $theme-secondary;
+
+// BORDER
+$border-color: $theme-dark;
+$border-thickness: 2px;
+$border-radius: 0.1rem;
+$focus-color: $theme-tertiary;
+
+/* SIZES */
+
+// BODY
+$fontsize-body: 1rem;
+$fontsize-s: 1rem;
+$fontsize-m: 1.3rem;
+$fontsize-l: 1.75rem;
+
+$font-weight-normal: 400;
+$font-weight-bold: 600;
+
+// LABELS
+$label-xs: 0.9rem;
+$label-s: 1rem;
+$label-m: 1.2rem;
+$label-l: 1.8rem;
+$label-xl: 2.5rem;
+
+// HEADINGS
+$heading-xs: 1.5rem;
+$heading-s: 2rem;
+$heading-m: 2.5rem;
+$heading-l: 3.5rem;
+$heading-xl: 4.5rem;
+
+/* MARGINS & SPACING */
+$margin-standard: 1rem;
+$margin-half: 0.5rem;
+$margin-quarter: 0.25rem;
+$margin-double: 2rem;
+
+$padding-half: 0.5rem;
+$padding-three-quarters: 0.75rem;
+
+$gutter-padding: 0.4rem;
+$gutter-bottom: 1rem;
+$gutter-error: 0.75rem;
+
+// INPUTS
+$input-margin: 0.25rem;
+$input-padding: 0.4rem;
+$input-line-height: 1.5rem;
+
+/* BUTTONS */
+$button-width-xs: 3rem;
+$button-width-s: 5rem;
+$button-width-m: 10rem;
+$button-width-l: 15rem;
+$button-width-xl: 20rem;
+
+@mixin box-shadow($height: -3px) {
+  box-shadow: rgba($theme-dark, 0.2) 0px $height 0px inset, rgba($theme-light, 0.2) 0px 1px 0px inset;
+}
+@mixin box-shadow-hover($depth: 2px) {
+  box-shadow: rgba($theme-dark, 0.2) 0px $depth 0px inset;
+}
+@mixin box-shadow-down($depth: 3px) {
+  box-shadow: rgba($theme-dark, 0.2) 0px $depth 0px inset;
+}
+
+
+.label {
+  &--xs, &--s {
+    margin-bottom: $margin-quarter;
+  }
+  &--m, &--l {
+    margin-bottom: $margin-half;
+  }
+  &--xl {
+    margin-bottom: $margin-standard;
+  }
+}
+
+
+.input {
+  font-size: $fontsize-s;
+  line-height: $input-line-height;
+  box-sizing: border-box;
+  width: 100%;
+  height: 2rem;
+  margin: $input-margin 0 $input-margin;
+  border: $border-thickness solid $border-color;
+  border-radius: $border-radius;
+  padding: $input-padding;
+
+  &:focus {
+    outline: $border-thickness solid $focus-color;
+    outline-offset: 0;
+    box-shadow: inset 0 0 0 1px;
+  }
+
+  &--error {
+    border: $border-thickness solid $color-error;
+
+    &:focus {
+      border-color: $border-color;
+    }
+  }
+
+  &--width-2 {
+    width: 2.5rem;
+  }
+  &--width-3 {
+    width: 3rem;
+  }
+  &--width-4 {
+    width: 3.5rem;
+  }
+
+  &--s {
+    width: 20ch;
+  }
+  &--m {
+    width: 30ch;
+  }
+  &--l {
+    width: 45ch;
+  }
+  &--xl {
+    width: 60ch;
+  }
+  &--one-third {
+    width: 33.3333%;
+  }
+  &one-half {
+    width: 50%;
+  }
+  &--two-thirds {
+    width: 66.6666%;
+  }
+}
+
+// MIXINS
+@mixin HeadingStyles ($fontSize: 3rem) {
+  font-family: $theme-font;
+  font-size: $fontSize;
+  color: $theme-dark;
+  line-height: ($fontSize + 0.5rem);
+};
+
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: $theme-dark;
+  font-family: $theme-font;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $theme-font;
+  font-size: $fontsize-body;
+}
+
+fieldset {
+  border: none;
+  outline: none;
+  margin: none;
+  padding: none;
+  background: none;
+}

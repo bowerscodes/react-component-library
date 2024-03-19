@@ -1,0 +1,29 @@
+import { ArgsTable, Canvas, Meta, Story } from'@storybook/addon-docs';
+import DateInput from './DateInput';
+import Group from '../Group';
+
+<Meta title='Date Input' component={DateInput} />
+
+# Date Input
+
+A `<DateInput/>` component can be used to enter a date in numeric `dd-mm-yyyy` format.
+
+<Canvas>
+  <Story name='Default'>
+    <DateInput id='dateInputExample' fieldId='dateInputExample'/>
+  </Story>
+</Canvas>
+
+## In a Group
+The `<DateInput/>` component can be wrapped in a `<Group>`, which will add a label and optional Hint & Validation.
+
+<Canvas>
+  <Story name='In a Group'>
+    <Group label='Date of Birth' hint='dd-mm-yyy format' error= 'Date of birth is required'>
+      <DateInput id='dateInputExample' fieldId='dateInputExample' error={'Date of birth is required'} propsInError={{ year: true, month: true, day: true }}/>
+    </Group>
+  </Story>
+</Canvas>
+
+### props
+<ArgsTable of={DateInput}/>

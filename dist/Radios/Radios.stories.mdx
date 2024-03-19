@@ -1,0 +1,48 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import Radios, { Radio } from './';
+import Group from '../Group';
+
+<Meta name='Radios' component={Radios}/>
+
+# Radios
+
+`<Radios>` should be used when a user needs to select <strong>one</strong> option from a list.
+
+<Canvas>
+  <Story name='Radios'>
+    <Group id='radios-group' label='Would you like us to keep you updated via email?'>
+      <Radios 
+        id={'example'}
+        fieldId={'example'}
+        options={[
+          { label: 'Yes please!', value: 'yes' },
+          { label: 'No Thanks', value: 'no' },
+        ]}
+        error
+      />
+    </Group>
+  </Story>
+</Canvas>
+
+## In a Group
+
+Rendering a `<Radios/>` component inside a `<Group>` enables a `label`, 
+optional `hint` and `error` message to be displayed.
+
+<Canvas>
+  <Story name='In a Group'>
+    <Group id='radios-group' label='Would you like us to keep you updated via email?' hint='We will only send you relevant information.' error='Please select an option.'>
+      <Radios 
+        id={'example'}
+        fieldId={'example'}
+        options={[
+          { label: 'Yes please!', value: 'yes' },
+          { label: 'No Thanks', value: 'no' },
+        ]}
+      />
+    </Group>
+  </Story>
+</Canvas>
+
+### Props
+<ArgsTable of={Radios}/>
