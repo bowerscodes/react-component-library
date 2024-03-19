@@ -1,0 +1,25 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import Hidden from './';
+import '../main.scss';
+
+<Meta title="Hidden" component={Hidden} />
+
+# Hidden
+
+The `<Hidden>` component is used to render its `children` as 
+invisible text which can still be read out by accessibility 
+tools such as screenreaders.
+
+Integrated by default with the `<Error/>` component, the
+`<Hidden>` component renders an invisible `'Error: '` 
+string which will be picked up by assistive technologies.
+
+<Canvas>
+  <Story name="Hidden">
+    <div className='error'>
+      <Hidden>Error: </Hidden> There has been a problem.
+    </div>
+  </Story>
+</Canvas>
+
+<ArgsTable of={Hidden}/>

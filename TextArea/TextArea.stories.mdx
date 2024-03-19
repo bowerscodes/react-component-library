@@ -1,0 +1,72 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import TextArea from './';
+import Group from '../Group';
+
+<Meta name='TextArea' component={TextArea}/>
+
+# TextArea
+
+A `<TextArea/>` component is used when the user is required to enter more 
+than one line of text.
+
+<Canvas>
+  <Story name='Default'>
+    <TextArea 
+      id='text-area'
+      width='full'
+    />
+  </Story>
+</Canvas>
+
+## In a Group
+
+A `<TextArea/>` can be rendered inside a `<Group>` in order to add a label, 
+and optional `<Hint/>` and `<Error/>` messages.
+
+<Canvas>
+  <Story name='In a Group'>
+    <Group 
+      id='text-area-in-grop'
+      label='Please provide further details'
+      hint='Please go into as much detail as possible'
+      error='This field is required'
+    >
+      <TextArea 
+        id='text-area'
+        width='full'
+        error
+      />
+    </Group>
+  </Story>
+</Canvas>
+
+## Alternative Sizes
+
+A TextArea will take up 100% of the width of its container by default.
+This can be overridden by passing a value of 
+`'one-third' | 'two-thirds' | 'two-thirds' | 'half' | 'full'` to the `width` 
+prop.
+
+<Canvas>
+  <Story name='Alternative Sizes'>
+    <TextArea 
+      id='text-area'
+      width='one-third'
+    />
+    <TextArea 
+      id='text-area'
+      width='half'
+    />
+    <TextArea 
+      id='text-area'
+      width='two-thirds'
+    />
+    <TextArea 
+      id='text-area'
+      width='full'
+    />
+  </Story>
+</Canvas>
+
+### Props
+<ArgsTable of={TextArea}/>

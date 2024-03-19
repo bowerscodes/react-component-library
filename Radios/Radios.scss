@@ -1,0 +1,56 @@
+@import '../main.scss';
+
+.radios__item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin: $margin-half 0;
+}
+
+.radios__label {
+  display: inline-block;
+  align-items: center;
+  box-sizing: border-box;
+  width: auto;
+  top: 0;
+  padding: 0.15em 0;
+  font-weight: 500;
+}
+
+.radios__input {
+  margin-right: $margin-half;
+  height: 1.8rem;
+  width: 1.8rem;
+}
+
+.radios__input::before {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  width: 1.8rem;
+  height: 1.8rem;
+  border: $border-thickness solid $theme-dark;
+  border-radius: 1rem;
+  background-color: white;
+  outline: none;
+}
+
+.radios__input:checked::after {
+  position: relative;
+  display: inline-block;
+  content: '';
+  top: 0.3rem;
+  left: 0.3rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: $border-thickness solid $theme-primary;
+  border-radius: 1rem;
+  background-color: $theme-primary;
+  outline: none;
+}
+
+.radios__input:focus::before {
+  outline: none;
+  box-shadow: 0 0 0 0.05rem white, 0 0 0 0.2rem $theme-tertiary;
+  border-radius: 1rem;
+}

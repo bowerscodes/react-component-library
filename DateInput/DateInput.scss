@@ -1,0 +1,20 @@
+@import '../main.scss';
+
+.date-input {
+  display: inline-flex;
+}
+
+.date-input__item {
+  display: inline-block;
+  margin-right: $margin-standard;
+  margin-bottom: 0;
+}
+
+.date-input__input {
+  align-items: middle;
+  text-align: center;
+}
+
+.date-input__label {
+  display: block;
+}
