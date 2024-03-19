@@ -1,6 +1,6 @@
 {
   "name": "react-component-library",
-  "version": "0.1.0",
+  "version": "0.5.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
@@ -62,5 +62,22 @@
     "sass": "^1.63.5",
     "storybook": "7.0.20",
     "webpack": "^5.86.0"
-  }
+  },
+  "description": "In the project directory, you can run:",
+  "main": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bowerscodes/react-component-library.git"
+  },
+  "keywords": [
+    "React",
+    "Component",
+    "Library"
+  ],
+  "author": "James Bowers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bowerscodes/react-component-library/issues"
+  },
+  "homepage": "https://github.com/bowerscodes/react-component-library#readme"
 }
