@@ -76,7 +76,6 @@ $button-width-xl: 20rem;
 @mixin box-shadow($height: -3px) {
   box-shadow: rgba($theme-dark, 0.2) 0px $height 0px inset, rgba($theme-light, 0.2) 0px 1px 0px inset;
 }
-
 @mixin box-shadow-hover($depth: 2px) {
   box-shadow: rgba($theme-dark, 0.2) 0px $depth 0px inset;
 }
