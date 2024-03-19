@@ -1,0 +1,16 @@
+@import '../main.scss';
+
+a, a:link {
+  @extend .link;
+  color: $theme-primary;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.link, .link:link {
+  color: $theme-primary;
+}
