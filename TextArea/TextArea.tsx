@@ -20,9 +20,9 @@ type TextAreaProps = {
   readonly?: boolean;
   width?: 'half' | 'one-third' | 'two-thirds' | 'full';
   value?: string | undefined;
-  classBlock?: any;
-  classModifiers?: any;
-  className?: any;
+  classBlock?: string;
+  classModifiers?: string[];
+  className?: string;
 };
 
 const TextArea = ({ 
@@ -36,7 +36,7 @@ const TextArea = ({
   value = undefined, 
   classBlock = DEFAULT_CLASS, 
   classModifiers: _classModifiers = [width], 
-  className = null, 
+  className, 
   ...attrs 
 }: TextAreaProps) => {
   

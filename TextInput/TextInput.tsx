@@ -10,9 +10,9 @@ interface TextInputProps {
   error?: any;
   readonly?: boolean;
   width?: 's' | 'm' | 'l' | 'xl' | 'one-half' | 'one-third' | 'two-thirds';
-  classBlock?: any;
-  classModifiers?: any;
-  className?: any;
+  classBlock?: string;
+  classModifiers?: string[] | string;
+  className?: string;
   attrs?: any;
 };
 
@@ -27,9 +27,9 @@ export const TextInput = ({
   error = false,
   readonly = false,
   width = 'm',
-  classBlock =DEFAULT_CLASS,
+  classBlock = DEFAULT_CLASS,
   classModifiers: _classModifiers = [width],
-  className = null,
+  className,
   ...attrs
 }: TextInputProps) => {
   
