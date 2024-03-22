@@ -61,4 +61,6 @@ export const Group = ({
   );
 };
 
+Group.displayName = 'Group';
+
 export default Group;

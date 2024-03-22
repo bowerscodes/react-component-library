@@ -12,6 +12,7 @@ import Radios from './Radios';
 import Select from './Select';
 import TextArea from './TextArea';
 import TextInput from './TextInput';
+import Utils from './utils/Utils';
 
 export {
   BackToTop,
@@ -28,4 +29,5 @@ export {
   Select,
   TextArea,
   TextInput,
+  Utils
 };

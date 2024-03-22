@@ -32,4 +32,6 @@ export const Error = ({
   )
 };
 
+Error.displayName = 'Error';
+
 export default Error;

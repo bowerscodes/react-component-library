@@ -1,7 +1,7 @@
 import { classBuilder, cleanHtmlAttributes, COMPONENT_TYPES, toArray } from '../utils/Utils';
 import './TextInput.scss';
 
-interface TextInputProps {
+type TextInputProps = {
   id: string;
   fieldId?: string;
   value?: string;
@@ -51,5 +51,7 @@ export const TextInput = ({
 
   return input;
 };
+
+TextInput.displayName = 'TextInput';
 
 export default TextInput;

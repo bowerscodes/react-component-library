@@ -28,4 +28,6 @@ const Hidden = ({
   );
 };
 
+Hidden.displayName = 'Hidden';
+
 export default Hidden;

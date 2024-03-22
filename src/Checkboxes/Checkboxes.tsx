@@ -87,4 +87,6 @@ export const Checkboxes = ({
   );
 };
 
+Checkboxes.displayName = 'Checkboxes';
+
 export default Checkboxes;

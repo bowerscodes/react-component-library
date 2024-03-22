@@ -75,4 +75,6 @@ export const Radios = ({
   );
 };
 
+Radios.displayName = 'Radios';
+
 export default Radios;

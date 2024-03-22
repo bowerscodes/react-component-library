@@ -83,4 +83,6 @@ export const BackToTop = ({
   );
 };
 
+BackToTop.displayName = 'BackToTop';
+
 export default BackToTop;

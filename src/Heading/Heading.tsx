@@ -35,4 +35,6 @@ export const Heading = ({
   )
 };
 
+Heading.displayName = 'Heading';
+
 export default Heading;
