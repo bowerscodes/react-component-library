@@ -1,7 +1,7 @@
 import BackToTop from './BackToTop';
 import Button from './Button';
 import ButtonGroup from './ButtonGroup';
-import Checkboxes from './Checkboxes';
+import Checkboxes, { CheckboxesEventTarget } from './Checkboxes';
 import { CheckboxOption } from './Checkboxes/Checkbox';
 import DateInput from './DateInput';
 import Heading from './Heading';
@@ -36,6 +36,7 @@ export {
 };
 
 export type {
+  CheckboxesEventTarget,
   CheckboxOption,
   RadioOption,
   SelectOption
