@@ -27,7 +27,7 @@ describe('TextInput', () => {
       const label = 'Text Input';
       const { container } = render (
         <TextInput 
-          id={INPUT_FIELD_ID}
+          fieldId={INPUT_FIELD_ID}
           data-testid = {INPUT_ID}
         />
       );
@@ -40,7 +40,7 @@ describe('TextInput', () => {
       const width = 's';
       const { container } = render (
         <TextInput 
-          id={INPUT_FIELD_ID}
+          fieldId={INPUT_FIELD_ID}
           data-testid={INPUT_ID}
           width={width}
         />
@@ -54,7 +54,7 @@ describe('TextInput', () => {
       const width = 'l';
       const { container } = render (
         <TextInput 
-          id={INPUT_FIELD_ID}
+          fieldId={INPUT_FIELD_ID}
           data-testid={INPUT_ID}
           width={width}
         />
@@ -68,7 +68,7 @@ describe('TextInput', () => {
       const width = 'xl';
       const { container } = render (
         <TextInput 
-          id={INPUT_FIELD_ID}
+          fieldId={INPUT_FIELD_ID}
           data-testid={INPUT_ID}
           width={width}
         />
@@ -82,7 +82,7 @@ describe('TextInput', () => {
       const width = 'one-half';
       const { container } = render (
         <TextInput 
-          id={INPUT_FIELD_ID}
+          fieldId={INPUT_FIELD_ID}
           data-testid={INPUT_ID}
           width={width}
         />
@@ -96,7 +96,7 @@ describe('TextInput', () => {
       const width = 'one-third';
       const { container } = render (
         <TextInput 
-          id={INPUT_FIELD_ID}
+          fieldId={INPUT_FIELD_ID}
           data-testid={INPUT_ID}
           width={width}
         />
@@ -110,7 +110,7 @@ describe('TextInput', () => {
       const width = 'two-thirds';
       const { container } = render (
         <TextInput 
-          id={INPUT_FIELD_ID}
+          fieldId={INPUT_FIELD_ID}
           data-testid={INPUT_ID}
           width={width}
         />

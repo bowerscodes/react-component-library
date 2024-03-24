@@ -39,7 +39,7 @@ export const ButtonGroup = ({
 
   return (
     <div key={label} className={`${classes()} ${DEFAULT_CLASS}--${width}`} {...attrs} >
-      {label && <Label id={id} children={label}/>}
+      {label && <Label fieldId={id} children={label}/>}
       {content?.text && <p className={classes('text')}>{content.text}</p>}
       {content?.hint && <Hint size='s'>{content.hint}</Hint>}
       {buttons.map(button => {

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import Radio, { Option, DEFAULT_CLASS } from './Radio';
+import Radio, { RadioOption, DEFAULT_CLASS } from './Radio';
 import TextInput from '../TextInput';
 
 describe('Radio', () => {
@@ -17,7 +17,7 @@ describe('Radio', () => {
   it('should set up the components appropriately', async () => {
     const id = 'radio';
     const fieldId = 'radioFieldId';
-    const option: Option = { value: 'apple', label: 'Apple' };
+    const option: RadioOption = { value: 'apple', label: 'Apple' };
     const { container } = render(
       <Radio data-testid={id} id={id} name={fieldId} option={option} />
     );
@@ -44,7 +44,7 @@ describe('Radio', () => {
   it('should set up the components appropriately with a hint', async () => {
     const id = 'radio';
     const fieldId = 'radioFieldId';
-    const option: Option = { value: 'apple', label: 'Apple', hint: 'This is a fruit' };
+    const option: RadioOption = { value: 'apple', label: 'Apple', hint: 'This is a fruit' };
     const { container } = render(
       <Radio data-testid={id} id={id} name={fieldId} option={option} />
     );
@@ -66,7 +66,7 @@ describe('Radio', () => {
   it('should not be checked by default', async () => {
     const id = 'radio';
     const fieldId = 'radioFieldId';
-    const option: Option = { value: 'apple', label: 'Apple' };
+    const option: RadioOption = { value: 'apple', label: 'Apple' };
     const { container } = render(
       <Radio data-testid={id} id={id} name={fieldId} option={option} />
     );
@@ -77,7 +77,7 @@ describe('Radio', () => {
   it('should be checked when selected is set to true', async () => {
     const id = 'radio';
     const fieldId = 'radioFieldId';
-    const option: Option = { value: 'apple', label: 'Apple' };
+    const option: RadioOption = { value: 'apple', label: 'Apple' };
     const { container } = render(
       <Radio data-testid={id} id={id} name={fieldId} option={option} selected />
       );
@@ -88,7 +88,7 @@ describe('Radio', () => {
     it('should not be checked when selected is set to false', async () => {
       const id = 'radio';
       const fieldId = 'radioFieldId';
-      const option: Option = { value: 'apple', label: 'Apple' };
+      const option: RadioOption = { value: 'apple', label: 'Apple' };
       const { container } = render(
         <Radio data-testid={id} id={id} name={fieldId} option={option} selected={false} />
       );
@@ -99,7 +99,7 @@ describe('Radio', () => {
     it('should toggle checked when selected is toggled', async () => {
       const id = 'radio';
       const fieldId = 'radioFieldId';
-      const option: Option = { value: 'apple', label: 'Apple' };
+      const option: RadioOption = { value: 'apple', label: 'Apple' };
       const { container, rerender } = render(
         <Radio data-testid={id} id={id} name={fieldId} option={option} selected={false} />
       );
@@ -112,7 +112,7 @@ describe('Radio', () => {
     it('should disable the input when the option is disabled', async () => {
       const id = 'radio';
       const fieldId = 'radioFieldId';
-      const option: Option = { value: 'apple', label: 'Apple', disabled: true };
+      const option: RadioOption = { value: 'apple', label: 'Apple', disabled: true };
       const { container } = render(
         <Radio data-testid={id} id={id} name={fieldId} option={option} />
       );
@@ -123,7 +123,7 @@ describe('Radio', () => {
     it('should show a nested component when selected', async () => {
       const id = 'radio';
       const fieldId = 'radioFieldId';
-      const option: Option = { 
+      const option: RadioOption = { 
         value: 'apple', 
         label: 'Apple', 
         nested: [

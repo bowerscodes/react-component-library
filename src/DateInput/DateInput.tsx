@@ -24,8 +24,8 @@ const toStringFromDate = (date: any) => {
 };
 
 export type DateInputProps = {
-  id: string;
   fieldId: string;
+  id?: string;
   error?: string;
   propsInError?: { year: boolean; month: boolean; day: boolean; };
   value?: string | undefined;
@@ -38,8 +38,8 @@ export type DateInputProps = {
 type DatePart = 'day' | 'month' | 'year';
 
 export const DateInput = ({
-  id,
   fieldId,
+  id = fieldId,
   error,
   propsInError,
   value,
@@ -102,7 +102,7 @@ export const DateInput = ({
   return (
     <div {...cleanedAttrs} className={DEFAULT_CLASS} id={id} data-name={fieldId}>
       {DATE_PARTS.map((part) => (
-        <Group id={`${id}-${part.id}`} label={part.label} labelSize='xs' classBlock={classes('item')} key={`${id}-${part.id}`}>
+        <Group fieldId={`${id}-${part.id}`} label={part.label} labelSize='xs' classBlock={classes('item')} key={`${id}-${part.id}`}>
           <TextInput
             id={`${id}-${part.id}`}
             fieldId={`${fieldId}-${part.id}`}

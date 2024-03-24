@@ -18,7 +18,7 @@ describe('Group', () =>{
     };
     const childId = 'childId';
     const { container } = render (
-      <Group data-testid={options.id} {...options}>
+      <Group data-testid={options.id} fieldId={options.id} {...options}>
         <input data-testid={childId} type='text' />
       </Group>
     );
@@ -39,7 +39,7 @@ describe('Group', () =>{
     };
     const childId = 'childId';
     const { container } = render (
-      <Group data-testid={options.id} {...options}>
+      <Group data-testid={options.id} fieldId={options.id} {...options}>
         <input data-testid={childId} type='text' />
       </Group>
     );
@@ -61,7 +61,7 @@ describe('Group', () =>{
     };
     const childId = 'childId';
     const { container } = render (
-      <Group data-testid={options.id} {...options}>
+      <Group data-testid={options.id} fieldId={options.id} {...options}>
         <input data-testid={childId} type='text' />
       </Group>
     );

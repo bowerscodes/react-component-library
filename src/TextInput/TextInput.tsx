@@ -2,9 +2,9 @@ import { classBuilder, cleanHtmlAttributes, COMPONENT_TYPES, toArray } from '../
 import './TextInput.scss';
 
 type TextInputProps = {
-  id: string;
-  fieldId?: string;
-  value?: string;
+  id?: string;
+  fieldId: string;
+  value?: string | number | undefined;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
   error?: any;
@@ -19,8 +19,8 @@ type TextInputProps = {
 export const DEFAULT_CLASS = 'input'
 
 export const TextInput = ({
-  id,
-  fieldId = id,
+  fieldId,
+  id = fieldId,
   value,
   onChange,
   disabled = false,
@@ -45,6 +45,8 @@ export const TextInput = ({
       id={id}
       name={fieldId}
       type='text'
+      value={value}
+      onChange={onChange}
       className={classes()}
     />
   );

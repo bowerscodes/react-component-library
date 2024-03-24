@@ -7,12 +7,14 @@ import React from 'react';
 
 export const DEFAULT_CLASS = 'checkboxes';
 
+export type CheckboxesEventTarget = EventTarget & { name?: string; value: string | string[] | { value: string }[] };
+
 export type CheckboxesProps = {
   id: string;
   fieldId?: string;
   options: Array<CheckboxOption>;
   value?: string[] | { value: string }[];
-  onChange?: (event: React.ChangeEvent<{ name?: string; value: string | string[] | { value: string }[] }>) => void;
+  onChange?: (event: React.ChangeEvent<CheckboxesEventTarget>) => void;
   classBlock?: string;
   classModifiers?: string | string[];
   className?: string;
@@ -23,7 +25,7 @@ export const Checkboxes = ({
   fieldId = id,
   options = [],
   value = [],
-  onChange = (event: React.ChangeEvent<{ name?: string; value: string | string[] | { value: string }[] }>) => {},
+  onChange = (event: React.ChangeEvent<CheckboxesEventTarget>) => {},
   classBlock = DEFAULT_CLASS,
   classModifiers = [],
   className = '',
