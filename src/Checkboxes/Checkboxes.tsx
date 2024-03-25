@@ -7,13 +7,13 @@ import React from 'react';
 
 export const DEFAULT_CLASS = 'checkboxes';
 
-export type CheckboxesEventTarget = EventTarget & { name?: string; value: string | string[] | { value: string }[] };
+export type CheckboxesEventTarget = EventTarget & { name?: string; value: string | string[] };
 
 export type CheckboxesProps = {
   fieldId: string;
   id?: string;
   options: Array<CheckboxOption>;
-  value?: string[] | { value: string }[];
+  value?: string[];
   onChange?: (event: React.ChangeEvent<CheckboxesEventTarget>) => void;
   classBlock?: string;
   classModifiers?: string | string[];
@@ -47,12 +47,12 @@ export const Checkboxes = ({
 
   const updateSelection = (event: { target: { name: string; value: string; checked: boolean} }, option: CheckboxOption) => {
     const {value, checked} = event.target;
-    const targetValue = value;
+    // const targetValue = value;
     if (checked) {
       selection.current = [...selection.current, value];
     } 
     else {
-      selection.current = selection.current.filter((s:any) => s !== targetValue);
+      selection.current = selection.current.filter((s:any) => s !== value);
     }
     handleOnChange();
   };
@@ -61,6 +61,7 @@ export const Checkboxes = ({
     selection.current = value || [];
   }, [value]);
   
+
   const idParts = (id || '').split('.');
   idParts.pop();
   idParts.push(fieldId);
