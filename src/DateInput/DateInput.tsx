@@ -5,6 +5,7 @@ import TextInput from '../TextInput';
 import { classBuilder, cleanHtmlAttributes } from '../utils/Utils';
 import './DateInput.scss';
 
+
 export const DEFAULT_CLASS = 'date-input';
 
 const toDateFromString = (string: string | undefined) => {
@@ -51,7 +52,7 @@ export const DateInput = ({
 }: DateInputProps) => {
 
   const classes = classBuilder(classBlock, classModifiers, className);
-  const [ date, setDate ] = useState<{ day?: string, month?: string, year?: string } | undefined>(undefined);
+  const [ date, setDate ] = useState({ day: '', month: '', year: '' });
   const [ dateChanged, setDateChanged ] = useState(false);
 
   useEffect(() => {
@@ -63,7 +64,7 @@ export const DateInput = ({
       }
       return prev || toDateFromString(value);
     });
-  }, [value, setDate, setDateChanged]);
+  }, [value]);
 
   const handleChange = (event:React.ChangeEvent<HTMLInputElement>) => {
     const name = event.target.name.replace(`${fieldId}-`, '') as DatePart;
@@ -83,10 +84,10 @@ export const DateInput = ({
   useEffect(() => {
     if (typeof onChange === 'function' && dateChanged) {
       const newValue = toStringFromDate(date);
-      setDateChanged(false);
+      setDateChanged(true);
       onChange({ target: { name: fieldId, value: newValue }});
     }
-  }, [dateChanged, date, fieldId, onChange, setDateChanged]);
+  }, [dateChanged, value, date, fieldId, onChange]);
 
   if (!date) {
     return null;
@@ -98,6 +99,7 @@ export const DateInput = ({
     pattern: '[0-9*]', 
     inputMode: 'numeric',
   }
+
 
   return (
     <div {...cleanedAttrs} className={DEFAULT_CLASS} id={id} data-name={fieldId}>

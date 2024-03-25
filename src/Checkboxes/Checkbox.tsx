@@ -5,7 +5,6 @@ import './Checkboxes.scss';
 import Hint from '../Hint';
 
 export type CheckboxOption = {
-  key: string;
   id: string;
   value: string;
   label: string;

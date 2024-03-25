@@ -10,8 +10,8 @@ export const DEFAULT_CLASS = 'checkboxes';
 export type CheckboxesEventTarget = EventTarget & { name?: string; value: string | string[] | { value: string }[] };
 
 export type CheckboxesProps = {
-  id: string;
-  fieldId?: string;
+  fieldId: string;
+  id?: string;
   options: Array<CheckboxOption>;
   value?: string[] | { value: string }[];
   onChange?: (event: React.ChangeEvent<CheckboxesEventTarget>) => void;
@@ -21,8 +21,8 @@ export type CheckboxesProps = {
 };
 
 export const Checkboxes = ({
-  id,
-  fieldId = id,
+  fieldId,
+  id = fieldId,
   options = [],
   value = [],
   onChange = (event: React.ChangeEvent<CheckboxesEventTarget>) => {},

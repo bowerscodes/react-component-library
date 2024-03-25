@@ -59,10 +59,6 @@ const TextArea = ({
       className={classes()}
     />
   );
-  
-  useEffect(() => {
-    console.log('value: ',value, 'text: ')
-  }, [value])
 
   return textArea;
 };
