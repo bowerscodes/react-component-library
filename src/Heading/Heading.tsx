@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { classBuilder, toArray } from '../utils/Utils';
 import './Heading.scss';
 

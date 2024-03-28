@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { classBuilder, cleanHtmlAttributes } from '../utils/Utils';
 import './Hint.scss';
 

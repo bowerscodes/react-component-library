@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { classBuilder, cleanHtmlAttributes, toArray } from '../utils/Utils';
 
 import './Select.scss';

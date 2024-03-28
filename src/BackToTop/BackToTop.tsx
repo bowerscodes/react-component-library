@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { classBuilder } from '../utils/Utils';
 import Link from '../Link';

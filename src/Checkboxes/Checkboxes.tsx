@@ -1,9 +1,8 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import Checkbox, { CheckboxOption } from './Checkbox';
 import { classBuilder, cleanHtmlAttributes } from '../utils/Utils';
 import './Checkboxes.scss';
-import React from 'react';
 
 export const DEFAULT_CLASS = 'checkboxes';
 

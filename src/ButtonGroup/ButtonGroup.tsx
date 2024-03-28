@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Button, { ButtonProps } from '../Button/Button';
 import Hint  from '../Hint/Hint';
 import Label from '../Label';
