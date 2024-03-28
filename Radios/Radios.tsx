@@ -1,13 +1,13 @@
-import Radio, { Option } from './Radio';
+import Radio, { RadioOption } from './Radio';
 import { classBuilder, cleanHtmlAttributes } from '../utils/Utils';
 import './Radios.scss';
 
 
 
-export type RadiosProps = {
-  id: string;
+export interface RadiosProps {
   fieldId: string;
-  options: Option[];
+  id?: string;
+  options: RadioOption[];
   value?: string | { value: string };
   onChange?: Function;
   classBlock?: string;
@@ -18,8 +18,8 @@ export type RadiosProps = {
 export const DEFAULT_CLASS = 'radios';
 
 export const Radios = ({
-  id,
   fieldId,
+  id = fieldId,
   options,
   value,
   onChange,
@@ -74,5 +74,7 @@ export const Radios = ({
     </div>
   );
 };
+
+Radios.displayName = 'Radios';
 
 export default Radios;

@@ -4,22 +4,22 @@ import { classBuilder, cleanHtmlAttributes, toArray } from '../utils/Utils';
 import './Select.scss';
 
 
-type Option = {
+export type SelectOption = {
   value: string;
   label: string;
 };
 
-type Props = {
-  id: string;
+interface Props {
   fieldId: string;
+  id?: string;
   disabled?: boolean;
   error?: string;
-  options: Option[];
+  options: SelectOption[];
   item?: any;
   placeholder?: string;
-  defaultValue?: Option | string | null;
+  defaultValue?: SelectOption | string | null;
   value?: any;
-  onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
+  onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   returnFullData?: boolean;
   target?: any;
   classBlock?: string;
@@ -31,8 +31,8 @@ export const DEFAULT_CLASS = 'select';
 export const DEFAULT_PLACEHOLDER = 'Select an option';
 
 export const Select = ({
-  id,
-  fieldId = id,
+  fieldId,
+  id = fieldId,
   disabled,
   error,
   options,
@@ -117,5 +117,7 @@ export const Select = ({
     </select>   
   );
 };
+
+Select.displayName = 'Select';
 
 export default Select;

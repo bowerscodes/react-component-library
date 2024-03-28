@@ -17,7 +17,7 @@ export const toArray = (src) => Array.isArray(src) ? src : src && [src];
  * Interpolates a string with variables.
  * @param {*} template  the template string
  * @param {*} variables  the values to be used in the interpolation
- * @param {*} fallback  defaults to ('')
+ * @param {*} [fallback='']  defaults to ('')
  * @returns A fully interpolated string.
  * 
  * @example interpolateString('<span>{item.label}</span>', { item: { id: '1' label: 'Item 1' } });

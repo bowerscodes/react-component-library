@@ -10,7 +10,7 @@ export const DEFAULT_CLASS = 'radios';
 export type RadioProps = {
   id: string;
   name: string;
-  option: Option;
+  option: RadioOption;
   hint?: string;
   selected?: any;
   classBlock?: string;
@@ -18,7 +18,7 @@ export type RadioProps = {
   className?: string;
 };
 
-export type Option = {
+export type RadioOption = {
   id?: string;
   value: string;
   label: string;

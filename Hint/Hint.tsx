@@ -32,4 +32,6 @@ export const Hint = ({
   );
 };
 
+Hint.displayName = 'Hint';
+
 export default Hint;

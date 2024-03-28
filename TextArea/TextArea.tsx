@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 import { 
   classBuilder, 
   cleanHtmlAttributes, 
@@ -12,28 +10,30 @@ export const DEFAULT_ROWS = 4;
 export const DEFAULT_CLASS = 'text-area';
 
 type TextAreaProps = {
-  id: string;
-  fieldId?: string;
+  fieldId: string;
+  id?: string;
   rows?: number;
   disabled?: boolean;
   error?: string;
   readonly?: boolean;
   width?: 'half' | 'one-third' | 'two-thirds' | 'full';
-  value?: string | undefined;
+  value?: string | number | undefined;
+  onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   classBlock?: string;
   classModifiers?: string[];
   className?: string;
 };
 
 const TextArea = ({ 
-  id, 
-  fieldId = id, 
+  fieldId, 
+  id = fieldId, 
   rows = DEFAULT_ROWS, 
   disabled = false, 
   error, 
   readonly = false, 
   width = 'full', 
   value = undefined, 
+  onChange,
   classBlock = DEFAULT_CLASS, 
   classModifiers: _classModifiers = [width], 
   className, 
@@ -53,13 +53,10 @@ const TextArea = ({
       name={fieldId}
       rows={rows}
       value={value}
+      onChange={onChange}
       className={classes()}
     />
   );
-  
-  useEffect(() => {
-    console.log('value: ',value, 'text: ')
-  }, [value])
 
   return textArea;
 };

@@ -1,10 +1,10 @@
 import { classBuilder, cleanHtmlAttributes, COMPONENT_TYPES, toArray } from '../utils/Utils';
 import './TextInput.scss';
 
-interface TextInputProps {
-  id: string;
-  fieldId?: string;
-  value?: string;
+type TextInputProps = {
+  id?: string;
+  fieldId: string;
+  value?: string | number | undefined;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
   error?: any;
@@ -19,8 +19,8 @@ interface TextInputProps {
 export const DEFAULT_CLASS = 'input'
 
 export const TextInput = ({
-  id,
-  fieldId = id,
+  fieldId,
+  id = fieldId,
   value,
   onChange,
   disabled = false,
@@ -45,11 +45,15 @@ export const TextInput = ({
       id={id}
       name={fieldId}
       type='text'
+      value={value}
+      onChange={onChange}
       className={classes()}
     />
   );
 
   return input;
 };
+
+TextInput.displayName = 'TextInput';
 
 export default TextInput;
