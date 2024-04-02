@@ -60,6 +60,7 @@ export const Checkbox = ({
           <input
             className={classes('input')}
             id={id}
+            data-testid={id}
             name={name}
             type='checkbox'
             value={option.value}

@@ -1,7 +1,6 @@
 {
   "name": "react-component-library",
   "version": "0.5.0",
-  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
@@ -84,5 +83,6 @@
   "bugs": {
     "url": "https://github.com/bowerscodes/react-component-library/issues"
   },
-  "homepage": "https://github.com/bowerscodes/react-component-library#readme"
+  "homepage": "https://github.com/bowerscodes/react-component-library#readme",
+  "packageManager": "yarn@4.1.1"
 }

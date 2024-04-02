@@ -8,7 +8,7 @@ import './Group.scss';
 
 export const DEFAULT_CLASS = 'group';
 
-export type GroupProps = {
+export interface GroupProps {
   children: React.ReactNode;
   fieldId: string;
   id?: string;
@@ -52,7 +52,7 @@ export const Group = ({
           {error && <Error id={`${id}-error`}>{error}</Error>}
           {children}
         </fieldset>}
-        {!fieldset && 
+      {!fieldset && 
         <>
           <Label fieldId={id} size={labelSize}>{label}</Label>
           {hint && <Hint size='s' >{hint}</Hint>}
