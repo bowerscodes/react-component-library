@@ -15,6 +15,12 @@ describe('Heading', () => {
     return heading;
   };
 
+  const checkHNumber = (container: any, headingText: any, hNumber: number) => {
+    const heading = screen.getByText(headingText);
+    expect(heading.tagName).toBe(`H${hNumber}`);
+    return heading;
+  };
+
   it('renders a small heading', () => {
     const headingText = 'Small';
     const headingId = 'heading';
@@ -40,6 +46,19 @@ describe('Heading', () => {
     const { container } = render(<Heading id={headingId} headingText={headingText} size="l"></Heading>);
     checkSetup(container, headingText);
     checkSize(container, headingText, size);
+  });
+
+  it('renders the correct heading tag', () => {
+    const hNumbers = [ 1, 2, 3, 4, 5, 6 ];
+    
+    hNumbers.forEach(hNumber => {
+      const headingText = `Heading ${hNumber}`;
+      const headingId = `heading-${hNumber}`;
+
+      const { container } = render(<Heading id={headingId} headingText={headingText} hNumber={hNumber}></Heading>);
+      checkSetup(container, headingText);
+      checkHNumber(container, headingText, hNumber);
+    });
   });
 
 });
