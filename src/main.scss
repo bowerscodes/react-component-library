@@ -113,19 +113,6 @@ $button-width-xl: 20rem;
 }
 
 
-.label {
-  &--xs, &--s {
-    margin-bottom: $margin-quarter;
-  }
-  &--m, &--l {
-    margin-bottom: $margin-half;
-  }
-  &--xl {
-    margin-bottom: $margin-standard;
-  }
-}
-
-
 .input {
   font-size: $fontsize-s;
   line-height: $input-line-height;
