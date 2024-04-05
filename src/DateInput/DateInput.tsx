@@ -65,7 +65,7 @@ export const DateInput = ({
           return newDate;
         }
       }
-      return prev;
+      return {...prev};
     });
   }, [value]);
 
