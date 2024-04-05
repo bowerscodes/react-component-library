@@ -35,13 +35,11 @@ describe('ButtonGroup', () => {
     const label = 'Button Group';
     const buttons: ButtonProps[] = [
       {
-        key: "button1",
         id: "primary",
         label: "Primary",
         type: "primary"
       },
       {
-        key: "button2",
         id: "secondary",
         label: "Secondary",
         type: "secondary"

@@ -4,7 +4,6 @@ import { classBuilder, toArray } from '../utils/Utils';
 import './Button.scss';
 
 export type ButtonProps = {
-  key?: string;
   id: string;
   children?: any;
   label?: string;
@@ -19,8 +18,7 @@ export type ButtonProps = {
 
 export const DEFAULT_CLASS = 'button';
 
-export const Button = ({
-  key,
+const Button = ({
   id,
   children,
   label = children,

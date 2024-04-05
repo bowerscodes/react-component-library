@@ -1,0 +1,45 @@
+import { useState } from 'react';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import Navigate from './';
+import BackToTop from '../BackToTop';
+
+<Meta title='Navigate' component={Navigate} />
+
+## Navigate
+
+The `<Navigate/>` component is a simple way for the user to navigate through a collection 
+of items. due to its simplicity, it is best used on small collections of items.
+
+<Canvas>
+  <Story 
+    name='Default' 
+    args={{ navItems: ['item1', 'item2', 'item3'] }}>
+    {(args) => { 
+      const [ currentIndex, setCurrentIndex ] = useState(0);
+
+      return(
+        <Navigate 
+          {...args}
+          currentIndex={currentIndex}
+          setCurrent={setCurrentIndex}
+        />
+      )
+    }}
+  </Story>
+</Canvas>
+
+## Props
+
+The `<Navigate/>` component accepts the following props:
+
+- `label`: an optional label to describe the navigation
+- `navItems`: an array of items to navigate through
+- `currentIndex`: the index of the current item
+- `setCurrent`: a function to set the current index in the parent component
+- `scrollToTop`: an optional boolean attribute to determine if the page 
+should scroll to the top when the current index changes
+
+<ArgsTable of={Navigate}/>
+
+<BackToTop/>
