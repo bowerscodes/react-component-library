@@ -9,6 +9,7 @@ export interface NavigateProps {
   navItems: Array<any>
   currentIndex: number;
   setCurrent: Function;
+  submit?: boolean;
   scrollToTop?: boolean;
   classBlock?: string;
   classModifiers?: string[];
@@ -65,20 +66,45 @@ const Next = ({navItems, currentIndex, setCurrent, scrollToTop}: NavigateProps) 
   )
 };
 
+
+const Submit = () => {
+  
+  return(
+    <Button 
+      id={`${DEFAULT_CLASS}__button--submit`} 
+      type='submit' 
+      className={classes('submit')}
+    >
+      {'Submit'}
+    </Button>
+  );
+};
+
+
 const Navigate = ({
   label,
   navItems,
   currentIndex,
   setCurrent,
+  submit,
   scrollToTop = true
 }: NavigateProps) => {
+
+  const buttons = (currentIndex: number, navItems: Array<any>) => {
+    return (
+      <>
+        {currentIndex > 0 && <Back navItems={navItems} currentIndex={currentIndex} setCurrent={setCurrent} scrollToTop={scrollToTop}/>}
+        {currentIndex < navItems.length - 1 && <Next navItems={navItems} currentIndex={currentIndex} setCurrent={setCurrent} scrollToTop={scrollToTop}/>}
+        {currentIndex === navItems.length - 1 && submit && <Submit />}
+      </>
+    );
+  };
 
 
   return (
     <nav className={classes()}>
       {label && <h6>{label}</h6>}
-      <Back navItems={navItems} currentIndex={currentIndex} setCurrent={setCurrent} scrollToTop={scrollToTop}/>
-      <Next navItems={navItems} currentIndex={currentIndex} setCurrent={setCurrent} scrollToTop={scrollToTop}/>
+      {buttons(currentIndex, navItems)}
     </nav>
   );
 };

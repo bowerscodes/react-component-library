@@ -114,13 +114,8 @@ describe('Navigate', () => {
 
     checkSetup(container);
     
-    const previousButton = screen.getByText('< Back');
-    expect(previousButton).toBeInTheDocument();
-    expect(previousButton).toBeDisabled();
-    
-    previousButton.click();
-
-    expect(setCurrent).toHaveBeenCalledTimes(0);
+    const previousButton = screen.queryByText('< Back');
+    expect(previousButton).not.toBeInTheDocument();
   });
 
   it('disables the next button when at the end', () => {
@@ -143,13 +138,8 @@ describe('Navigate', () => {
 
     checkSetup(container);
     
-    const nextButton = screen.getByText('Next >');
-    expect(nextButton).toBeInTheDocument();
-    expect(nextButton).toBeDisabled();
-    
-    nextButton.click();
-
-    expect(setCurrent).toHaveBeenCalledTimes(0);
+    const nextButton = screen.queryByText('Next >');
+    expect(nextButton).not.toBeInTheDocument();
   });
   
 });

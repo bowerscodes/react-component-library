@@ -6,23 +6,50 @@ import BackToTop from '../BackToTop';
 
 <Meta title='Navigate' component={Navigate} />
 
-## Navigate
+# Navigate
 
 The `<Navigate/>` component is a simple way for the user to navigate through a collection 
-of items. due to its simplicity, it is best used on small collections of items.
+of items. due to its simplicity, it is best used on small collections of items. The Back 
+and Next buttons are not rendered when the current index is at the beginning or end of the 
+collection, respectively.
 
 <Canvas>
   <Story 
     name='Default' 
     args={{ navItems: ['item1', 'item2', 'item3'] }}>
     {(args) => { 
-      const [ currentIndex, setCurrentIndex ] = useState(0);
+      const [ currentIndex, setCurrentIndex ] = useState(1);
 
       return(
         <Navigate 
           {...args}
           currentIndex={currentIndex}
           setCurrent={setCurrentIndex}
+          scrollToTop={false}
+        />
+      )
+    }}
+  </Story>
+</Canvas>
+
+## `submit` prop
+An optional `submit` prop can be passed to the `<Navigate/>` component to determine 
+whether the last item's Next button should be rendered as a submit button.
+
+<Canvas>
+  <Story 
+    name='withSubmit' 
+    args={{ navItems: ['item1', 'item2', 'item3'] }}>
+    {(args) => { 
+      const [ currentIndex, setCurrentIndex ] = useState(2);
+
+      return(
+        <Navigate 
+          {...args}
+          currentIndex={currentIndex}
+          setCurrent={setCurrentIndex}
+          scrollToTop={false}
+          submit
         />
       )
     }}
@@ -37,6 +64,8 @@ The `<Navigate/>` component accepts the following props:
 - `navItems`: an array of items to navigate through
 - `currentIndex`: the index of the current item
 - `setCurrent`: a function to set the current index in the parent component
+- `submit`: an optional boolean attribute to determine whether the last item's Next
+button should be a submit button
 - `scrollToTop`: an optional boolean attribute to determine if the page 
 should scroll to the top when the current index changes
 
