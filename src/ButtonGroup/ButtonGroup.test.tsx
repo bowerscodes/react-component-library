@@ -36,12 +36,12 @@ describe('ButtonGroup', () => {
     const buttons: ButtonProps[] = [
       {
         id: "primary",
-        label: "Primary",
+        children: "Primary",
         type: "primary"
       },
       {
         id: "secondary",
-        label: "Secondary",
+        children: "Secondary",
         type: "secondary"
       }
     ];

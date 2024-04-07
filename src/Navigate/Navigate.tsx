@@ -10,6 +10,9 @@ export interface NavigateProps {
   currentIndex: number;
   setCurrent: Function;
   scrollToTop?: boolean;
+  classBlock?: string;
+  classModifiers?: string[];
+  className?: string;
 };
 
 export const DEFAULT_CLASS = 'navigate';
@@ -28,7 +31,7 @@ const Back = ({navItems, currentIndex, setCurrent, scrollToTop}: NavigateProps) 
   
   return(
     <Button 
-      id='' 
+      id={`${DEFAULT_CLASS}__button--back`} 
       type='secondary' 
       className={classes('previous')} 
       onClick={onClick}
@@ -51,7 +54,7 @@ const Next = ({navItems, currentIndex, setCurrent, scrollToTop}: NavigateProps) 
   
   return(
     <Button 
-      id='' 
+      id={`${DEFAULT_CLASS}__button--next`} 
       type='primary' 
       className={classes('next')}
       disabled={currentIndex === navItems.length - 1}

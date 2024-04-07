@@ -19,6 +19,27 @@
   &:active {
     @include box-shadow-down();
   }
+
+  &--primary {
+    background-color: $theme-primary;
+  }
+  &--secondary {
+    background-color: $theme-light;
+    color: $theme-primary;
+  }
+  &--submit {
+    background-color: $theme-primary;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+  }
+  &--warning {
+    background-color: $color-error;
+  }
+
+  &__right-arrow {
+    margin: 0 0 0.2rem $gutter-padding;
+    vertical-align: middle;
+  }
   
   &--xs {
     width: $button-width-xs;
@@ -36,15 +57,3 @@
     width: $button-width-xl;
   }
 }
-
-.button--primary {
-  background-color: $theme-primary;
-}
-.button--secondary {
-  background-color: $theme-light;
-  color: $theme-primary;
-}
-.button--warning {
-  background-color: $color-error;
-}
-
