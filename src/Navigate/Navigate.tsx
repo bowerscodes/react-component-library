@@ -9,7 +9,7 @@ export interface NavigateProps {
   navItems: Array<any>
   currentIndex: number;
   setCurrent: Function;
-  submit?: boolean;
+  submit?: ((event: React.FormEvent<HTMLFormElement>) => void) | undefined;
   scrollToTop?: boolean;
   classBlock?: string;
   classModifiers?: string[];
