@@ -9,8 +9,10 @@ import Hidden from './Hidden';
 import Hint from './Hint';
 import Label from './Label';
 import Link from './Link';
+import Navigate, { NavigateProps } from './Navigate';
 import Radios from './Radios';
 import { RadioOption } from './Radios/Radio';
+import Rating, { RatingOption } from './Rating'
 import Select from './Select';
 import { SelectOption } from './Select/Select'
 import TextArea from './TextArea';
@@ -28,7 +30,9 @@ export {
   Hint,
   Label,
   Link,
+  Navigate,
   Radios,
+  Rating,
   Select,
   TextArea,
   TextInput,
@@ -38,6 +42,8 @@ export {
 export type {
   CheckboxesEventTarget,
   CheckboxOption,
+  NavigateProps,
   RadioOption,
+  RatingOption,
   SelectOption
 };

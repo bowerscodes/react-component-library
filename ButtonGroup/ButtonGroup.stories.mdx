@@ -17,7 +17,7 @@ Typical Button Group configurations are shown below.
     <ButtonGroup 
       id='single-button'
       label='Before you begin'
-      buttons={[{ label: 'Start', type: 'primary' }]}
+      buttons={[{ children: 'Start', type: 'primary' }]}
       content={{ 
         text: 'Please ensure you have all the required information to hand.' ,
         hint: 'This is form will take around 5 minutes to complete' 
@@ -35,8 +35,8 @@ Typical Button Group configurations are shown below.
       id='two-buttons'
       label='Confirmation'
       buttons={[
-        { label: 'Continue', type: 'primary' },
-        { label: 'Cancel', type: 'secondary' }
+        { children: 'Continue', type: 'primary' },
+        { children: 'Cancel', type: 'secondary' }
       ]}
       content={{ 
         text: 'Please ensure the information you have provided is accurate.' ,
@@ -55,8 +55,8 @@ Typical Button Group configurations are shown below.
       id='two-buttons'
       label='Warning'
       buttons={[
-        { label: 'Delete Account', type: 'warning' },
-        { label: 'Cancel', type: 'secondary' }
+        { children: 'Delete Account', type: 'warning' },
+        { children: 'Cancel', type: 'secondary' }
       ]}
       content={{ 
         text: 'Please confirm you wish to delete your account.' ,

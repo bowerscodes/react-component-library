@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { classBuilder, cleanHtmlAttributes, COMPONENT_TYPES, toArray } from '../utils/Utils';
 import './TextInput.scss';
 

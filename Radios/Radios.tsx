@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Radio, { RadioOption } from './Radio';
 import { classBuilder, cleanHtmlAttributes } from '../utils/Utils';
 import './Radios.scss';

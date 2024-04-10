@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import { classBuilder } from '../utils/Utils';
 import './Checkboxes.scss';
@@ -60,6 +60,7 @@ export const Checkbox = ({
           <input
             className={classes('input')}
             id={id}
+            data-testid={name}
             name={name}
             type='checkbox'
             value={option.value}

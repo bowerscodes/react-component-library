@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { classBuilder } from '../utils/Utils';
 import Hidden from '../Hidden'
 import './Error.scss';

@@ -1,18 +1,23 @@
 @import '../main.scss';
 
-.heading {
-  @include HeadingStyles;
-};
 
-.heading--s {
-  @include HeadingStyles($heading-s);
-};
-.heading--m {
-  @include HeadingStyles($heading-m);
-};
-.heading--l {
-  @include HeadingStyles($heading-l);
-};
-.heading--xl {
-  @include HeadingStyles($heading-xl);
+.heading {
+  &--xl {
+    @include HeadingStyles($heading-xl);
+  }
+  &--l {
+    @include HeadingStyles($heading-l);
+  }
+  &--m {
+    @include HeadingStyles($heading-m);
+  }
+  &--s {
+    @include HeadingStyles($heading-s);
+  }
+  &--xs {
+    @include HeadingStyles($heading-xs);
+  }
+  &--xxs {
+    @include HeadingStyles($heading-xxs);
+  }
 };

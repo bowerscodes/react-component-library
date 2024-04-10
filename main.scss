@@ -42,11 +42,40 @@ $label-l: 1.8rem;
 $label-xl: 2.5rem;
 
 // HEADINGS
+$heading-xxs: 1.2rem;
 $heading-xs: 1.5rem;
 $heading-s: 2rem;
 $heading-m: 2.5rem;
 $heading-l: 3.5rem;
 $heading-xl: 4.5rem;
+
+@mixin HeadingStyles ($fontSize: 3rem) {
+  font-family: $theme-font;
+  font-size: $fontSize;
+  color: $theme-dark;
+  line-height: ($fontSize + 0.5rem);
+  margin-bottom: calc($fontSize / 3)
+};
+
+h1 {
+  @include HeadingStyles($heading-xl);
+}
+h2 {
+  @include HeadingStyles($heading-l);
+}
+h3 {
+  @include HeadingStyles($heading-m);
+}
+h4 {
+  @include HeadingStyles($heading-s);
+}
+h5 {
+  @include HeadingStyles($heading-xs);
+}
+h6 {
+  @include HeadingStyles($heading-xxs);
+}
+
 
 /* MARGINS & SPACING */
 $margin-standard: 1rem;
@@ -81,19 +110,6 @@ $button-width-xl: 20rem;
 }
 @mixin box-shadow-down($depth: 3px) {
   box-shadow: rgba($theme-dark, 0.2) 0px $depth 0px inset;
-}
-
-
-.label {
-  &--xs, &--s {
-    margin-bottom: $margin-quarter;
-  }
-  &--m, &--l {
-    margin-bottom: $margin-half;
-  }
-  &--xl {
-    margin-bottom: $margin-standard;
-  }
 }
 
 
@@ -154,14 +170,6 @@ $button-width-xl: 20rem;
     width: 66.6666%;
   }
 }
-
-// MIXINS
-@mixin HeadingStyles ($fontSize: 3rem) {
-  font-family: $theme-font;
-  font-size: $fontSize;
-  color: $theme-dark;
-  line-height: ($fontSize + 0.5rem);
-};
 
 
 * {

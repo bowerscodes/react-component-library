@@ -60,9 +60,12 @@ export const DateInput = ({
       const existingDate=toStringFromDate(prev);
       if (existingDate !== (value || '')) {
         setDateChanged(true);
-        return toDateFromString(value);
+        const newDate = toDateFromString(value);
+        if (newDate.day !== prev.day || newDate.month !== prev.month || newDate.year !== prev.year) {
+          return newDate;
+        }
       }
-      return prev || toDateFromString(value);
+      return {...prev};
     });
   }, [value]);
 
@@ -84,7 +87,7 @@ export const DateInput = ({
   useEffect(() => {
     if (typeof onChange === 'function' && dateChanged) {
       const newValue = toStringFromDate(date);
-      setDateChanged(true);
+      setDateChanged(false);
       onChange({ target: { name: fieldId, value: newValue }});
     }
   }, [dateChanged, value, date, fieldId, onChange]);

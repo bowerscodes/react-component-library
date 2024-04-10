@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { 
   classBuilder, 
   cleanHtmlAttributes, 
@@ -31,7 +33,7 @@ const TextArea = ({
   disabled = false, 
   error, 
   readonly = false, 
-  width = 'full', 
+  width = 'two-thirds', 
   value = undefined, 
   onChange,
   classBlock = DEFAULT_CLASS, 

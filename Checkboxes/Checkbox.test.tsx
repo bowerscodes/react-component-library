@@ -1,8 +1,9 @@
-import { render, screen } from '@testing-library/react';
+import { cleanup, render, screen } from '@testing-library/react';
 
 import Checkbox, { CheckboxProps, DEFAULT_CLASS } from './Checkbox';
 import TextInput from '../TextInput';
 
+afterEach(cleanup);
 
 describe('Checkbox', () => {
 

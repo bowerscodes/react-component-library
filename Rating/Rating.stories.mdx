@@ -1,0 +1,47 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import Rating from './Rating';
+
+<Meta title='Rating' component={Rating}/>
+
+# Rating
+
+The `<Rating/>` component is a row of Radio inputs which allows the user to rate 
+something - by default, this will be out of 10, but can be overridden by passing 
+a value to the `rateOutOf` prop.
+
+<Canvas>
+  <Story name='Default' >
+    <Rating 
+      fieldId='rating'
+    />
+  </Story>
+</Canvas>
+
+By default, the legend below the radios will identify the options as 'strongly 
+disagree', 'undecided', and 'strongly agree' - these can be overridden by passing 
+custom string values to the `lowerBoundText`, `medianText`, and `upperBoundText`.
+
+To preserve screen space, the `medianText` value will only render if `rateOutOf` is
+set to greater than 7, and the width of the screen is more than 500px. 
+
+**Note:** for content designed for consumption on devices with a screen width of less 
+than 420px, a `rateOutOf` value of no greater than `5` is recommended.
+
+<Canvas>
+  <Story name='Custom Labels & Lengths' >
+    <Rating 
+      fieldId='rating-out-of-10'
+      rateOutOf={10}
+      lowerBoundText='Poor'
+      medianText='Unremarkable'
+      upperBoundText='Excellent'
+    />
+    <Rating 
+      fieldId='rating-out-of-5'
+      rateOutOf={5}
+      lowerBoundText='Hate it'  
+      upperBoundText='Love it'
+    />
+  </Story>
+</Canvas>
