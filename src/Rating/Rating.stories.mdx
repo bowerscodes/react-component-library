@@ -1,6 +1,7 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 
 import Rating from './Rating';
+import Group from '../Group';
 
 <Meta title='Rating' component={Rating}/>
 
@@ -43,5 +44,29 @@ than 420px, a `rateOutOf` value of no greater than `5` is recommended.
       lowerBoundText='Hate it'  
       upperBoundText='Love it'
     />
+  </Story>
+</Canvas>
+
+## In a Group
+
+The `<Group />` component can be used to group a `<Rating />` component in a 
+`<fieldset>` tag with a label, and any associated validation errors.
+
+<Canvas>
+  <Story name='In a Group' >
+    <Group 
+      fieldId='rating-group'
+      label='Overall, how satisfied are you with this product?'
+      hint='Please score out of 10'
+      error='Please select a score'
+    >
+      <Rating 
+        fieldId='rating'
+        rateOutOf={10}
+        lowerBoundText='Very Dissatisfied'
+        medianText='Neutral'  
+        upperBoundText='Very Satisfied'
+      />
+    </Group>
   </Story>
 </Canvas>
