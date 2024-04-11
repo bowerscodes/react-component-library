@@ -5,7 +5,6 @@ import { classBuilder, cleanHtmlAttributes } from '../utils/Utils';
 import './Radios.scss';
 
 
-
 export interface RadiosProps {
   fieldId: string;
   id?: string;

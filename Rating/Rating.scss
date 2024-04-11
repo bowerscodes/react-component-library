@@ -4,7 +4,6 @@
   display: flex;
   width: 100%;
   flex-direction: column;
-  margin-bottom: 2rem;
   padding: $padding-three-quarters;
 
   &__container {
@@ -48,15 +47,18 @@
 
     &--lower {
       text-align: left;
+      width: 33%;
     }
     &--median {
       text-align: center;
+      width: 33%;
       @media (max-width: 500px) {
         display: none;
       }
     }
     &--upper {
       text-align: right;
+      width: 33%;
     }
   }
 
