@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { classBuilder, toArray, cleanHtmlAttributes } from '../utils/Utils';
 import './Rating.scss';
@@ -32,7 +32,7 @@ const Rating = ({
   fieldId,
   disabled = false,
   error,
-  value,
+  value: initialValue,
   onChange,
   rateOutOf = 10,
   showLegend = true,
@@ -45,13 +45,13 @@ const Rating = ({
   ...attrs
 }: RatingProps) => {
 
-  const inputRef = useRef<HTMLInputElement>(null);
+  const [ value, setValue ] = useState(initialValue);
 
   useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.checked = value;
-    };
-  }, [inputRef, value]);
+    setValue(initialValue);
+  }, [initialValue])
+
+  const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
   const classModifiers = [...toArray(_classModifiers), error && 'error'];
   const classes = classBuilder(classBlock, classModifiers, className);
@@ -61,6 +61,7 @@ const Rating = ({
   const rating: RatingOption[] = [];
 
   const internalOnChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(target.value);
     if (typeof onChange === 'function' && target.name === fieldId) {
       onChange({
         target: {
@@ -77,16 +78,17 @@ const Rating = ({
     let option = {
       radio: (
         <input
-          ref={inputRef}
+          ref={ref => inputRefs.current[i] = ref}
           type='radio'
           key={i}
           id={id}
-          data-testid={`${fieldId}--${stringNumber}`}
           name={fieldId}
           value={stringNumber}
+          checked={String(value) === stringNumber}
+          onChange={internalOnChange}
+          data-testid={`${fieldId}--${stringNumber}`}
           disabled={disabled}
           className={classes('input')}
-          onChange={internalOnChange}
           {...cleanedAttrs}
         />
       ), 
@@ -120,7 +122,7 @@ const Rating = ({
   
 
   return (
-    <div className={classes()} data-testid={fieldId}>
+    <div className={classes()} data-testid={fieldId} onChange={internalOnChange}>
       <div className={classes('container')} >
         {rating.map((option, index) => (
           <div key={index} className={classes('item')}>
