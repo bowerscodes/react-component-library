@@ -50,10 +50,10 @@ describe('TextArea', () => {
   it('should render a text area with an error', () => {
     const textAreaId = 'text-area';
     const textAreaFieldId = 'textAreaFieldId';
-    const error = 'Error message';
+    const error = ['Error message'];
 
     const { container } = render (
-      <TextArea data-testid={textAreaId} id={textAreaId} fieldId={textAreaFieldId} error={error} />
+      <TextArea data-testid={textAreaId} id={textAreaId} fieldId={textAreaFieldId} errors={error} />
     );
     const textArea = checkSetup(container, textAreaId);
     expect(textArea).toHaveClass(`${DEFAULT_CLASS}--error`);

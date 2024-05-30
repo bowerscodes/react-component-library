@@ -13,7 +13,7 @@ interface Props {
   fieldId: string;
   id?: string;
   disabled?: boolean;
-  errors?: string;
+  errors?: string[];
   options: SelectOption[];
   item?: any;
   placeholder?: string;

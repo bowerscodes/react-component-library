@@ -15,7 +15,7 @@ export interface GroupProps {
   label: string;
   labelSize?: 'xs' | 's' | 'm' | 'l' | 'xl';
   hint?: string;
-  errors?: React.ReactNode;
+  errors?: string[];
   fieldset?: boolean;
   classBlock?: string;
   classModifiers?: string[];

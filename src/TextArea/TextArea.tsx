@@ -16,7 +16,7 @@ type TextAreaProps = {
   id?: string;
   rows?: number;
   disabled?: boolean;
-  errors?: string;
+  errors?: string[];
   readonly?: boolean;
   width?: 'half' | 'one-third' | 'two-thirds' | 'full';
   value?: string | number | undefined;

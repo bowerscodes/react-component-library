@@ -27,7 +27,7 @@ const toStringFromDate = (date: any) => {
 export type DateInputProps = {
   fieldId: string;
   id?: string;
-  errors?: string;
+  errors?: string[];
   propsInError?: { year: boolean; month: boolean; day: boolean; };
   value?: string | undefined;
   onChange?: Function;
@@ -112,7 +112,7 @@ export const DateInput = ({
             id={`${id}-${part.id}`}
             fieldId={`${fieldId}-${part.id}`}
             value={date[part.id as DatePart]}
-            errors={propsInError && propsInError[part.id as DatePart] ? 'error' : ''}
+            errors={propsInError && propsInError[part.id as DatePart] ? ['error'] : undefined}
             className={classes('input')}
             classModifiers={`width-${part.width}`}
             {...inputAttrs}

@@ -9,7 +9,7 @@ type TextInputProps = {
   value?: string | number | undefined;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
-  errors?: any;
+  errors?: string[];
   readonly?: boolean;
   width?: 's' | 'm' | 'l' | 'xl' | 'one-half' | 'one-third' | 'two-thirds';
   classBlock?: string;
@@ -26,7 +26,7 @@ export const TextInput = ({
   value,
   onChange,
   disabled = false,
-  errors = false,
+  errors,
   readonly = false,
   width = 'm',
   classBlock = DEFAULT_CLASS,
