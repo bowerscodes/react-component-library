@@ -4,6 +4,7 @@ import ButtonGroup from './ButtonGroup';
 import Checkboxes, { CheckboxesEventTarget } from './Checkboxes';
 import { CheckboxOption } from './Checkboxes/Checkbox';
 import DateInput from './DateInput';
+import Error from './Error';
 import Heading from './Heading';
 import Hidden from './Hidden';
 import Hint from './Hint';
@@ -25,6 +26,7 @@ export {
   ButtonGroup,
   Checkboxes,
   DateInput,
+  Error,
   Heading,
   Hidden,
   Hint,

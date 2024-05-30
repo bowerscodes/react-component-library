@@ -15,7 +15,7 @@ export interface GroupProps {
   label: string;
   labelSize?: 'xs' | 's' | 'm' | 'l' | 'xl';
   hint?: string;
-  error?: React.ReactNode;
+  errors?: React.ReactNode;
   fieldset?: boolean;
   classBlock?: string;
   classModifiers?: string[];
@@ -29,7 +29,7 @@ export const Group = ({
   label,
   labelSize,
   hint,
-  error,
+  errors,
   fieldset = false,
   classBlock = DEFAULT_CLASS,
   classModifiers: _classModifiers = [],
@@ -37,7 +37,7 @@ export const Group = ({
   ...attrs
 }: GroupProps) => {
 
-  const classModifiers = [...toArray(_classModifiers), error && 'error'];
+  const classModifiers = [...toArray(_classModifiers), errors && 'error'];
   const classes = classBuilder(classBlock, classModifiers, className);
   const cleanedAttrs = cleanHtmlAttributes(attrs);
 
@@ -49,14 +49,14 @@ export const Group = ({
             <Label fieldId={id} size={labelSize}>{label}</Label>
           </legend>
           {hint && <Hint size='s' >{hint}</Hint>}
-          {error && <Error id={`${id}-error`}>{error}</Error>}
+          {errors && <Error id={`${id}-error`}>{errors}</Error>}
           {children}
         </fieldset>}
       {!fieldset && 
         <>
           <Label fieldId={id} size={labelSize}>{label}</Label>
           {hint && <Hint size='s' >{hint}</Hint>}
-          {error && <Error id={`${id}-error`} >{error}</Error>}
+          {errors && <Error id={`${id}-error`} >{errors}</Error>}
           {children}
         </>
         }

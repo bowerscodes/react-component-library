@@ -6,7 +6,7 @@ import './Rating.scss';
 export interface RatingProps {
   fieldId: string;
   disabled?: boolean;
-  error?: string;
+  errors?: string[];
   value?: any;
   onChange?: Function;
   rateOutOf?: number;
@@ -31,7 +31,7 @@ export const DEFAULT_CLASS = 'rating';
 const Rating = ({
   fieldId,
   disabled = false,
-  error,
+  errors,
   value: initialValue,
   onChange,
   rateOutOf = 10,
@@ -53,7 +53,7 @@ const Rating = ({
 
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
-  const classModifiers = [...toArray(_classModifiers), error && 'error'];
+  const classModifiers = [...toArray(_classModifiers), errors && 'error'];
   const classes = classBuilder(classBlock, classModifiers, className);
 
   const cleanedAttrs = cleanHtmlAttributes(attrs);
@@ -123,7 +123,7 @@ const Rating = ({
 
   return (
     <div className={classes()} data-testid={fieldId} onChange={internalOnChange}>
-      <div className={classes('container')} >
+      <div className={classes('container')} aria-labelledby={`${fieldId}--label`}>
         {rating.map((option, index) => (
           <div key={index} className={classes('item')}>
             {option.radio}

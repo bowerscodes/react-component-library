@@ -16,7 +16,7 @@ type TextAreaProps = {
   id?: string;
   rows?: number;
   disabled?: boolean;
-  error?: string;
+  errors?: string;
   readonly?: boolean;
   width?: 'half' | 'one-third' | 'two-thirds' | 'full';
   value?: string | number | undefined;
@@ -31,7 +31,7 @@ const TextArea = ({
   id = fieldId, 
   rows = DEFAULT_ROWS, 
   disabled = false, 
-  error, 
+  errors, 
   readonly = false, 
   width = 'two-thirds', 
   value = undefined, 
@@ -42,7 +42,7 @@ const TextArea = ({
   ...attrs 
 }: TextAreaProps) => {
   
-  const classModifiers = [...toArray(_classModifiers), error && 'error'];
+  const classModifiers = [...toArray(_classModifiers), errors && 'error'];
   const classes = classBuilder(classBlock, classModifiers, className)
 
   const cleanedAttrs = cleanHtmlAttributes(attrs, COMPONENT_TYPES.INPUT)

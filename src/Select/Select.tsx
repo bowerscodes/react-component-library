@@ -13,7 +13,7 @@ interface Props {
   fieldId: string;
   id?: string;
   disabled?: boolean;
-  error?: string;
+  errors?: string;
   options: SelectOption[];
   item?: any;
   placeholder?: string;
@@ -34,7 +34,7 @@ export const Select = ({
   fieldId,
   id = fieldId,
   disabled,
-  error,
+  errors,
   options,
   item,
   placeholder,
@@ -49,7 +49,7 @@ export const Select = ({
   ...attrs
 }: Props) => {
 
-  const classModifiers = [...toArray(_classModifiers), error && 'error']
+  const classModifiers = [...toArray(_classModifiers), errors && 'error']
   const classes = classBuilder(classBlock, classModifiers, className)
   const cleanedAttrs = cleanHtmlAttributes(attrs)
   
