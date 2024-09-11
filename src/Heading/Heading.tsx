@@ -16,14 +16,14 @@ type Props = {
 
 export const DEFAULT_CLASS = 'heading';
 
-const hNumSizes = [ 'xl', 'l', 'm', 's', 'xs', 'xxs' ]
+const sizes = [ 'xl', 'l', 'm', 's', 'xs', 'xxs' ]
 
 export const Heading = ({
   id,
   children,
   headingText,
   hNumber = 2,
-  size = hNumber ? hNumSizes[Number(hNumber) - 1] as 'xl' | 'l' | 'm' | 's' | 'xs' | 'xxs' : 'm',
+  size = hNumber ? sizes[Number(hNumber) - 1] as 'xl' | 'l' | 'm' | 's' | 'xs' | 'xxs' : 'm',
   classBlock = DEFAULT_CLASS,
   classModifiers: _classModifiers = [size],
   className = '',

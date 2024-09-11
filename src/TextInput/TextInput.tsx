@@ -15,6 +15,7 @@ type TextInputProps = {
   classBlock?: string;
   classModifiers?: string[] | string;
   className?: string;
+  maxLength?: number;
   attrs?: any;
 };
 
@@ -32,6 +33,7 @@ export const TextInput = ({
   classBlock = DEFAULT_CLASS,
   classModifiers: _classModifiers = [width],
   className,
+  maxLength,
   ...attrs
 }: TextInputProps) => {
   
@@ -50,6 +52,7 @@ export const TextInput = ({
       value={value}
       onChange={onChange}
       className={classes()}
+      maxLength={maxLength}
     />
   );
 

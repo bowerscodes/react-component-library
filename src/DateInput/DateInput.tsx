@@ -79,9 +79,9 @@ export const DateInput = ({
   };
 
   const DATE_PARTS = [
-    { id: 'day', width: '2', label: 'Day' },
-    { id: 'month', width: '2', label: 'Month' },
-    { id: 'year', width: '4', label: 'Year' }
+    { id: 'day', width: '2', label: 'Day', maxLength: 2 },
+    { id: 'month', width: '2', label: 'Month', maxLength: 2 },
+    { id: 'year', width: '4', label: 'Year', maxLength: 4 }
   ];
 
   useEffect(() => {
@@ -115,6 +115,7 @@ export const DateInput = ({
             errors={propsInError && propsInError[part.id as DatePart] ? ['error'] : undefined}
             className={classes('input')}
             classModifiers={`width-${part.width}`}
+            maxLength={part.maxLength}
             {...inputAttrs}
           />
         </Group>
