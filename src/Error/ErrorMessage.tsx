@@ -2,10 +2,10 @@ import React from 'react';
 
 import { classBuilder } from '../utils/Utils';
 import Hidden from '../Hidden'
-import './Error.scss';
+import './ErrorMessage.scss';
 
 
-export type ErrorProps = {
+export type ErrorMessageProps = {
   children: any;
   id?: string;
   classBlock?: string;
@@ -13,16 +13,16 @@ export type ErrorProps = {
   className?: string;
 };
 
-export const DEFAULT_CLASS = 'error';
+export const DEFAULT_CLASS = 'error-message';
 
-export const Error = ({
+export const ErrorMessage = ({
     children,
     id,
     classBlock = DEFAULT_CLASS,
     classModifiers,
     className = '',
     ...attrs
-}: ErrorProps) => {
+}: ErrorMessageProps) => {
 
   const classes = classBuilder(classBlock, classModifiers, className);
 
@@ -34,6 +34,6 @@ export const Error = ({
   )
 };
 
-Error.displayName = 'Error';
+ErrorMessage.displayName = 'ErrorMessage';
 
-export default Error;
+export default ErrorMessage;
