@@ -153,7 +153,7 @@ $button-width-xl: 20rem;
     border: $border-thickness solid $color-error;
 
     &:focus {
-      border-color: $border-color;
+      border-color: $color-error;
     }
   }
 

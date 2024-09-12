@@ -2,7 +2,7 @@ import React from 'react';
 
 import Label from '../Label';
 import Hint from '../Hint';
-import Error from '../Error';
+import Error from '../ErrorMessage';
 import { classBuilder, cleanHtmlAttributes, toArray } from '../utils/Utils';
 import './Group.scss';
 
