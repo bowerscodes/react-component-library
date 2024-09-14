@@ -50,9 +50,6 @@ export const DateInput = ({
   className,
   ...attrs
 }: DateInputProps) => {
-  
-  // console.log('DateInput errors: ', errors);
-  // console.log('propsInError: ', propsInError);
 
   const classModifiers = [toArray(_classModifiers), errors && 'error'];
   const classes = classBuilder(classBlock, classModifiers, className);
