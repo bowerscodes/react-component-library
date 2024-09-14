@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
 import Checkbox, { CheckboxOption } from './Checkbox';
-import { classBuilder, cleanHtmlAttributes } from '../utils/Utils';
+import { classBuilder, toArray, cleanHtmlAttributes } from '../utils/Utils';
 import './Checkboxes.scss';
 
 export const DEFAULT_CLASS = 'checkboxes';
@@ -12,6 +12,7 @@ export type CheckboxesProps = {
   fieldId: string;
   id?: string;
   options: Array<CheckboxOption>;
+  errors?: string[];
   value?: string[];
   onChange?: (event: React.ChangeEvent<CheckboxesEventTarget>) => void;
   classBlock?: string;
@@ -23,14 +24,16 @@ export const Checkboxes = ({
   fieldId,
   id = fieldId,
   options = [],
+  errors,
   value = [],
   onChange = (event: React.ChangeEvent<CheckboxesEventTarget>) => {},
   classBlock = DEFAULT_CLASS,
-  classModifiers = [],
+  classModifiers: _classModifiers = [],
   className = '',
   ...attrs
 }: CheckboxesProps) => {
 
+  const classModifiers = [...toArray(_classModifiers), errors && 'error'];
   const classes = classBuilder(classBlock, classModifiers, className);
 
   const selection = useRef<any>([]);
@@ -80,6 +83,7 @@ export const Checkboxes = ({
             id={optionId}
             name={name}
             option={option}
+            error={errors && true}
             checked={selection.current.includes(option.value)}
             onChange={event => updateSelection(event, option)}
           />

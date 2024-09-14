@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-import { classBuilder } from '../utils/Utils';
+import { classBuilder, toArray } from '../utils/Utils';
 import './Checkboxes.scss';
 import Hint from '../Hint';
 
@@ -17,6 +17,7 @@ export type CheckboxProps = {
   id: string;
   name?: string;
   option: CheckboxOption;
+  error?: boolean;
   checked?: boolean;
   disabled?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -31,15 +32,17 @@ export const Checkbox = ({
   id,
   name = id,
   option,
+  error,
   checked = false,
   disabled = false,
   onChange = () => {},
   classBlock = DEFAULT_CLASS,
-  classModifiers = [],
+  classModifiers: _classModifiers = [],
   className = '',
   ...attrs
 }: CheckboxProps) => {
 
+  const classModifiers = [...toArray(_classModifiers), error && 'error'];
   const classes = classBuilder(classBlock, classModifiers, className);
   const inputRef = useRef<HTMLInputElement | null>(null);
 

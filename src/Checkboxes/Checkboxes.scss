@@ -53,6 +53,10 @@
   -ms-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
   border: 2px solid $theme-dark;
+
+  &--error {
+    border: $border-thickness solid $color-error;
+  }
 }
 
 .checkbox__item input:checked ~ .checkbox {
@@ -63,6 +67,10 @@
   transform: rotate(0deg) scale(1);
   opacity:1;
   border: 2px solid $theme-dark;
+  
+  &--error {
+    border: $border-thickness solid $color-error;
+  }
 }
 
 
