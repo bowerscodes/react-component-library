@@ -2,7 +2,7 @@ import React, { useEffect, useState } from'react';
 
 import Group from '../Group';
 import TextInput from '../TextInput';
-import { classBuilder, cleanHtmlAttributes } from '../utils/Utils';
+import { classBuilder, cleanHtmlAttributes, toArray } from '../utils/Utils';
 import './DateInput.scss';
 
 
@@ -28,7 +28,7 @@ export type DateInputProps = {
   fieldId: string;
   id?: string;
   errors?: string[];
-  propsInError?: { year: boolean; month: boolean; day: boolean; };
+  propsInError?: { [subKey: string]: boolean | string };
   value?: string | undefined;
   onChange?: Function;
   classBlock?: string;
@@ -46,18 +46,23 @@ export const DateInput = ({
   value,
   onChange,
   classBlock = DEFAULT_CLASS,
-  classModifiers,
+  classModifiers: _classModifiers,
   className,
   ...attrs
 }: DateInputProps) => {
+  
+  // console.log('DateInput errors: ', errors);
+  // console.log('propsInError: ', propsInError);
 
+  const classModifiers = [toArray(_classModifiers), errors && 'error'];
   const classes = classBuilder(classBlock, classModifiers, className);
+  
   const [ date, setDate ] = useState({ day: '', month: '', year: '' });
   const [ dateChanged, setDateChanged ] = useState(false);
 
   useEffect(() => {
     setDate(prev => {
-      const existingDate=toStringFromDate(prev);
+      const existingDate = toStringFromDate(prev);
       if (existingDate !== (value || '')) {
         setDateChanged(true);
         const newDate = toDateFromString(value);
